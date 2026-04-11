@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 interface Props {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }
 
 export async function generateStaticParams() {
@@ -19,21 +19,22 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const cat = params.category;
+  const { category: cat } = await params;
   return {
     title: cat.charAt(0).toUpperCase() + cat.slice(1),
     description: site.description,
   };
 }
 
-export default function CategoryPage({ params }: Props) {
-  const articles = getArticlesByCategory(params.category);
+export default async function CategoryPage({ params }: Props) {
+  const { category } = await params;
+  const articles = getArticlesByCategory(category);
 
-  if (articles.length === 0 && !getAllCategories().map((c) => c.toLowerCase()).includes(params.category)) {
+  if (articles.length === 0 && !getAllCategories().map((c) => c.toLowerCase()).includes(category)) {
     notFound();
   }
 
-  const categoryLabel = params.category.charAt(0).toUpperCase() + params.category.slice(1);
+  const categoryLabel = category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

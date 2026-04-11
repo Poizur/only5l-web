@@ -13,7 +13,7 @@ import ComparisonTable from "@/components/article/ComparisonTable";
 import FAQ from "@/components/article/FAQ";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const article = getArticleBySlug(params.slug);
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
   if (!article) return {};
   const { frontmatter: fm } = article;
   return {
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: fm.updatedAt,
       images: fm.coverImage ? [{ url: fm.coverImage }] : [],
     },
-    alternates: { canonical: `${site.url}/${params.slug}` },
+    alternates: { canonical: `${site.url}/${slug}` },
   };
 }
 
@@ -63,8 +64,9 @@ function ArticleJsonLd({ article }: { article: ReturnType<typeof getArticleBySlu
   );
 }
 
-export default function ArticlePage({ params }: Props) {
-  const article = getArticleBySlug(params.slug);
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
   if (!article) notFound();
 
   const { frontmatter: fm, content, readingTimeText } = article;

@@ -10,12 +10,11 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  // Only generate EN category slugs (reviews, comparisons, guides)
-  return getAllCategories()
-    .map((c) => ({ category: c.toLowerCase() }))
-    .filter(({ category }) =>
-      ["reviews", "comparisons", "guides"].includes(category)
-    );
+  // Generate all known EN category slugs (even if empty — shows "no articles yet")
+  const fromContent = getAllCategories().map((c) => ({ category: c.toLowerCase() }));
+  const staticEn = ["reviews", "comparisons", "guides"].map((c) => ({ category: c }));
+  const all = [...fromContent, ...staticEn];
+  return all.filter((v, i, arr) => arr.findIndex((x) => x.category === v.category) === i);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

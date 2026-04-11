@@ -5,6 +5,7 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { cs, enUS } from "date-fns/locale";
 import { MDXRemote } from "next-mdx-remote/rsc";
+// next-mdx-remote v6+ — /rsc import is unchanged, API is compatible
 import { getArticleBySlug, getAllSlugs } from "@/lib/articles";
 import { mdxComponents } from "@/lib/mdx";
 import { site, ui } from "@/lib/site";

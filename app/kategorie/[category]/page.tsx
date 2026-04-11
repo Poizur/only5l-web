@@ -10,12 +10,12 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  // Only generate CZ category slugs (recenze, srovnani, navody)
-  return getAllCategories()
-    .map((c) => ({ category: c.toLowerCase() }))
-    .filter(({ category }) =>
-      ["recenze", "srovnani", "navody"].includes(category)
-    );
+  // Generate all known CZ category slugs (even if empty — shows "no articles yet")
+  const fromContent = getAllCategories().map((c) => ({ category: c.toLowerCase() }));
+  const staticCz = ["recenze", "srovnani", "navody"].map((c) => ({ category: c }));
+  const all = [...fromContent, ...staticCz];
+  // deduplicate
+  return all.filter((v, i, arr) => arr.findIndex((x) => x.category === v.category) === i);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

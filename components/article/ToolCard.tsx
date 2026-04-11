@@ -1,5 +1,3 @@
-"use client";
-
 import { ui } from "@/lib/site";
 
 interface ToolCardProps {

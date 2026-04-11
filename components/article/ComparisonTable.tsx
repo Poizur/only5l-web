@@ -2,7 +2,7 @@ import { ui } from "@/lib/site";
 
 interface Tool {
   name: string;
-  rating: number;
+  rating?: number;
   price: string;
   bestFor: string;
   affiliateUrl: string;
@@ -13,7 +13,7 @@ interface ComparisonTableProps {
 }
 
 export default function ComparisonTable({ tools }: ComparisonTableProps) {
-  const sorted = [...tools].sort((a, b) => b.rating - a.rating);
+  const sorted = [...tools].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
 
   return (
     <div className="my-8 rounded-2xl border border-surface-200 overflow-hidden">
@@ -31,10 +31,11 @@ export default function ComparisonTable({ tools }: ComparisonTableProps) {
           </thead>
           <tbody>
             {sorted.map((tool, i) => {
+              const r = typeof tool.rating === "number" ? tool.rating : 0;
               const scoreColor =
-                tool.rating >= 8
+                r >= 8
                   ? "bg-emerald-100 text-emerald-700"
-                  : tool.rating >= 6
+                  : r >= 6
                   ? "bg-brand-100 text-brand-700"
                   : "bg-amber-100 text-amber-700";
               return (
@@ -42,7 +43,7 @@ export default function ComparisonTable({ tools }: ComparisonTableProps) {
                   <td className="px-5 py-4 text-surface-400 font-medium">{i + 1}</td>
                   <td className="px-5 py-4 font-semibold text-surface-900">{tool.name}</td>
                   <td className="px-5 py-4">
-                    <span className={`chip font-bold ${scoreColor}`}>★ {tool.rating.toFixed(1)}</span>
+                    <span className={`chip font-bold ${scoreColor}`}>★ {r.toFixed(1)}</span>
                   </td>
                   <td className="px-5 py-4 text-surface-700">{tool.price}</td>
                   <td className="px-5 py-4 text-surface-600">{tool.bestFor}</td>

@@ -111,7 +111,7 @@ export default async function ArticlePage({ params }: Props) {
         <header className="mb-10">
           <div className="flex items-center gap-2 mb-4">
             <span className="chip bg-brand-100 text-brand-700 capitalize">{fm.category}</span>
-            {fm.rating !== undefined && (
+            {typeof fm.rating === "number" && (
               <span className="chip bg-amber-50 text-amber-700 font-bold">★ {fm.rating.toFixed(1)}</span>
             )}
           </div>
@@ -153,9 +153,9 @@ export default async function ArticlePage({ params }: Props) {
         )}
 
         {/* Quick-info bar for tool reviews */}
-        {(fm.rating !== undefined || fm.price || fm.affiliateUrl) && (
+        {(typeof fm.rating === "number" || fm.price || fm.affiliateUrl) && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 p-5 rounded-2xl bg-brand-50 border border-brand-100">
-            {fm.rating !== undefined && (
+            {typeof fm.rating === "number" && (
               <Stat label={ui.rating} value={`★ ${fm.rating.toFixed(1)} / 10`} />
             )}
             {fm.price && <Stat label={ui.price} value={fm.price} />}

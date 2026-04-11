@@ -3,7 +3,7 @@ import { ui } from "@/lib/site";
 interface ToolCardProps {
   name: string;
   tagline: string;
-  rating: number;        // 0-10
+  rating?: number;       // 0-10, optional to survive undefined MDX props
   price: string;
   bestFor: string;
   pros: string[];
@@ -14,15 +14,16 @@ interface ToolCardProps {
 }
 
 function RatingBar({ value }: { value: number }) {
-  const pct = (value / 10) * 100;
+  const safeValue = typeof value === "number" ? value : 0;
+  const pct = (safeValue / 10) * 100;
   const color =
-    value >= 8 ? "bg-emerald-500" : value >= 6 ? "bg-brand-500" : "bg-amber-500";
+    safeValue >= 8 ? "bg-emerald-500" : safeValue >= 6 ? "bg-brand-500" : "bg-amber-500";
   return (
     <div className="flex items-center gap-2">
       <div className="flex-1 h-2 bg-surface-200 rounded-full overflow-hidden">
         <div className={`h-full rounded-full transition-all ${color}`} style={{ width: `${pct}%` }} />
       </div>
-      <span className="text-sm font-bold text-surface-700 w-8 text-right">{value.toFixed(1)}</span>
+      <span className="text-sm font-bold text-surface-700 w-8 text-right">{safeValue.toFixed(1)}</span>
     </div>
   );
 }
@@ -39,10 +40,11 @@ export default function ToolCard({
   affiliateLabel,
   logoUrl,
 }: ToolCardProps) {
+  const safeRating = typeof rating === "number" ? rating : 0;
   const scoreColor =
-    rating >= 8
+    safeRating >= 8
       ? "bg-emerald-500 text-white"
-      : rating >= 6
+      : safeRating >= 6
       ? "bg-brand-600 text-white"
       : "bg-amber-500 text-white";
 
@@ -59,7 +61,7 @@ export default function ToolCard({
           <p className="text-surface-500 text-sm mt-0.5 leading-snug">{tagline}</p>
         </div>
         <div className={`score-badge text-lg font-extrabold shrink-0 ${scoreColor}`}>
-          {rating.toFixed(1)}
+          {safeRating.toFixed(1)}
         </div>
       </div>
 
@@ -104,7 +106,7 @@ export default function ToolCard({
       {/* Rating bar */}
       <div className="px-5 py-4 border-b border-surface-100">
         <p className="text-xs text-surface-400 font-medium uppercase tracking-wide mb-2">{ui.rating}</p>
-        <RatingBar value={rating} />
+        <RatingBar value={safeRating} />
       </div>
 
       {/* CTA */}

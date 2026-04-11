@@ -82,7 +82,7 @@ export default function ToolCard({
         <div className="p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600 mb-2">{ui.pros}</p>
           <ul className="space-y-1.5">
-            {pros.map((p) => (
+            {(Array.isArray(pros) ? pros : []).map((p) => (
               <li key={p} className="flex gap-2 text-sm text-surface-700">
                 <span className="text-emerald-500 mt-0.5 shrink-0">✓</span>
                 {p}
@@ -93,7 +93,7 @@ export default function ToolCard({
         <div className="p-5">
           <p className="text-xs font-semibold uppercase tracking-wide text-red-500 mb-2">{ui.cons}</p>
           <ul className="space-y-1.5">
-            {cons.map((c) => (
+            {(Array.isArray(cons) ? cons : []).map((c) => (
               <li key={c} className="flex gap-2 text-sm text-surface-700">
                 <span className="text-red-400 mt-0.5 shrink-0">✕</span>
                 {c}

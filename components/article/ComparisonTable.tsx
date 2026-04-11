@@ -13,7 +13,7 @@ interface ComparisonTableProps {
 }
 
 export default function ComparisonTable({ tools }: ComparisonTableProps) {
-  const sorted = [...tools].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+  const sorted = [...(Array.isArray(tools) ? tools : [])].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
 
   return (
     <div className="my-8 rounded-2xl border border-surface-200 overflow-hidden">

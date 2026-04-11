@@ -13,7 +13,7 @@ interface FAQProps {
 }
 
 export default function FAQ({ items }: FAQProps) {
-  if (!items?.length) return null;
+  if (!Array.isArray(items) || items.length === 0) return null;
 
   return (
     <div className="my-10">

@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+
+  /* Site tokens — overridden per locale */
+  --color-primary: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-accent: #f59e0b;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection color */
+::selection {
+  background: #bfdbfe;
+  color: #1e3a8a;
+}
+
+/* Focus ring — Apple-style */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@layer base {
+  body {
+    @apply bg-surface-50 text-surface-900 font-sans;
+  }
+}
+
+@layer components {
+  /* Chip / badge */
+  .chip {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  /* Article card hover */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent;
+  }
+
+  /* CTA button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 text-white font-semibold
+           rounded-xl hover:bg-brand-700 active:scale-95 transition-all duration-150
+           focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-surface-100 text-surface-800 font-semibold
+           rounded-xl hover:bg-surface-200 active:scale-95 transition-all duration-150 border border-surface-200;
+  }
+
+  /* Affiliate link CTA */
+  .affiliate-btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-accent text-white font-semibold text-sm
+           rounded-lg hover:brightness-110 active:scale-95 transition-all duration-150;
+  }
+
+  /* Score badge */
+  .score-badge {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold;
+  }
+
+  /* Article body — wraps MDX output */
+  .prose-article {
+    @apply text-surface-800 leading-relaxed max-w-none;
+  }
+}

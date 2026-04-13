@@ -74,13 +74,20 @@ export default async function ArticlePage({ params }: Props) {
   const locale = site.locale === "cs" ? cs : enUS;
   const dateStr = format(new Date(fm.publishedAt), "d. MMMM yyyy", { locale });
 
-  // Pass interactive components into MDX
+  // Suppress the ToolCard JSX component inside the MDX body.
+  // Complex props (numbers, arrays) do not survive the next-mdx-remote RSC
+  // serialization boundary — the full ToolCard is rendered from frontmatter below.
   const components = {
     ...mdxComponents,
-    ToolCard,
+    ToolCard: () => null,
     ComparisonTable,
     FAQ,
   };
+
+  // Determine whether a hero ToolCard should be rendered from frontmatter data.
+  // Requires at minimum: pros OR cons (signals this is a review article).
+  const hasToolCard =
+    (fm.pros && fm.pros.length > 0) || (fm.cons && fm.cons.length > 0);
 
   return (
     <>
@@ -152,27 +159,45 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         )}
 
-        {/* Quick-info bar for tool reviews */}
-        {(typeof fm.rating === "number" || fm.price || fm.affiliateUrl) && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 p-5 rounded-2xl bg-brand-50 border border-brand-100">
-            {typeof fm.rating === "number" && (
-              <Stat label={ui.rating} value={`★ ${fm.rating.toFixed(1)} / 10`} />
-            )}
-            {fm.price && <Stat label={ui.price} value={fm.price} />}
-            {fm.bestFor && <Stat label={ui.bestFor} value={fm.bestFor} />}
-            {fm.affiliateUrl && (
-              <div className="col-span-2 sm:col-span-1 flex items-end">
-                <a
-                  href={fm.affiliateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  className="affiliate-btn w-full justify-center"
-                >
-                  {ui.tryFree}
-                </a>
-              </div>
-            )}
+        {/* Hero ToolCard — rendered from frontmatter (bypasses RSC prop serialization) */}
+        {hasToolCard ? (
+          <div className="mb-10">
+            <ToolCard
+              name={fm.toolName ?? fm.title}
+              tagline={fm.tagline ?? fm.description}
+              rating={fm.rating}
+              price={fm.price ?? ""}
+              bestFor={fm.bestFor ?? ""}
+              pros={fm.pros ?? []}
+              cons={fm.cons ?? []}
+              affiliateUrl={fm.affiliateUrl ?? ""}
+              affiliateLabel={fm.affiliateLabel}
+              logoUrl={fm.logoUrl}
+            />
           </div>
+        ) : (
+          /* Legacy quick-info bar for articles without pros/cons in frontmatter */
+          (typeof fm.rating === "number" || fm.price || fm.affiliateUrl) && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 p-5 rounded-2xl bg-brand-50 border border-brand-100">
+              {typeof fm.rating === "number" && (
+                <Stat label={ui.rating} value={`★ ${fm.rating.toFixed(1)} / 10`} />
+              )}
+              {fm.price && <Stat label={ui.price} value={fm.price} />}
+              {fm.bestFor && <Stat label={ui.bestFor} value={fm.bestFor} />}
+              {fm.affiliateUrl && (
+                <div className="col-span-2 sm:col-span-1 flex items-end">
+                  <a
+                    href={fm.affiliateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="affiliate-btn w-full justify-center"
+                  >
+                    {ui.tryFree}
+                  </a>
+                </div>
+              )}
+            </div>
+          )
         )}
 
         {/* MDX content */}

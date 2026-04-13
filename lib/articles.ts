@@ -138,3 +138,4 @@ export function getAllCategories(): string[] {
   const cats = new Set(getAllArticles().map((a) => a.frontmatter.category));
   return Array.from(cats);
 }
+// Build trigger

@@ -19,10 +19,22 @@ export interface ArticleFrontmatter {
   rating?: number;
   /** Affiliate CTA URL */
   affiliateUrl?: string;
+  /** Affiliate button label override */
+  affiliateLabel?: string;
   /** Tool price string, e.g. "Zdarma / $20/měsíc" */
   price?: string;
   /** Short "best for" string */
   bestFor?: string;
+  /** Tool name for the hero ToolCard (e.g. "Jasper AI") */
+  toolName?: string;
+  /** Tool tagline for the hero ToolCard */
+  tagline?: string;
+  /** Pros list — used by the ToolCard component */
+  pros?: string[];
+  /** Cons list — used by the ToolCard component */
+  cons?: string[];
+  /** Optional tool logo URL */
+  logoUrl?: string;
   featured?: boolean;
   draft?: boolean;
 }

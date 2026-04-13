@@ -5,7 +5,6 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { cs, enUS } from "date-fns/locale";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import remarkGfm from "remark-gfm";
 // next-mdx-remote v6+ — /rsc import is unchanged, API is compatible
 import { getArticleBySlug, getAllSlugs } from "@/lib/articles";
 import { mdxComponents } from "@/lib/mdx";
@@ -207,7 +206,7 @@ export default async function ArticlePage({ params }: Props) {
 
         {/* MDX content */}
         <div className="prose-article">
-          <MDXRemote source={content} components={components} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+          <MDXRemote source={content} components={components} />
         </div>
 
         {/* Affiliate disclaimer */}

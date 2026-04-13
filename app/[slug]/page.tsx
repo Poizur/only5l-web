@@ -74,14 +74,18 @@ export default async function ArticlePage({ params }: Props) {
   const locale = site.locale === "cs" ? cs : enUS;
   const dateStr = format(new Date(fm.publishedAt), "d. MMMM yyyy", { locale });
 
-  // Suppress the ToolCard JSX component inside the MDX body.
-  // Complex props (numbers, arrays) do not survive the next-mdx-remote RSC
-  // serialization boundary — the full ToolCard is rendered from frontmatter below.
+  // Suppress JSX components that receive complex props (arrays, numbers, objects).
+  // next-mdx-remote v6 RSC mode silently drops non-string props across the RSC
+  // serialization boundary → arrays arrive as undefined → empty renders.
+  //
+  // ToolCard  → rendered from YAML frontmatter in this file (see below)
+  // ComparisonTable → replaced with markdown tables in new articles; suppress old broken ones
+  // FAQ       → replaced with markdown H3/p blocks in new articles; suppress old broken ones
   const components = {
     ...mdxComponents,
     ToolCard: () => null,
-    ComparisonTable,
-    FAQ,
+    ComparisonTable: () => null,
+    FAQ: () => null,
   };
 
   // Determine whether a hero ToolCard should be rendered from frontmatter data.

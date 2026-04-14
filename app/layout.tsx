@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { site } from "@/lib/site";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
+import SurveyExitPopup from "@/components/ui/SurveyExitPopup";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
+        <SurveyExitPopup />
       </body>
     </html>
   );

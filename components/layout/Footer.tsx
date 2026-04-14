@@ -61,7 +61,29 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-surface-200 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+        {/* Survey CTA */}
+        <div className="mt-10 rounded-xl bg-brand-50 border border-brand-100 px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <p className="text-sm font-semibold text-surface-800">
+              {site.locale === "cs" ? "📊 Jak používáš AI? Řekni nám to." : "📊 How do you use AI? Tell us."}
+            </p>
+            <p className="text-xs text-surface-500 mt-0.5">
+              {site.locale === "cs"
+                ? "Tvoje odpovědi pomáhají nám psát lepší recenze."
+                : "Your answers help us write better reviews."}
+            </p>
+          </div>
+          <a
+            href="https://form.typeform.com/to/Dq4YtnKi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+          >
+            {site.locale === "cs" ? "Zúčastni se průzkumu" : "Take the survey"} →
+          </a>
+        </div>
+
+        <div className="border-t border-surface-200 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-xs text-surface-400">
             © {year} {site.name}. {site.locale === "cs" ? "Všechna práva vyhrazena." : "All rights reserved."}
           </p>

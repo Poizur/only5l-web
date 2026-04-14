@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Hero from "@/components/ui/Hero";
 import ArticleCard from "@/components/article/ArticleCard";
-import { getAllArticles, getFeaturedArticles } from "@/lib/articles";
-import { site, nav, ui } from "@/lib/site";
+import { getAllArticles, getFeaturedArticles, getArticlesByCategory } from "@/lib/articles";
+import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,9 +10,35 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
+const CATEGORIES = [
+  {
+    slug: "recenze",
+    label: "Recenze",
+    icon: "⭐",
+    description: "Poctivé recenze AI nástrojů — co funguje, co ne, kolik to stojí",
+    href: "/kategorie/recenze",
+  },
+  {
+    slug: "srovnani",
+    label: "Srovnání",
+    icon: "⚖️",
+    description: "Porovnáváme nástroje mezi sebou, abys nemusel/a rozhodovat naslepo",
+    href: "/kategorie/srovnani",
+  },
+  {
+    slug: "navody",
+    label: "Návody & Začátečníci",
+    icon: "🎓",
+    description: "Jak začít s AI od nuly — krok za krokem, bez technického žargonu",
+    href: "/kategorie/navody",
+  },
+];
+
 export default function HomePage() {
   const featured = getFeaturedArticles(1);
-  const recent = getAllArticles().slice(0, 9);
+  const recent = getAllArticles().slice(0, 6);
+  const guides = getArticlesByCategory("navody").slice(0, 3);
+  const comparisons = getArticlesByCategory("srovnani").slice(0, 3);
 
   return (
     <>
@@ -20,66 +46,104 @@ export default function HomePage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
 
+        {/* Rozcestník */}
+        <section>
+          <SectionHeader
+            label="Kde začít?"
+            title="Vyber si co tě zajímá"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {CATEGORIES.map((cat) => {
+              const count = getArticlesByCategory(cat.slug).length;
+              return (
+                <Link
+                  key={cat.slug}
+                  href={cat.href}
+                  className="group bg-surface-0 rounded-2xl border border-surface-200 p-6 hover:border-brand-300 hover:shadow-md transition-all"
+                >
+                  <div className="text-3xl mb-3">{cat.icon}</div>
+                  <h3 className="font-bold text-surface-900 text-lg group-hover:text-brand-600 transition-colors mb-1">
+                    {cat.label}
+                  </h3>
+                  <p className="text-surface-500 text-sm leading-relaxed mb-4">{cat.description}</p>
+                  <span className="text-xs font-semibold text-brand-500">
+                    {count} {count === 1 ? "článek" : count < 5 ? "články" : "článků"} →
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
         {/* Featured article */}
         {featured.length > 0 && (
           <section>
             <SectionHeader
-              label={site.locale === "cs" ? "Doporučujeme" : "Featured"}
-              title={site.locale === "cs" ? "Nejlepší recenze tohoto týdne" : "Top pick this week"}
+              label="Doporučujeme"
+              title="Nejčtenější tento týden"
             />
             <ArticleCard article={featured[0]} featured />
           </section>
         )}
 
-        {/* Category quick-links */}
-        <section>
-          <SectionHeader
-            label={site.locale === "cs" ? "Kategorie" : "Categories"}
-            title={site.locale === "cs" ? "Co tě zajímá?" : "What are you looking for?"}
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {nav.links.slice(0, 3).map((link) => (
+        {/* Beginners / Guides */}
+        {guides.length > 0 && (
+          <section>
+            <SectionHeader
+              label="Začínám s AI"
+              title="Průvodce pro začátečníky"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {guides.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+            <div className="mt-6 text-center">
               <Link
-                key={link.href}
-                href={link.href}
-                className="group card-hover bg-surface-0 rounded-2xl border border-surface-200 p-6 flex items-center justify-between"
+                href="/kategorie/navody"
+                className="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700 transition-colors"
               >
-                <span className="font-semibold text-surface-900 group-hover:text-brand-600 transition-colors">
-                  {link.label}
-                </span>
-                <span className="text-brand-400 group-hover:translate-x-1 transition-transform">→</span>
+                Zobrazit všechny návody →
               </Link>
-            ))}
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
+
+        {/* Comparisons */}
+        {comparisons.length > 0 && (
+          <section>
+            <SectionHeader
+              label="Srovnání"
+              title="Nevíš co vybrat? Porovnali jsme to za tebe"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {comparisons.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+            <div className="mt-6 text-center">
+              <Link
+                href="/kategorie/srovnani"
+                className="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700 transition-colors"
+              >
+                Zobrazit všechna srovnání →
+              </Link>
+            </div>
+          </section>
+        )}
 
         {/* Recent articles */}
         {recent.length > 0 && (
           <section>
             <SectionHeader
-              label={site.locale === "cs" ? "Nejnovější" : "Latest"}
-              title={site.locale === "cs" ? "Čerstvé recenze a návody" : "Fresh reviews & guides"}
+              label="Nejnovější"
+              title="Čerstvé recenze a návody"
             />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {recent.map((article) => (
                 <ArticleCard key={article.slug} article={article} />
               ))}
             </div>
-          </section>
-        )}
-
-        {/* Empty state */}
-        {recent.length === 0 && (
-          <section className="text-center py-20">
-            <p className="text-6xl mb-4">🚀</p>
-            <h2 className="text-2xl font-bold text-surface-900 mb-2">
-              {site.locale === "cs" ? "Obsah se připravuje" : "Content coming soon"}
-            </h2>
-            <p className="text-surface-500">
-              {site.locale === "cs"
-                ? "První recenze vyjdou v nejbližší době."
-                : "First reviews are coming very soon."}
-            </p>
           </section>
         )}
 

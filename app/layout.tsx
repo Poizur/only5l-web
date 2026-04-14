@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: site.description,
   openGraph: {
     type: "website",
-    locale: site.locale === "cs" ? "cs_CZ" : "en_US",
+    locale: "cs_CZ",
     url: site.url,
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={site.locale} className={inter.variable}>
+    <html lang="cs" className={inter.variable}>
       <body className="min-h-screen flex flex-col">
         <Navigation />
         <main className="flex-1">{children}</main>

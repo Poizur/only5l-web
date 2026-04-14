@@ -1,0 +1,189 @@
+---
+title: "AI pro programátory: Copilot, Cursor a další nástroje 2026"
+description: "Hluboké srovnání GitHub Copilot, Cursor, Codeium a ChatGPT pro vývojáře. Konkrétní prompty pro code review, generování testů, debugging a dokumentaci. Kdy AI nepoužívat."
+publishedAt: "2026-04-14"
+category: profese
+tags: [programovani, ai-nastroje, github-copilot, cursor, vyvoj]
+coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop&q=80"
+featured: false
+---
+
+AI asistenti pro programování prošli za poslední dva roky transformací. Z nástrojů, které dokázaly doplnit jednoduchý kód, se staly plnohodnotní spolupracovníci schopní refaktorovat celé moduly, psát testy, navrhovat architekturu a vysvětlovat chyby v kontextu celého projektu. Pro vývojáře v Česku je rok 2026 rokem, kdy ignorovat AI coding nástroje znamená ztratit konkurenční výhodu.
+
+Tenhle průvodce nepíšeme pro úplné začátečníky. Předpokládáme, že kódujete, že znáte Git, a že máte alespoň základní zkušenost s jedním nebo více jazyky. Místo toho se zaměříme na konkrétní srovnání nástrojů a praktické prompty, které okamžitě zlepší váš workflow.
+
+## GitHub Copilot vs. Cursor vs. Codeium: klíčové rozdíly
+
+Tři nejpoužívanější AI coding nástroje v roce 2026 mají zásadně odlišný přístup — a správný výběr závisí na vašem workflow.
+
+**GitHub Copilot (590 Kč/měsíc pro individuály)**
+
+Nejrozšířenější volba. Copilot funguje jako plugin do VS Code, JetBrains IDE, Neovim a dalších editorů. Jeho hlavní síla je inline sugestí — kód navrhuje přímo v editoru, jak píšete. Copilot Chat umožňuje klást otázky v přirozeném jazyce přímo v IDE.
+
+Silné stránky: integrace s GitHubem (rozumí vašim PR a issues), spolehlivé dokončování kódu, Copilot Workspace pro složitější multi-file úpravy. Slabší stránka: dražší než alternativy, refactoring přes více souborů je méně přirozený než v Cursoru.
+
+**Cursor (600 Kč/měsíc)**
+
+Cursor je vlastní fork VS Code s AI integrovanou do jádra editoru, nikoli jako plugin. Zásadní výhoda: Composer mode umožňuje popsat změnu v přirozeném jazyce a Cursor ji provede napříč více soubory najednou. Pro refaktoring a větší architekturální změny je to game changer.
+
+Klíčový feature: @codebase reference — Cursor indexuje váš celý projekt a při generování kódu rozumí kontextu celé codebase, nejen aktuálního souboru. Pro velké projekty to výrazně zvyšuje relevanci návrhů.
+
+**Codeium (zdarma)**
+
+Codeium je překvapivě silný bezplatný konkurent. Podporuje přes 70 programovacích jazyků, funguje v VS Code, JetBrains a dalších. Pro vývojáře, kteří chtějí vyzkoušet AI coding bez investice, je to jasná volba. Omezení: chybí pokročilé chat funkce a codebase-aware sugestí je méně přesné než u placených alternativ.
+
+**Kdy který zvolit:**
+- Copilot: pokud intenzivně pracujete s GitHubem a potřebujete spolehlivý plugin do stávajícího IDE
+- Cursor: pokud pracujete na větších projektech a refaktoring přes více souborů je každodenní reality
+- Codeium: pokud testujete AI coding nebo máte omezený rozpočet
+
+## Prompty pro code review: bezpečnost a kvalita
+
+AI code review je jedna z nejhodnotnějších aplikací pro seniornější vývojáře. Místo čekání na kolegu nebo trávení hodin nad Checkstyle reporty dostanete okamžitou zpětnou vazbu.
+
+**Security review prompt (Python):**
+
+```
+You are a senior Python security engineer. Review this code for:
+1. SQL injection vulnerabilities
+2. Insecure deserialization
+3. Hardcoded credentials or secrets
+4. Insufficient input validation
+5. Insecure use of cryptographic functions
+
+For each issue: describe the vulnerability, rate severity (Critical/High/Medium/Low),
+and provide a corrected code snippet.
+
+Code to review:
+[vložte kód]
+```
+
+**Obecný code quality review:**
+
+```
+You are a senior software engineer specializing in Python/JavaScript [vyberte jazyk].
+Review this code for:
+- Code smells and anti-patterns
+- Performance issues
+- Error handling gaps
+- Readability and maintainability
+- Adherence to SOLID principles where applicable
+
+Provide specific line-by-line feedback with suggested improvements.
+```
+
+Důležité: AI code review je silný, ale nezachytí všechny bezpečnostní problémy. Pro production kód u bezpečnostně kritických systémů kombinujte AI review s dedikovanými nástroji (Snyk, SonarQube) a manuálním review od zkušeného kolegy.
+
+## Generování testů a dokumentace
+
+Psaní testů je úkol, který vývojáři odkládají — a AI dokáže dramaticky snížit tuto bariéru.
+
+**Prompt pro generování unit testů (Python/pytest):**
+
+```python
+# Existující funkce:
+def calculate_discount(price: float, discount_percent: float, 
+                        customer_tier: str) -> float:
+    """
+    Calculate final price after discount.
+    customer_tier: 'standard', 'premium', 'vip'
+    VIP gets extra 5% on top of discount.
+    """
+    if not 0 <= discount_percent <= 100:
+        raise ValueError("Discount must be between 0 and 100")
+    
+    base_discount = price * (discount_percent / 100)
+    if customer_tier == 'vip':
+        extra_discount = price * 0.05
+        return price - base_discount - extra_discount
+    return price - base_discount
+```
+
+Prompt: *"Napiš kompletní pytest test suite pro tuto funkci. Zahrň: happy path testy pro všechny customer tiers, edge cases (0%, 100% discount, záporná cena), test pro ValueError, a parametrizované testy pro různé kombinace vstupů."*
+
+**Prompt pro dokumentaci z kódu:**
+
+```
+Generate comprehensive docstrings for all functions in this module.
+Use Google style docstrings. Include:
+- Summary sentence
+- Args with types and descriptions
+- Returns with type and description
+- Raises for all exceptions
+- Example usage for complex functions
+
+[vložte kód modulu]
+```
+
+Pro README generování: *"Z tohoto kódu a jeho funkcí vygeneruj README.md sekce: Installation, Quick Start, API Reference s příklady, a Contributing guidelines."*
+
+## Debugging s AI: vysvětlení chyb v kontextu
+
+Debugging je oblast, kde AI asistenti dosahují fascinujících výsledků — zejména pro méně zkušené vývojáře nebo práci v neznámém jazyce.
+
+**Prompt pro TypeError debugging:**
+
+```
+I'm getting this error in Python:
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+Stack trace:
+[vložte stack trace]
+
+Relevant code:
+[vložte relevantní kód]
+
+Explain:
+1. Why is this error occurring?
+2. Where exactly in the code is the problem?
+3. What are 2-3 possible fixes with their trade-offs?
+4. How could I have prevented this with better type hints or validation?
+```
+
+**Prompt pro regex builder:**
+
+> *"Potřebuji regex pattern v Pythonu pro: validaci českého PSČ (5 číslic, může mít mezeru uprostřed jako '110 00'). Napiš pattern, vysvětli každou část a ukažž příklady shod a ne-shod."*
+
+**Prompt pro refactoring legacy kódu:**
+
+> *"Tento kód funguje, ale je nečitelný a těžko testovatelný. Refaktoruj ho podle principů clean code: extrahuj funkce, pojmenuj proměnné popisně, eliminuj duplikaci, přidej typové anotace. Zachovej identické chování. Ukaž původní a refaktorovaný kód vedle sebe."*
+
+## Kdy AI pro kód nepoužívat
+
+AI coding nástroje mají reálné limity a slepá důvěra v jejich výstupy může způsobit vážné problémy. Existují situace, kde AI generovaný kód nasadit v productionu bez hlubokého review je nezodpovědné.
+
+**Bezpečnostně kritický kód:** Autentizace, autorizace, kryptografické operace, zpracování plateb. AI modely mohou generovat kód, který vypadá funkčně, ale obsahuje subtilní bezpečnostní chyby. Vždy nechte security-critical kód zrevidovat bezpečnostním expertem.
+
+**Neznámý jazyk nebo framework:** Pokud sami nerozumíte kódu, který AI generuje, nemůžete posoudit jeho správnost. AI může s jistotou generovat kód v zastaralé verzi frameworku nebo používat deprecated API. Vždy rozumějte kódu, který přijímáte.
+
+**Komplikovaná concurrency a paralelismus:** Race conditions, deadlocky a problémy s thread safety jsou subtilní a těžko detekovatelné. AI code review v této oblasti selhává častěji než jinde.
+
+**Regulovaná prostředí:** GDPR compliance, HIPAA, finanční regulace — kód v regulovaných oblastech vyžaduje lidský dohled a právní ověření, které AI nemůže poskytnout.
+
+<ComparisonTable tools={[
+  { name: "GitHub Copilot", price: "590 Kč/měs", best: "GitHub integrace a inline sugestí", rating: 4.6, affiliateUrl: "https://github.com/features/copilot" },
+  { name: "Cursor", price: "600 Kč/měs", best: "Multi-file refaktoring", rating: 4.7, affiliateUrl: "https://cursor.sh" },
+  { name: "Codeium", price: "zdarma", best: "Bezplatná alternativa", rating: 4.1, affiliateUrl: "https://codeium.com" },
+  { name: "ChatGPT Plus", price: "~500 Kč/měs", best: "Debugging a code review", rating: 4.4, affiliateUrl: "https://chat.openai.com" }
+]} />
+
+<FAQ items={[
+  { q: "Je Cursor opravdu lepší než Copilot?", a: "Záleží na use case. Cursor vyhrává v práci s větší codebase a multi-file změnách díky codebase indexování a Composer módu. Copilot je lepší integrovaný do GitHub workflow a pro vývojáře, kteří nechtějí měnit editor. Mnozí vývojáři používají oba — Cursor jako primární IDE, Copilot v situacích, kde pracují v jiném prostředí." },
+  { q: "Může AI generovat chybný kód?", a: "Ano, a relativně často — zejména pro neobvyklé API, novější knihovny nebo složitou logiku. AI se s jistotou vyjadřuje i ke kódu, který je špatně. Proto je kritické vždy rozumět kódu, který přijímáte, a testovat ho. AI generovaný kód bez testů a review je technický dluh čekající na výbuch." },
+  { q: "Jak Copilot nebo Cursor zpracovávají moje firemní kódy?", a: "GitHub Copilot Business garantuje, že váš kód není používán pro trénování modelu. Cursor má podobné záruky ve svém Business plánu. Přečtěte si podmínky použití váš verze nástroje — bezplatné a osobní verze mívají méně příznivé podmínky pro soukromý kód." },
+  { q: "Stojí Copilot za cenu ve srovnání s Codeium?", a: "Pro profesionální vývojáře ano. Rozdíl v kvalitě sugestí, zejména v kontextu větší codebase, je znatelný. Codeium je výborný startovní bod a pro menší projekty nebo méně intenzivní použití plně postačí. Pro každodenní profesionální práci se investice do Copilota nebo Cursoru vrátí v ušetřeném čase." },
+  { q: "Jak nejlépe psát prompty pro generování kódu?", a: "Buďte konkrétní v jazyce, frameworku a verzi. Uveďte kontext (co tento kód dělá, kde se volá). Specifikujte požadavky na error handling a edge cases. Čím přesnější prompt, tím relevantnější výstup. Vague prompty jako 'napiš funkci pro zpracování dat' dávají vague výsledky." },
+  { q: "Může AI pomoct s architekturou aplikace?", a: "Ano, jako sparring partner. Popište svůj problém a AI navrhne architekturální vzory, upozorní na potenciální problémy a vysvětlí trade-offs. Není vhodné přijímat architekturální návrhy bez kritického zhodnocení — AI nezná váš specifický context, škálování a team constraints. Ale jako první návrh a checklist je velmi užitečný." }
+]} />
+
+## Jak funguje v Česku
+
+Čeští vývojáři patří k nejaktivnějším uživatelům AI coding nástrojů v regionu. GitHub Copilot je dostupný bez omezení, stejně jako Cursor a Codeium. Ceny jsou v USD/EUR, takže při platbě v korunách počítejte s kurtem — přibližně 590-650 Kč měsíčně pro Copilot a podobně pro Cursor.
+
+Pro česky-jazykové projekty nebo dokumentaci: všechny zmíněné nástroje zvládají generovat dokumentaci a komentáře v češtině, pokud zadáte prompt česky. Kód samotný zůstane v angličtině (což je standard), ale komentáře a README v češtině jsou snadno generovatelné.
+
+Studentské programy: GitHub Student Developer Pack zahrnuje Copilot zdarma pro studenty s ověřenou školní e-mailovou adresou. Registrace přes education.github.com — česky mluvící studenti to mohou použít bez omezení.
+
+---
+
+*Aktualizováno: duben 2026. Ceny jsou orientační a podléhají změnám.*

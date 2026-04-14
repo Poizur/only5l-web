@@ -9,12 +9,14 @@ interface Props {
   params: Promise<{ category: string }>;
 }
 
-const STATIC_CATEGORIES = ["recenze", "srovnani", "navody"];
+const STATIC_CATEGORIES = ["recenze", "srovnani", "navody", "zacatky", "profese"];
 
 const CATEGORY_META: Record<string, { label: string; description: string; icon: string }> = {
-  recenze: { label: "Recenze", description: "Poctivé recenze AI nástrojů — co funguje, co ne a kolik to stojí.", icon: "⭐" },
-  srovnani: { label: "Srovnání", description: "Porovnáváme nástroje mezi sebou, aby ses nemusel/a rozhodovat naslepo.", icon: "⚖️" },
-  navody: { label: "Návody", description: "Jak začít s AI od nuly — krok za krokem, bez technického žargonu.", icon: "🎓" },
+  recenze:  { label: "Recenze",      description: "Poctivé recenze AI nástrojů — co funguje, co ne a kolik to stojí.",             icon: "⭐" },
+  srovnani: { label: "Srovnání",     description: "Porovnáváme nástroje mezi sebou, aby ses nemusel/a rozhodovat naslepo.",         icon: "⚖️" },
+  navody:   { label: "Návody",       description: "Jak začít s AI od nuly — krok za krokem, bez technického žargonu.",              icon: "🎓" },
+  zacatky:  { label: "Začínám s AI", description: "Úplné základy AI pro začátečníky — co to je, jak to funguje a kde začít.",      icon: "🚀" },
+  profese:  { label: "AI pro profese", description: "Konkrétní AI nástroje a postupy podle vašeho oboru — marketing, účetnictví, programování a další.", icon: "💼" },
 };
 
 export async function generateStaticParams() {

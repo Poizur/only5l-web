@@ -15,10 +15,12 @@ export const site = {
 
 export const nav = {
   links: [
-    { label: "Recenze",  href: "/kategorie/recenze" },
-    { label: "Srovnání", href: "/kategorie/srovnani" },
-    { label: "Návody",   href: "/kategorie/navody" },
-    { label: "O nás",    href: "/o-nas" },
+    { label: "Recenze",      href: "/kategorie/recenze" },
+    { label: "Srovnání",     href: "/kategorie/srovnani" },
+    { label: "Návody",       href: "/kategorie/navody" },
+    { label: "Začínám s AI", href: "/kategorie/zacatky" },
+    { label: "Slovník",      href: "/slovnik" },
+    { label: "O nás",        href: "/o-nas" },
   ],
 } as const;
 

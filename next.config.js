@@ -2,14 +2,12 @@
 const nextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "**" },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
-  // Each deployment is one locale — set via NEXT_PUBLIC_SITE env var
   env: {
-    SITE: process.env.NEXT_PUBLIC_SITE || "cz", // "cz" or "com"
+    SITE: process.env.NEXT_PUBLIC_SITE === "com" ? "com" : "cz",
   },
+  generateBuildId: async () => "build-202604140506",
 };
 
 module.exports = nextConfig;

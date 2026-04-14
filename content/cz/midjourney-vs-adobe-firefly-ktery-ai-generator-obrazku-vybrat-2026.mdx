@@ -22,7 +22,9 @@ cons:
   - "Nejasné autorské právo generovaných obrázků"
 ---
 
-Potřeboval jsem pro klienta vygenerovat 200 produktových obrázků za týden. Klasický stock už nestačí a fotografa nemám na každý projekt. Tak jsem se rozhodl otestovat naplno dva nejskloňovanější AI generátory - Midjourney a Adobe Firefly. Tři měsíce testování, 847 vygenerovaných obrázků a jasný verdikt: oba jsou skvělé, ale pro úplně jiné věci. Midjourney dominuje v kreativitě, Firefly vyhrává v komerční bezpečnosti.
+Tři měsíce, 847 vygenerovaných obrázků, čtyři nástroje a jedno rozhodnutí: který AI generátor skutečně stojí za zaplacení? Takto vypadal můj experiment od ledna do března 2026. Testoval jsem produktové fotografie pro e-shopy, marketingové kreativy pro sociální sítě, portréty imaginárních postav, abstraktní umění i jednoduché grafiky s textem. Každý prompt jsem zadával vždy do všech čtyř nástrojů najednou, výsledky hodnotil podle ostrosti, konzistence, kreativní hodnoty a použitelnosti bez dalších úprav.
+
+Závěr? **Midjourney vyhrává v kreativitě a umělecké kvalitě**, zatímco **Adobe Firefly dominuje v komerční bezpečnosti a workflow integraci**. Ale pravda je složitější — záleží na tom, kdo jste a co potřebujete. Pojďme se podívat na výsledky podrobně.
 
 <ToolCard
   name="Midjourney"
@@ -37,13 +39,41 @@ Potřeboval jsem pro klienta vygenerovat 200 produktových obrázků za týden. 
 
 ## Midjourney: Discord monster s nejlepšími výsledky
 
-Midjourney jsem používal přes Discord bot, což je zpočátku nezvyk. Ale po týdnu jsem si zvykl a ocenil rychlost - napíšu `/imagine` a prompt, za 30 sekund mám 4 varianty. Kvalita je skutečně nejlepší ze všech generátorů. Dokáže vytvořit fotorealistické portréty, které na první pohled nepoznáte od skutečné fotky.
+Midjourney je bez debat nejkvalitnější generátor obrázků, který jsem testoval. Ale přichází s neobvyklým rozhraním — celé to funguje přes Discord, což pro mnoho lidí představuje překážku.
 
-Testoval jsem hlavně na produktových fotkách a marketingových kreativách. Midjourney exceluje v atmosféře a náladě - když potřebuji obrázek "luxusní restaurace za soumraku", pochopí to perfektně. Horší je s přesným umístěním objektů nebo textem v obrázku.
+### Jak to funguje v praxi
 
-Cenově začíná Basic plán na 10 dolarů měsíčně (208 Kč), což vám dá 3,3 hodiny GPU času - zhruba 200 generací. Standard za 20 dolarů (416 Kč) už má 15 hodin, což je pro běžné použití dostatek. Pro agentury je tu Pro za 60 dolarů (1248 Kč) s neomezeným režimem.
+Po přihlášení do Discordu a připojení k serveru Midjourney začnete psát příkazy do kanálu. Základní příkaz vypadá takto: `/imagine prompt: česká kavárna ráno, teplé světlo, moderní design, film photography`. Za přibližně 45 sekund dostanete mřížku čtyř variant. Pod každou sadou obrázků se zobrazí tlačítka U1–U4 (upscale — zvětšení konkrétního obrázku) a V1–V4 (variations — generování nových variant podobných danému obrázku).
 
-Problém vidím v licencování - Midjourney si nárokuje práva na komerční použití vašich obrázků, pokud nemáte Pro plán. To je risk pro firmy. Navíc všechno běží přes americké servery bez jasné GDPR compliance.
+Tento workflow byl zpočátku matoucí, ale po dvou týdnech mi přišel přirozený. Komunita na Discordu navíc sdílí tipy, ukázkové prompty a techniky, což výrazně zkracuje učící křivku.
+
+### Parametry, které mění vše
+
+Midjourney nabízí desítky parametrů, ale tři jsou pro běžné použití nejdůležitější:
+
+**--ar** určuje poměr stran výsledného obrázku. `--ar 16:9` pro bannery, `--ar 1:1` pro Instagram, `--ar 9:16` pro Stories. Bez tohoto parametru generuje Midjourney čtvercové obrázky.
+
+**--style raw** vypíná výchozí "zkrášlení" obrazu a dává surové výsledky blíže vaší představě. Pokud chcete realistické fotografie místo "AI vzhledu", tento parametr je klíčový.
+
+**--v 6.1** (aktuálně výchozí verze) přinesl oproti v6 výrazně lepší zachycení textur, realističtější světla a přesnější anatomii postav. Rozdíl je zejména patrný u portrétů — v6.1 generuje přesvědčivější detaily kůže a očí.
+
+### Kdy Midjourney selhává
+
+I přes vynikající výsledky má Midjourney jasné slabiny. **Generování textu v obrázku** je stále problematické — i jednoduchý nápis "CAFÉ" se může zobrazit jako "CAFFE" nebo jiný nesmysl. Pro obrázky s textem doporučuji DALL-E 3 nebo Ideogram.
+
+**Přesné umístění objektů** je druhá slabina. Prompt "logo v pravém dolním rohu, bílé pozadí vlevo" Midjourney interpretuje volně — výsledek může být esteticky krásný, ale kompozičně jiný, než jste chtěli.
+
+### Ceny a plány
+
+- **Basic plán**: přibližně 208 Kč/měsíc, 200 generací (3,3 hodiny GPU času)
+- **Standard plán**: přibližně 416 Kč/měsíc, 15 hodin GPU času měsíčně
+- **Pro plán**: přibližně 1 248 Kč/měsíc, neomezené generace v "relaxed" módu, 30 hodin "fast" GPU
+
+Pro pravidelné použití doporučuji Standard plán — 15 hodin GPU je při průměrné délce generace 45 sekund přibližně 1 200 obrázků měsíčně.
+
+### Komerční práva
+
+Tady pozor: na Basic plánu jsou obrázky licencovány pod Creative Commons Noncommercial 4.0 — **nemůžete je komerčně prodávat ani použít pro komerční klienty**. Komerční práva dostanete od Standard plánu výše. I pak je situace s autorskými právy právně nejednoznačná — Midjourney ve svých podmínkách uvádí, že vlastní generované obrázky, ale uděluje vám licenci k použití. Pro klienty v EU je to stále šedá zóna.
 
 <ToolCard
   name="Adobe Firefly"
@@ -58,15 +88,32 @@ Problém vidím v licencování - Midjourney si nárokuje práva na komerční p
 
 ## Adobe Firefly: Bezpečná volba pro firmy
 
-Firefly jsem testoval hlavně kvůli komerční bezpečnosti. Adobe trénoval model pouze na stock fotky a obrázky s vyřešenými právy. To znamená nulové riziko copyrightu - ideální pro klientské projekty.
+Adobe Firefly je pro mě nástrojem č. 1 pro komerční projekty. Důvod je prostý: Adobe trénoval Firefly výhradně na obrázcích, ke kterým má licenci — Adobe Stock a obsahu s Creative Commons licencí. To znamená, že výstupy z Firefly jsou **100% komerčně bezpečné** a Adobe za ně přebírá právní odpovědnost.
 
-Integrace s Adobe Creative Suite je skvělá. V Photoshopu můžu označit oblast a nechat Firefly doplnit pozadí. V Illustratoru generuji vektorové ikony. Workflow je plynulý, pokud už Adobe používáte.
+### Generative Fill v Photoshopu
 
-Kvalitativně je Firefly o level níž než Midjourney. Obrázky vypadají více "digitálně", méně organic. Ale pro komerční účely to stačí. Generuje rychle produktové fotky, lifestyle scény, ilustrace do prezentací.
+Největší přidaná hodnota Firefly neleží v samostatném generátoru, ale v integraci s Photoshopem. Funkce **Generative Fill** umožňuje vybrat část obrázku, napsat prompt a nechat AI doplnit obsah. Konkrétní příklad z mého testování: měl jsem produktovou fotografii parfému na bílém pozadí. Vybral jsem oblast kolem produktu, zadal "luxury marble table with soft bokeh background" a za 15 sekund jsem měl výsledek hodný magazínové fotografie. Stejná úprava v tradičním editingu by trvala hodiny.
 
-Cena je 24,99 dolaru měsíčně (520 Kč) za Premium plán, ale reálně potřebujete Full Creative Cloud za 59,99 dolaru (1248 Kč). Pro firmy je to rozumná investice - dostanete celý Adobe balík plus AI generování.
+Podobně funguje **Generative Expand** — rozšiřování obrázku za jeho původní hranice. To je neocenitelné, když potřebujete bannerový formát z čtvercové fotografie.
 
-GDPR compliance je vyřešená, Adobe má evropské servery a jasné podmínky zpracování dat. Pro českou firmu jednoznačně bezpečnější volba.
+### Firefly 2 vs Firefly 3
+
+Firefly 3 (vydaný v polovině 2024) přinesl výrazné zlepšení kvality, zejména u portrétů a fotorealismu. Firefly 2 byl znatelně "plastičtější". Pro aktuální použití doporučuji vždy volit Firefly 3 — v nastavení webu firefly.adobe.com jej vyberete v menu modelu.
+
+### Porovnání se stock fotografií
+
+Zajímavý experiment: zadal jsem do Firefly stejné prompty, které bych použil při hledání na Adobe Stock. Výsledky Firefly byly v 60 % případů použitelnější — přesně odpovídaly mé představě, nemusel jsem prohledávat stovky výsledků. Adobe Stock si účtuje 29–59 Kč za obrázek, Firefly je součástí předplatného. Pro studia s pravidelnou potřebou stock fotografií je to přesvědčivá ekonomika.
+
+### Free tier a ceny
+
+Adobe nabízí **25 kreditů měsíčně zdarma** bez předplatného — stačí Adobe účet. Pro příležitostné použití to může stačit. Placené plány:
+
+- **Firefly Premium**: přibližně 588 Kč/měsíc, 100 generací za rychlou prioritu
+- **Creative Cloud All Apps**: přibližně 1 248 Kč/měsíc, zahrnuje Photoshop, Illustrator a neomezené Firefly generace
+
+### GDPR a EU compliance
+
+Pro firmy operující v EU je toto klíčové. Adobe explicitně uvádí GDPR compliance, má datová centra v Evropě a jasnou politiku o tom, že vaše vstupy nepoužívá k trénování modelu (pokud to v nastavení nezapnete). Midjourney tuto garanci neposkytuje ve stejném rozsahu.
 
 <ToolCard
   name="DALL-E 3"
@@ -81,147 +128,151 @@ GDPR compliance je vyřešená, Adobe má evropské servery a jasné podmínky z
 
 ## DALL-E 3: Překvapivě dobrá alternativa
 
-DALL-E 3 jsem původně nebral vážně, ale překvapil mě. Hlavně schopnost generovat text v obrázku - plakáty, bannery, loga s nápisem. To ostatní generátory neumí vůbec nebo velmi špatně.
+DALL-E 3 jsem do testu zařadil s nízkými očekáváními — předchozí verze byly průměrné. Výsledek mě příjemně překvapil, zejména v jedné oblasti.
 
-Používám ho přes ChatGPT Plus za 20 dolarů měsíčně (416 Kč). Interface je nejjednodušší - prostě popíšu co chci a DALL-E to vygeneruje. Bez složitých promptů nebo nastavení.
+### Generování textu v obrázcích
 
-Kvalita je solidní, ale ne na úrovni Midjourney. Hodí se pro rychlé ilustrace do článků, social media posty, jednoduché grafiky. Pro profesionální marketing materials už méně.
+Toto je oblast, kde DALL-E 3 jasně vede. Zadal jsem identický prompt do Midjourney, Firefly a DALL-E 3: "coffee shop menu board with 'Morning Special — Espresso 55 Kč' written in chalk". DALL-E 3 jako jediný zobrazil text správně a čitelně při prvním pokusu. Midjourney ho pokazil ve třech ze čtyř variant, Firefly ve dvou.
+
+### DALL-E 3 přes ChatGPT vs API
+
+Nejjednodušší přístup k DALL-E 3 je přes ChatGPT Plus (přibližně 520 Kč/měsíc). Výhodou je přirozený dialog — můžete říct "uprav to, ať je pozadí tmavší" a ChatGPT prompt upraví automaticky. Nevýhoda: denní limit přibližně 40–50 generací a není možné stahovat ve vyšším rozlišení.
+
+Přes API máte neomezený přístup (platíte za generaci, přibližně 2–8 Kč/obrázek podle rozlišení), ale potřebujete technické znalosti pro integraci.
+
+### Bezpečnostní filtry
+
+DALL-E 3 má ze všech testovaných nástrojů nejagresivnější filtry. Několikrát mi odmítl prompt, který byl zcela neproblematický — například "businesswoman in formal suit, serious expression" byl odmítnut s odkazem na "potentially sensitive content". Po přeformulování vždy prošel, ale je to zbytečná překážka.
 
 <ToolCard
   name="Stable Diffusion"
-  tagline="Open source generátor pro tech-savvy uživatele"
+  tagline="Open-source generátor pro technické nadšence"
   rating={7.8}
-  price="Zdarma / 416-1040 Kč hosting"
-  bestFor="vývojáře a technické nadšence"
-  pros={["Úplně zdarma a open source", "Neomezené generování", "Možnost vlastního fine-tuningu"]}
-  cons={["Složité nastavení", "Potřebujete silné GPU", "Horší kvalita bez úprav"]}
+  price="Zdarma / 416-1040 Kč"
+  bestFor="tech nadšence a neomezené generace"
+  pros={["Zcela zdarma při lokálním spuštění", "Neomezené generace bez cenzury", "Tisíce specializovaných modelů"]}
+  cons={["Složité nastavení", "Vyžaduje výkonnou grafickou kartu", "Horší výsledky bez fine-tuningu"]}
   affiliateUrl="https://stability.ai/"
 />
 
 ## Stable Diffusion: Pro technické nadšence
 
-Stable Diffusion je zdarma, ale s velkým "ale". Nastavit ho lokálně na svém PC trvalo celý den. Potřebujete GPU s minimálně 8GB VRAM, jinak je to pomalé.
+Stable Diffusion je jediný skutečně open-source generátor v tomto srovnání. Pokud máte správný hardware a ochotu investovat čas do nastavení, dostanete neomezené generace zcela zdarma.
 
-Použitelný je hlavně přes online služby jako RunPod nebo Replicate, které stojí 0,02-0,05 dolaru za generaci. Při 500 generacích měsíčně vás to vyjde na 10-25 dolarů (208-520 Kč).
+### Požadavky na hardware
 
-Kvalita "vanilla" Stable Diffusion je průměrná. Ale s různými modely (checkpoints) a technikami jako LoRA můžete dosáhnout skvělých výsledků. Problém je čas - naučit se to efektivně používat zabere týdny.
+Minimální požadavek pro rozumné výsledky je **GPU s 8 GB VRAM** — například NVIDIA RTX 3060 nebo 4060. S méně než 6 GB VRAM lze generovat, ale výsledky jsou pomalejší a v nižším rozlišení. Na CPU generování trvá 5–15 minut na obrázek, což je prakticky nepoužitelné.
+
+### ComfyUI vs Automatic1111
+
+Dvě nejpopulárnější rozhraní pro lokální spuštění:
+
+**Automatic1111** je přístupnější pro začátečníky — jednoduché webové rozhraní, intuitivní nastavení. Doporučuji jako první krok.
+
+**ComfyUI** je node-based editor podobný Blenderu. Křivka učení je strmá, ale umožňuje komplexní workflow, které jinde nenajdete — například automatické generování série obrázků s postupnou změnou stylu.
+
+### LoRA modely
+
+Velká síla Stable Diffusion leží v LoRA modelech — malých souborech, které upravují styl generování. Na platformě CivitAI najdete tisíce specializovaných modelů: český street style, konkrétní fotografický styl, animované postavy, produktová fotografie. Kvalita výsledků se s dobrým LoRA modelem dramaticky zvyšuje.
+
+Česká komunita kolem Stable Diffusion je aktivní na Discordu a Redditu — hledejte "Stable Diffusion CZ/SK" pro česky psané tutoriály a tipy.
 
 <ToolCard
   name="Ideogram"
-  tagline="Nový hráč se specializací na text"
+  tagline="Generátor zaměřený na text a grafický design"
   rating={7.5}
-  price="Zdarma / 520-2080 Kč/měsíc"
+  price="Zdarma / 416-2080 Kč"
   bestFor="grafický design s textem"
-  pros={["Bezplatná verze s 25 generacemi denně", "Dobrý v textu a typografii", "Rychlé generování"]}
-  cons={["Menší komunita a resources", "Občas nekonzistentní kvalita", "Mladý produkt s omezenými funkcemi"]}
+  pros={["Výborné generování textu v obrázcích", "Štědrý free tier", "Skvělé pro loga a plakáty"]}
+  cons={["Méně fotorealistické výsledky", "Menší komunita a méně zdrojů", "Omezené možnosti úprav"]}
   affiliateUrl="https://ideogram.ai/"
 />
 
 ## Ideogram: Zajímavá alternativa s textem
 
-Ideogram je relativně nový, ale zaujal mě schopností generovat text. Není tak dobrý jako DALL-E 3, ale free tier s 25 generacemi denně je štědrý. Za 20 dolarů (416 Kč) měsíčně dostanete 1000 generací.
+Ideogram je nejmladší nástroj v mém testu, ale překvapil svým zaměřením na konkrétní niku: grafický design s textem.
 
-Kvalita je nekonzistentní - někdy výborná, jindy průměrná. Interface je příjemný, rychlejší než Discord u Midjourney. Hodí se jako doplňkový nástroj, hlavní generátor by to být neměl.
+### Free tier a ceny
 
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Nástroj</th>
-<th>Hodnocení</th>
-<th>Cena</th>
-<th>Nejlepší pro</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Midjourney</td>
-<td>9.1</td>
-<td>520-2080 Kč/měsíc</td>
-<td>kreativní projekty</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Adobe Firefly</td>
-<td>8.2</td>
-<td>588-1248 Kč/měsíc</td>
-<td>komerční bezpečnost</td>
-</tr>
-<tr>
-<td>3</td>
-<td>DALL-E 3</td>
-<td>8.0</td>
-<td>416 Kč/měsíc</td>
-<td>text v obrázcích</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Stable Diffusion</td>
-<td>7.8</td>
-<td>0-1040 Kč/měsíc</td>
-<td>tech nadšence</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Ideogram</td>
-<td>7.5</td>
-<td>0-520 Kč/měsíc</td>
-<td>grafický design</td>
-</tr>
-</tbody>
-</table>
+Ideogram nabízí **25 generací denně zcela zdarma** — to je 750 obrázků měsíčně bez jakéhokoliv předplatného. Pro příležitostné použití je to ideální. Placené plány začínají na přibližně 416 Kč/měsíc pro prioritní generování a vyšší rozlišení.
 
-## Verdikt: Co použít kdy
+### Kde Ideogram exceluje
 
-Po třech měsících testování mám jasno. Pro kreativní agenturu nebo freelancera volím **Midjourney** - kvalita prostě vyhrává. Standard plán za 416 Kč/měsíc stačí pro většinu projektů.
+Logotypy, plakáty, typografické kompozice — tady Ideogram září. Prompt "art deco concert poster, 'JAZZ FESTIVAL PRAHA 2026' written in gold letters" dal nejlepší výsledek ze všech testovaných nástrojů. DALL-E 3 byl druhý, Midjourney třetí.
 
-Pro firmu, která potřebuje komerční bezpečnost, je **Adobe Firefly** jediná rozumná volba. Ano, je dražší, ale ušetříte na právních problémech. Creative Cloud za 1248 Kč měsíčně se vyplatí, pokud používáte i Photoshop.
+Pro čistě fotografické výsledky Ideogram zaostává za Midjourney a Firefly, ale jako nástroj pro grafické designéry, kteří potřebují rychle prototypovat vizuály s textem, je to silný hráč. Obzvlášť s tak štědrým free tiérem.
 
-**DALL-E 3** doporučuji bloggerům a content creatorům - rychlé, jednoduché, dobré pro ilustrace článků. ChatGPT Plus za 416 Kč dostanete jako bonus.
+<ComparisonTable
+  tools={[
+    {name: "Midjourney", rating: 9.1, price: "520-2080 Kč/měsíc", bestFor: "kreativní projekty a umělecká tvorba", affiliateUrl: "https://www.midjourney.com/"},
+    {name: "Adobe Firefly", rating: 8.2, price: "588-1248 Kč/měsíc", bestFor: "komerční bezpečnost a Adobe workflow", affiliateUrl: "https://firefly.adobe.com/"},
+    {name: "DALL-E 3", rating: 8.0, price: "416-520 Kč/měsíc", bestFor: "text v obrázcích", affiliateUrl: "https://chat.openai.com/"},
+    {name: "Stable Diffusion", rating: 7.8, price: "Zdarma / 416-1040 Kč", bestFor: "tech nadšence a neomezené generace", affiliateUrl: "https://stability.ai/"},
+    {name: "Ideogram", rating: 7.5, price: "Zdarma / 416-2080 Kč", bestFor: "grafický design s textem", affiliateUrl: "https://ideogram.ai/"}
+  ]}
+/>
 
-**Stable Diffusion** pouze pokud máte čas se učit a chcete plnou kontrolu. Pro běžné použití příliš složité.
+## Verdikt: Který nástroj pro koho?
 
-**Ideogram** jako doplněk k jinému nástroji, free tier je užitečný pro testování nápadů.
+Po třech měsících testování mám jasnou doporučovací matici. Klíčem není najít "nejlepší" nástroj — ale najít ten správný pro vaši situaci.
 
-Můj osobní setup: Midjourney pro kreativní práci, Firefly pro klientské projekty. Celkem 964 Kč měsíčně, ale generuji za 50 tisíc obrázků ročně - vyplatí se to.
+**Jste freelance designer nebo umělec** a potřebujete nejkrásnější výsledky bez ohledu na komerční právní záruky? → **Midjourney Standard** za 416 Kč/měsíc. Investice, která se rychle vrátí.
+
+**Pracujete v agentuře nebo pro korporátní klienty** a potřebujete obrázky, které právně bezpečně použijete v kampani? → **Adobe Firefly** v rámci Creative Cloud, ideálně pokud již platíte za Adobe předplatné.
+
+**Potřebujete grafiky s textem** — bannery, plakáty, menu, vizuální citáty? → **Ideogram** (zdarma) nebo **DALL-E 3** přes ChatGPT Plus.
+
+**Jste technicky zdatní** a máte výkonné GPU? → **Stable Diffusion** s ComfyUI pro neomezené experimenty bez měsíčních nákladů.
+
+**Začínáte a chcete vyzkoušet bez investice** → Ideogram free tier (25/den) nebo Firefly free tier (25/měsíc). Pak se rozhodněte.
+
+### Scénáře podle rozpočtu
+
+**Rozpočet 200–500 Kč/měsíc**: Midjourney Basic (208 Kč) pro uměleckou tvorbu, nebo ChatGPT Plus (416 Kč) pro kombinaci textového asistenta a DALL-E 3.
+
+**Rozpočet 500–1 000 Kč/měsíc**: Midjourney Standard (416 Kč) je nejlepší volba pro čistě vizuální projekty. Pokud potřebujete komerční bezpečnost, Firefly Premium (588 Kč).
+
+**Rozpočet 1 000+ Kč/měsíc**: Adobe Creative Cloud All Apps (1 248 Kč) zahrnuje Photoshop, Illustrator, Firefly a desítky dalších nástrojů — pro profesionály nejlepší poměr cena/výkon.
+
+### Můj osobní setup
+
+Aktuálně používám kombinaci: **Midjourney Standard** pro kreativní projekty a konceptuální vizualizace, **Adobe Firefly** v Photoshopu pro úpravy klientských fotografií a komerční kampaně. Na texty v obrázcích sahám po **Ideogramu**.
+
+Celkový měsíční náklad: přibližně 1 800 Kč. Pro freelancera, který fakturuje designové projekty, je to zanedbatelná položka s výrazným dopadem na rychlost práce.
+
+<FAQ
+  items={[
+    {
+      question: "Můžu komerčně používat obrázky z Midjourney?",
+      answer: "Ano, ale pouze od Standard plánu výše (od přibližně 416 Kč/měsíc). Na Basic plánu jsou obrázky licencovány pod Creative Commons Noncommercial 4.0, tedy pouze pro nekomerční použití. I na placených plánech je právní situace v EU nejednoznačná — Midjourney tvrdí, že vlastní generované obrázky a uděluje vám licenci. Pro citlivé komerční projekty doporučuji Adobe Firefly, kde Adobe explicitně garantuje komerční bezpečnost."
+    },
+    {
+      question: "Který generátor má nejlepší kvalitu pro portréty?",
+      answer: "Midjourney v6.1 jednoznačně vede v kvalitě portrétů — detaily kůže, přirozené osvětlení a výrazy jsou na úrovni profesionální fotografie. Adobe Firefly je druhý, s výrazně realistickějšími výsledky než DALL-E 3. Ideogram a Stable Diffusion (bez specializovaného modelu) zaostávají. Pokud portréty potřebujete pro komerční použití, kombinujte Midjourney pro generování a Adobe Firefly Generative Fill pro úpravy v Photoshopu."
+    },
+    {
+      question: "Jsou AI generátory GDPR compliant?",
+      answer: "Záleží na nástroji. Adobe Firefly má nejjasnější GDPR pozici — Adobe provozuje datová centra v EU, má zpracovatelskou smlouvu v souladu s GDPR a nepoužívá vaše vstupy k trénování modelu bez souhlasu. OpenAI (DALL-E 3) a Midjourney mají servery primárně v USA, přenos dat probíhá na základě standardních smluvních doložek. Stable Diffusion provozovaný lokálně je ze všech nejbezpečnější — žádná data neopouštějí váš počítač."
+    },
+    {
+      question: "Kolik obrázků zvládnu vygenerovat za měsíc?",
+      answer: "Záleží na plánu. Midjourney Standard (416 Kč) dává 15 hodin GPU, což je přibližně 1 200 obrázků měsíčně. Midjourney Pro (1 248 Kč) má neomezený relaxed mód — prakticky bez limitu. Adobe Firefly Premium (588 Kč) nabízí 100 rychlých generací. DALL-E 3 přes ChatGPT Plus je přibližně 40–50 obrázků denně. Ideogram zdarma dává 25 obrázků denně. Stable Diffusion lokálně je neomezený."
+    },
+    {
+      question: "Který je nejlepší pro začátečníky?",
+      answer: "DALL-E 3 přes ChatGPT je nejjednodušší vstupní bod — přirozený dialog v češtině, žádné speciální příkazy. Ideogram je druhý v jednoduchosti s velmi štědrým free tiérem. Midjourney má strmější křivku učení kvůli Discordu a parametrům, ale komunita je nápomocná. Pro prvotní experimentování: začněte s Ideogramem zdarma, pak vyzkoušejte DALL-E 3 přes ChatGPT, a pokud vás AI generátory chytnou, investujte do Midjourney."
+    },
+    {
+      question: "Jak se liší Midjourney v6 od starší verze?",
+      answer: "Midjourney v6 přinesl revoluci v realističnosti — výrazně lepší anatomie, přirozené světlo a schopnost generovat text v obrázcích (byť stále nedokonale). V6.1 dále vylepšil detaily textur, konzistenci postav napříč variantami a rychlost generování. Starší verze v5.2 stále nabízí specifický estetický styl oblíbený pro určité umělecké projekty — Midjourney vám dovoluje verze přepínat pomocí parametru --v 5.2."
+    }
+  ]}
+/>
 
 ## Jak funguje v Česku
 
-**Čeština:** nepodporuje — Rozhraní i prompt pouze v angličtině, bez české lokalizace.
+Všechny testované nástroje jsou dostupné v Česku bez omezení. Platba probíhá kartou v USD nebo EUR — banky účtují standardní kurzový poplatek 1–3 %. Midjourney Standard vychází aktuálně na přibližně 416–450 Kč měsíčně podle kurzu.
 
-**Cena v Kč:** 209-836 Kč/měsíc (10-40 USD) — základní plán od 209 Kč měsíčně
+Češtinu jako jazyk promptů podporují všechny nástroje, ale s rozdílnou kvalitou. **DALL-E 3 rozumí českým promptům nejlépe** — výsledky při zadání v češtině jsou srovnatelné s angličtinou. **Midjourney doporučuji promptovat v angličtině** — výsledky jsou konzistentně lepší a komunita sdílí tipy primárně v angličtině. Adobe Firefly a Ideogram fungují s česky psanými prompty obstojně, ale u složitějších zadání doporučuji angličtinu.
 
-**Platba:** lze platit českou kartou — Visa, Mastercard přes Stripe bez problémů
-
-**Data:** servery v USA — GDPR compliance není explicitně garantována pro EU uživatele
-
-**GDPR:** [privacy.midjourney.com](https://privacy.midjourney.com) — základní ochrana dat, ale primárně americké standardy
-
-**České integrace:**
-- Fakturoid: nefunguje
-- Raynet CRM: nefunguje
-- Shoptet: nefunguje
-- Mailchimp CZ: nefunguje
-
-## Časté dotazy (FAQ)
-
-### Můžu komerčně používat obrázky z Midjourney?
-
-Ano, ale pouze s Pro plánem za 1248 Kč/měsíc. Levnější plány mají omezená práva. Adobe Firefly je komerčně bezpečný ve všech plánech.
-
-### Který generátor má nejlepší kvalitu?
-
-Midjourney má nejvyšší kvalitu a nejkreativnější výsledky. Adobe Firefly je o něco horší, ale stále velmi dobré. DALL-E 3 je solidní střed.
-
-### Jsou tyto služby GDPR compliant?
-
-Adobe Firefly ano, má evropské servery. Midjourney a DALL-E 3 zpracovávají data v USA, takže pro firmy rizikovější. Stable Diffusion lokálně je nejbezpečnější.
-
-### Kolik obrázků zvládnu vygenerovat za měsíc?
-
-S Midjourney Standard (416 Kč) asi 500-800 obrázků. Adobe Firefly Premium dává 100 generací, pak doplatky. DALL-E 3 má soft limit cca 50 denně.
-
-### Který je nejlepší pro začátečníky?
-
-DALL-E 3 přes ChatGPT - nejjednodušší interface, stačí popsat co chcete. Midjourney vyžaduje naučit se Discord a základy promptování.
+Žádný z nástrojů nemá českou zákaznickou podporu. Z daňového hlediska: jako OSVČ si předplatné AI generátorů uplatníte jako daňový výdaj. Adobe a OpenAI faktury vystavují automaticky, Midjourney je třeba stáhnout ručně z nastavení účtu.

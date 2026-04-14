@@ -1,5 +1,5 @@
 /**
- * Site configuration — switches between only5l.cz (cs) and only5l.com (en)
+ * Site configuration — switches between aikompass.cz (cs) and aikompass.com (en)
  * based on NEXT_PUBLIC_SITE env variable set in Vercel project settings.
  */
 
@@ -10,16 +10,16 @@ export const isEN = SITE === "com";
 
 export const site = {
   locale:      isCZ ? "cs" : "en",
-  domain:      isCZ ? "only5l.cz" : "only5l.com",
-  url:         isCZ ? "https://only5l.cz" : "https://only5l.com",
-  name:        "only5l",
+  domain:      isCZ ? "aikompass.cz" : "aikompass.com",
+  url:         isCZ ? "https://aikompass.cz" : "https://aikompass.com",
+  name:        "AI Kompass",
   tagline:     isCZ
     ? "Jen 5 AI nástrojů které opravdu potřebuješ"
     : "Only 5 AI tools you actually need",
   description: isCZ
     ? "Testujeme AI nástroje za tebe. Poctivé recenze v češtině, ceny v Kč, GDPR info."
     : "Honest AI tool reviews. Real testing, real prices, no fluff.",
-  twitterHandle: "@only5l",
+  twitterHandle: "@aikompass",
   contentDir:  isCZ ? "cz" : "en",
 } as const;
 
@@ -56,4 +56,3 @@ export const ui = {
     ? "Tento článek obsahuje affiliate linky. Při nákupu přes náš odkaz dostaneme provizi — pro vás za stejnou cenu."
     : "This article contains affiliate links. We may earn a commission at no extra cost to you.",
 } as const;
-// Build trigger: 2026-04-14 04:59

@@ -14,9 +14,9 @@ export default function Navigation() {
     <header className="sticky top-0 z-50 bg-surface-0/80 backdrop-blur-md border-b border-surface-200">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-surface-900 hover:text-brand-600 transition-colors">
-          <span className="text-brand-600">only</span>
-          <span className="bg-brand-600 text-white px-1.5 py-0.5 rounded-lg text-sm font-bold leading-none">5l</span>
+        <Link href="/" className="flex items-center gap-1.5 font-bold text-xl text-surface-900 hover:text-brand-600 transition-colors">
+          <span className="text-brand-600">AI</span>
+          <span className="bg-brand-600 text-white px-1.5 py-0.5 rounded-lg text-sm font-bold leading-none tracking-wide">Kompass</span>
         </Link>
 
         {/* Desktop nav */}

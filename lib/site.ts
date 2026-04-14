@@ -56,3 +56,4 @@ export const ui = {
     ? "Tento článek obsahuje affiliate linky. Při nákupu přes náš odkaz dostaneme provizi — pro vás za stejnou cenu."
     : "This article contains affiliate links. We may earn a commission at no extra cost to you.",
 } as const;
+// Build trigger: 2026-04-14 04:59

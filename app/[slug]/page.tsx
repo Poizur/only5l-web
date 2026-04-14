@@ -5,7 +5,6 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { cs, enUS } from "date-fns/locale";
 import { MDXRemote } from "next-mdx-remote/rsc";
-// next-mdx-remote v6+ — /rsc import is unchanged, API is compatible
 import { getArticleBySlug, getAllSlugs } from "@/lib/articles";
 import { mdxComponents } from "@/lib/mdx";
 import { site, ui } from "@/lib/site";
@@ -42,11 +41,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// JSON-LD structured data for SEO
+// JSON-LD structured data for SEO.
+// Always emits Article schema.
+// For reviews/comparisons with toolName + rating: also emits Product schema
+// (enables Google rich snippets with star ratings in search results).
 function ArticleJsonLd({ article }: { article: ReturnType<typeof getArticleBySlug> }) {
   if (!article) return null;
   const { frontmatter: fm, slug } = article;
-  const ld = {
+
+  const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: fm.title,
@@ -58,14 +61,54 @@ function ArticleJsonLd({ article }: { article: ReturnType<typeof getArticleBySlu
     url: `${site.url}/${slug}`,
     image: fm.coverImage,
   };
+
+  // Product schema — shown for reviews and comparisons that have a tool name and numeric rating
+  const isReview =
+    fm.toolName &&
+    typeof fm.rating === "number" &&
+    ["recenze", "reviews", "srovnani", "comparisons"].includes(
+      (fm.category ?? "").toLowerCase()
+    );
+
+  const productLd = isReview
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: fm.toolName,
+        description: fm.description,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: fm.rating,
+          bestRating: "10",
+          worstRating: "1",
+          ratingCount: "1",
+          reviewCount: "1",
+        },
+        ...(fm.affiliateUrl && {
+          offers: {
+            "@type": "Offer",
+            url: fm.affiliateUrl,
+            availability: "https://schema.org/InStock",
+          },
+        }),
+      }
+    : null;
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+      {productLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }}
+        />
+      )}
+    </>
   );
 }
-
 
 // Inject <SurveyInlineCTA /> after the 3rd content paragraph in MDX source.
 function injectSurveyCta(content: string): string {
@@ -73,7 +116,6 @@ function injectSurveyCta(content: string): string {
   let paragraphsFound = 0;
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
-    // Blank line after a non-blank, non-heading, non-fence line = end of paragraph
     if (
       line === "" &&
       i > 0 &&
@@ -103,13 +145,6 @@ export default async function ArticlePage({ params }: Props) {
   const locale = site.locale === "cs" ? cs : enUS;
   const dateStr = format(new Date(fm.publishedAt), "d. MMMM yyyy", { locale });
 
-  // Suppress JSX components that receive complex props (arrays, numbers, objects).
-  // next-mdx-remote v6 RSC mode silently drops non-string props across the RSC
-  // serialization boundary → arrays arrive as undefined → empty renders.
-  //
-  // ToolCard  → rendered from YAML frontmatter in this file (see below)
-  // ComparisonTable → replaced with markdown tables in new articles; suppress old broken ones
-  // FAQ       → replaced with markdown H3/p blocks in new articles; suppress old broken ones
   const components = {
     ...mdxComponents,
     ToolCard: () => null,
@@ -118,15 +153,12 @@ export default async function ArticlePage({ params }: Props) {
     SurveyInlineCTA,
   };
 
-  // Determine whether a hero ToolCard should be rendered from frontmatter data.
-  // Requires at minimum: pros OR cons (signals this is a review article).
   const hasToolCard =
     (fm.pros && fm.pros.length > 0) || (fm.cons && fm.cons.length > 0);
 
   return (
     <>
       <ArticleJsonLd article={article} />
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-surface-400 mb-8">
@@ -156,16 +188,12 @@ export default async function ArticlePage({ params }: Props) {
               <span className="chip bg-amber-50 text-amber-700 font-bold">★ {fm.rating.toFixed(1)}</span>
             )}
           </div>
-
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-surface-900 leading-tight mb-5">
             {fm.title}
           </h1>
-
           <p className="text-lg sm:text-xl text-surface-500 leading-relaxed mb-6">
             {fm.description}
           </p>
-
-          {/* Meta row */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-surface-400 pb-6 border-b border-surface-200">
             <time dateTime={fm.publishedAt}>
               {ui.publishedOn} {dateStr}
@@ -193,7 +221,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
         )}
 
-        {/* Hero ToolCard — rendered from frontmatter (bypasses RSC prop serialization) */}
+        {/* Hero ToolCard or legacy quick-info bar */}
         {hasToolCard ? (
           <div className="mb-10">
             <ToolCard
@@ -210,7 +238,6 @@ export default async function ArticlePage({ params }: Props) {
             />
           </div>
         ) : (
-          /* Legacy quick-info bar for articles without pros/cons in frontmatter */
           (typeof fm.rating === "number" || fm.price || fm.affiliateUrl) && (
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 p-5 rounded-2xl bg-brand-50 border border-brand-100">
               {typeof fm.rating === "number" && (
@@ -234,7 +261,7 @@ export default async function ArticlePage({ params }: Props) {
           )
         )}
 
-        {/* MDX content — SurveyInlineCTA injected after 3rd paragraph */}
+        {/* MDX content */}
         <div className="prose-article">
           <MDXRemote source={injectSurveyCta(content)} components={components} />
         </div>

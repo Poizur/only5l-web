@@ -7,7 +7,6 @@ const nextConfig = {
   env: {
     SITE: process.env.NEXT_PUBLIC_SITE === "com" ? "com" : "cz",
   },
-  generateBuildId: async () => "build-202604140506",
 };
 
 module.exports = nextConfig;

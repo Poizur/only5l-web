@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { AFFILIATE_LINKS } from '@/lib/affiliate-links'
 
 const QUESTIONS = [
   {
@@ -54,27 +55,27 @@ type Result = { tool: string; tagline: string; why: string; url: string; price: 
 
 function getResult(a: Record<string, string>): Result {
   if (a.usecase === 'images')
-    return { tool: 'ChatGPT Plus', tagline: 'Nejlepší pro generování obrázků', why: 'DALL-E 3 integrovaný přímo v ChatGPT je aktuálně nejlepší volba. Zvládne i všechny textové úkoly.', url: 'https://chat.openai.com/', price: '$20/měsíc (~460 Kč)', badge: '🎨 Nejlepší obrázky' }
+    return { tool: 'ChatGPT Plus', tagline: 'Nejlepší pro generování obrázků', why: 'DALL-E 3 integrovaný přímo v ChatGPT je aktuálně nejlepší volba. Zvládne i všechny textové úkoly.', url: AFFILIATE_LINKS.chatgpt, price: '$20/měsíc (~460 Kč)', badge: '🎨 Nejlepší obrázky' }
 
   if (a.usecase === 'research')
-    return { tool: 'Perplexity AI', tagline: 'Výzkum s citacemi zdrojů', why: 'Každá odpověď obsahuje citované zdroje. Ideální pro analýzy, fact-checking a výzkum.', url: 'https://www.perplexity.ai/', price: a.budget === 'free' ? 'Zdarma (5 Pro hledání/den)' : '$20/měsíc (~460 Kč)', badge: '🔍 Nejlepší pro výzkum' }
+    return { tool: 'Perplexity AI', tagline: 'Výzkum s citacemi zdrojů', why: 'Každá odpověď obsahuje citované zdroje. Ideální pro analýzy, fact-checking a výzkum.', url: AFFILIATE_LINKS.perplexity, price: a.budget === 'free' ? 'Zdarma (5 Pro hledání/den)' : '$20/měsíc (~460 Kč)', badge: '🔍 Nejlepší pro výzkum' }
 
   if (a.usecase === 'coding' || a.field === 'coding')
-    return { tool: 'GitHub Copilot', tagline: 'AI asistent přímo ve vašem editoru', why: 'Funguje v VS Code, JetBrains a dalších editorech. Autocomplete, generování funkcí a code review.', url: 'https://github.com/features/copilot', price: '$10/měsíc (~230 Kč)', badge: '💻 Nejlepší pro kód' }
+    return { tool: 'GitHub Copilot', tagline: 'AI asistent přímo ve vašem editoru', why: 'Funguje v VS Code, JetBrains a dalších editorech. Autocomplete, generování funkcí a code review.', url: AFFILIATE_LINKS.github_copilot, price: '$10/měsíc (~230 Kč)', badge: '💻 Nejlepší pro kód' }
 
   if (a.budget === 'free' && a.czech === 'critical')
-    return { tool: 'Claude Free', tagline: 'Nejlepší zdarma varianta pro češtinu', why: 'Claude má ze všech AI nástrojů nejlepší češtinu. Bezplatná verze je štědřejší než ChatGPT Free.', url: 'https://claude.ai/', price: 'Zdarma', badge: '🇨🇿 Nejlepší čeština zdarma' }
+    return { tool: 'Claude Free', tagline: 'Nejlepší zdarma varianta pro češtinu', why: 'Claude má ze všech AI nástrojů nejlepší češtinu. Bezplatná verze je štědřejší než ChatGPT Free.', url: AFFILIATE_LINKS.claude, price: 'Zdarma', badge: '🇨🇿 Nejlepší čeština zdarma' }
 
   if (a.budget === 'free')
-    return { tool: 'ChatGPT Free', tagline: 'Nejrozšířenější AI chatbot zdarma', why: 'Dobrý startovní bod. Omezený přístup k GPT-4o, ale pro základní použití stačí.', url: 'https://chat.openai.com/', price: 'Zdarma', badge: '🆓 Zdarma' }
+    return { tool: 'ChatGPT Free', tagline: 'Nejrozšířenější AI chatbot zdarma', why: 'Dobrý startovní bod. Omezený přístup k GPT-4o, ale pro základní použití stačí.', url: AFFILIATE_LINKS.chatgpt, price: 'Zdarma', badge: '🆓 Zdarma' }
 
   if ((a.usecase === 'writing' || a.field === 'content') && a.czech === 'critical')
-    return { tool: 'Claude Pro', tagline: 'Nejlepší AI pro psaní v češtině', why: 'Claude má prokazatelně nejlepší češtinu. Pro copywriting v češtině je jednoznačně #1.', url: 'https://claude.ai/', price: '$20/měsíc (~460 Kč)', badge: '🇨🇿 Nejlepší čeština' }
+    return { tool: 'Claude Pro', tagline: 'Nejlepší AI pro psaní v češtině', why: 'Claude má prokazatelně nejlepší češtinu. Pro copywriting v češtině je jednoznačně #1.', url: AFFILIATE_LINKS.claude, price: '$20/měsíc (~460 Kč)', badge: '🇨🇿 Nejlepší čeština' }
 
   if (a.team === 'company')
-    return { tool: 'ChatGPT Teams', tagline: 'ChatGPT pro celý tým', why: 'Správa uživatelů, sdílené GPTs a garantované nepoužití vašich dat pro trénink modelu.', url: 'https://chat.openai.com/', price: '$30/uživatel/měsíc', badge: '🏢 Pro firmy' }
+    return { tool: 'ChatGPT Teams', tagline: 'ChatGPT pro celý tým', why: 'Správa uživatelů, sdílené GPTs a garantované nepoužití vašich dat pro trénink modelu.', url: AFFILIATE_LINKS.chatgpt, price: '$30/uživatel/měsíc', badge: '🏢 Pro firmy' }
 
-  return { tool: 'ChatGPT Plus', tagline: 'Nejlepší volba pro většinu uživatelů', why: 'GPT-4o bez limitu, DALL-E 3, analýza dat, kód i webové vyhledávání. Nejuniverzálnější AI nástroj.', url: 'https://chat.openai.com/', price: '$20/měsíc (~460 Kč)', badge: '⭐ Doporučujeme' }
+  return { tool: 'ChatGPT Plus', tagline: 'Nejlepší volba pro většinu uživatelů', why: 'GPT-4o bez limitu, DALL-E 3, analýza dat, kód i webové vyhledávání. Nejuniverzálnější AI nástroj.', url: AFFILIATE_LINKS.chatgpt, price: '$20/měsíc (~460 Kč)', badge: '⭐ Doporučujeme' }
 }
 
 export default function ToolQuiz() {

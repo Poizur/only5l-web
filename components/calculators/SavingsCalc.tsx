@@ -1,17 +1,18 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { AFFILIATE_LINKS } from '@/lib/affiliate-links'
 
 const FIELDS = [
-  { id: 'marketing',    label: 'Marketing & Social media',      rate: 0.40, tool: 'Jasper',          toolUrl: 'https://www.jasper.ai/',                    toolNote: 'Nejlepší pro marketingový obsah a kampaně' },
-  { id: 'programming', label: 'Programování & Vývoj',           rate: 0.35, tool: 'GitHub Copilot',  toolUrl: 'https://github.com/features/copilot',      toolNote: 'AI asistent přímo ve vašem editoru' },
-  { id: 'copywriting', label: 'Copywriting & Tvorba obsahu',    rate: 0.50, tool: 'Claude Pro',      toolUrl: 'https://claude.ai/',                        toolNote: 'Nejlepší pro dlouhé texty v češtině' },
-  { id: 'hr',          label: 'HR & Nábor',                     rate: 0.30, tool: 'ChatGPT Plus',    toolUrl: 'https://chat.openai.com/',                  toolNote: 'Drafty inzerátů, hodnocení CV, onboarding' },
-  { id: 'finance',     label: 'Finance & Účetnictví',           rate: 0.25, tool: 'ChatGPT Plus',    toolUrl: 'https://chat.openai.com/',                  toolNote: 'Analýza dat, reporty a sumarizace' },
-  { id: 'cs',          label: 'Zákaznický servis',               rate: 0.45, tool: 'ChatGPT Plus',    toolUrl: 'https://chat.openai.com/',                  toolNote: 'Rychlé odpovědi a drafty e-mailů' },
-  { id: 'admin',       label: 'Administrativa & Office',        rate: 0.35, tool: 'Copilot Pro',     toolUrl: 'https://copilot.microsoft.com/',            toolNote: 'Integrovaný do Microsoft 365' },
-  { id: 'education',   label: 'Vzdělávání & Výuka',             rate: 0.30, tool: 'Claude Pro',      toolUrl: 'https://claude.ai/',                        toolNote: 'Příprava materiálů a vysvětlování pojmů' },
-  { id: 'other',       label: 'Ostatní',                        rate: 0.25, tool: 'ChatGPT Plus',    toolUrl: 'https://chat.openai.com/',                  toolNote: 'Versatilní asistent pro každodenní práci' },
+  { id: 'marketing',    label: 'Marketing & Social media',      rate: 0.40, tool: 'Jasper',          toolUrl: AFFILIATE_LINKS.jasper,         toolNote: 'Nejlepší pro marketingový obsah a kampaně' },
+  { id: 'programming', label: 'Programování & Vývoj',           rate: 0.35, tool: 'GitHub Copilot',  toolUrl: AFFILIATE_LINKS.github_copilot, toolNote: 'AI asistent přímo ve vašem editoru' },
+  { id: 'copywriting', label: 'Copywriting & Tvorba obsahu',    rate: 0.50, tool: 'Claude Pro',      toolUrl: AFFILIATE_LINKS.claude,         toolNote: 'Nejlepší pro dlouhé texty v češtině' },
+  { id: 'hr',          label: 'HR & Nábor',                     rate: 0.30, tool: 'ChatGPT Plus',    toolUrl: AFFILIATE_LINKS.chatgpt,        toolNote: 'Drafty inzerátů, hodnocení CV, onboarding' },
+  { id: 'finance',     label: 'Finance & Účetnictví',           rate: 0.25, tool: 'ChatGPT Plus',    toolUrl: AFFILIATE_LINKS.chatgpt,        toolNote: 'Analýza dat, reporty a sumarizace' },
+  { id: 'cs',          label: 'Zákaznický servis',               rate: 0.45, tool: 'ChatGPT Plus',    toolUrl: AFFILIATE_LINKS.chatgpt,        toolNote: 'Rychlé odpovědi a drafty e-mailů' },
+  { id: 'admin',       label: 'Administrativa & Office',        rate: 0.35, tool: 'Copilot Pro',     toolUrl: AFFILIATE_LINKS.copilot,        toolNote: 'Integrovaný do Microsoft 365' },
+  { id: 'education',   label: 'Vzdělávání & Výuka',             rate: 0.30, tool: 'Claude Pro',      toolUrl: AFFILIATE_LINKS.claude,         toolNote: 'Příprava materiálů a vysvětlování pojmů' },
+  { id: 'other',       label: 'Ostatní',                        rate: 0.25, tool: 'ChatGPT Plus',    toolUrl: AFFILIATE_LINKS.chatgpt,        toolNote: 'Versatilní asistent pro každodenní práci' },
 ]
 
 const HOURLY_RATE = 350

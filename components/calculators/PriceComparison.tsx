@@ -1,22 +1,23 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { AFFILIATE_LINKS } from '@/lib/affiliate-links'
 
 type Plan = { tool: string; plan: string; priceUsd: number; features: string[]; url: string; badge?: string }
 
 const PLANS: Plan[] = [
-  { tool: 'ChatGPT', plan: 'Free',     priceUsd: 0,    features: ['GPT-4o mini', 'Omezené GPT-4o', 'Generování obrázků'],    url: 'https://chat.openai.com/' },
-  { tool: 'ChatGPT', plan: 'Plus',     priceUsd: 20,   features: ['GPT-4o bez limitu', 'DALL-E 3', 'Analýza dat a kód'],      url: 'https://chat.openai.com/', badge: 'Nejoblíbenější' },
-  { tool: 'ChatGPT', plan: 'Pro',      priceUsd: 200,  features: ['o1 Pro bez limitu', 'Prioritní přístup', 'Pokročilý hlas'], url: 'https://chat.openai.com/' },
-  { tool: 'Claude',  plan: 'Free',     priceUsd: 0,    features: ['Claude 3.5 Sonnet', 'Omezené zprávy', 'Projekty'],          url: 'https://claude.ai/' },
-  { tool: 'Claude',  plan: 'Pro',      priceUsd: 20,   features: ['Sonnet bez limitu', 'Prioritní přístup', 'Delší kontext'],  url: 'https://claude.ai/', badge: 'Nejlepší čeština' },
-  { tool: 'Claude',  plan: 'Max',      priceUsd: 100,  features: ['5× více zpráv', 'Claude 3 Opus', 'Rozšířené projekty'],    url: 'https://claude.ai/' },
-  { tool: 'Gemini',  plan: 'Free',     priceUsd: 0,    features: ['Gemini 1.5 Flash', 'Google integrace', 'Obrázky'],         url: 'https://gemini.google.com/' },
-  { tool: 'Gemini',  plan: 'Advanced', priceUsd: 21.99,features: ['Gemini 1.5 Pro', 'Google One 2TB', 'Deep Research'],       url: 'https://gemini.google.com/' },
-  { tool: 'Perplexity', plan: 'Free',  priceUsd: 0,    features: ['5 Pro hledání/den', 'Citace zdrojů', 'Rychlé odpovědi'],  url: 'https://www.perplexity.ai/' },
-  { tool: 'Perplexity', plan: 'Pro',   priceUsd: 20,   features: ['Neomezené hledání', 'GPT-4 & Claude', 'Soubory & obrázky'], url: 'https://www.perplexity.ai/', badge: 'Nejlepší výzkum' },
-  { tool: 'Copilot', plan: 'Free',     priceUsd: 0,    features: ['GPT-4o základní', 'Bing integrace', 'Obrázky'],            url: 'https://copilot.microsoft.com/' },
-  { tool: 'Copilot', plan: 'Pro',      priceUsd: 22,   features: ['Prioritní přístup', 'M365 integrace', 'Designer kredity'], url: 'https://copilot.microsoft.com/' },
+  { tool: 'ChatGPT', plan: 'Free',     priceUsd: 0,    features: ['GPT-4o mini', 'Omezené GPT-4o', 'Generování obrázků'],    url: AFFILIATE_LINKS.chatgpt },
+  { tool: 'ChatGPT', plan: 'Plus',     priceUsd: 20,   features: ['GPT-4o bez limitu', 'DALL-E 3', 'Analýza dat a kód'],      url: AFFILIATE_LINKS.chatgpt, badge: 'Nejoblíbenější' },
+  { tool: 'ChatGPT', plan: 'Pro',      priceUsd: 200,  features: ['o1 Pro bez limitu', 'Prioritní přístup', 'Pokročilý hlas'], url: AFFILIATE_LINKS.chatgpt },
+  { tool: 'Claude',  plan: 'Free',     priceUsd: 0,    features: ['Claude 3.5 Sonnet', 'Omezené zprávy', 'Projekty'],          url: AFFILIATE_LINKS.claude },
+  { tool: 'Claude',  plan: 'Pro',      priceUsd: 20,   features: ['Sonnet bez limitu', 'Prioritní přístup', 'Delší kontext'],  url: AFFILIATE_LINKS.claude, badge: 'Nejlepší čeština' },
+  { tool: 'Claude',  plan: 'Max',      priceUsd: 100,  features: ['5× více zpráv', 'Claude 3 Opus', 'Rozšířené projekty'],    url: AFFILIATE_LINKS.claude },
+  { tool: 'Gemini',  plan: 'Free',     priceUsd: 0,    features: ['Gemini 1.5 Flash', 'Google integrace', 'Obrázky'],         url: AFFILIATE_LINKS.gemini },
+  { tool: 'Gemini',  plan: 'Advanced', priceUsd: 21.99,features: ['Gemini 1.5 Pro', 'Google One 2TB', 'Deep Research'],       url: AFFILIATE_LINKS.gemini },
+  { tool: 'Perplexity', plan: 'Free',  priceUsd: 0,    features: ['5 Pro hledání/den', 'Citace zdrojů', 'Rychlé odpovědi'],  url: AFFILIATE_LINKS.perplexity },
+  { tool: 'Perplexity', plan: 'Pro',   priceUsd: 20,   features: ['Neomezené hledání', 'GPT-4 & Claude', 'Soubory & obrázky'], url: AFFILIATE_LINKS.perplexity, badge: 'Nejlepší výzkum' },
+  { tool: 'Copilot', plan: 'Free',     priceUsd: 0,    features: ['GPT-4o základní', 'Bing integrace', 'Obrázky'],            url: AFFILIATE_LINKS.copilot },
+  { tool: 'Copilot', plan: 'Pro',      priceUsd: 22,   features: ['Prioritní přístup', 'M365 integrace', 'Designer kredity'], url: AFFILIATE_LINKS.copilot },
 ]
 
 const CHIP: Record<string, string> = {

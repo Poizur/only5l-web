@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site, nav } from "@/lib/site";
+import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,9 +11,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-1.5 font-bold text-lg text-surface-900 w-fit">
-              <span className="text-brand-600">AI</span>
-              <span className="bg-brand-600 text-white px-1.5 py-0.5 rounded-lg text-sm font-bold leading-none tracking-wide">Kompass</span>
+            <Link href="/" className="hover:opacity-75 transition-opacity w-fit block">
+              <Logo size="md" />
             </Link>
             <p className="mt-3 text-sm text-surface-500 leading-relaxed max-w-xs">
               {site.tagline}

@@ -12,6 +12,7 @@ import { site, ui } from "@/lib/site";
 import ToolCard from "@/components/article/ToolCard";
 import ComparisonTable from "@/components/article/ComparisonTable";
 import FAQ from "@/components/article/FAQ";
+import SurveyInlineCTA from "@/components/ui/SurveyInlineCTA";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -65,6 +66,34 @@ function ArticleJsonLd({ article }: { article: ReturnType<typeof getArticleBySlu
   );
 }
 
+
+// Inject <SurveyInlineCTA /> after the 3rd content paragraph in MDX source.
+function injectSurveyCta(content: string): string {
+  const lines = content.split("\n");
+  let paragraphsFound = 0;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    // Blank line after a non-blank, non-heading, non-fence line = end of paragraph
+    if (
+      line === "" &&
+      i > 0 &&
+      lines[i - 1].trim() !== "" &&
+      !lines[i - 1].trim().startsWith("#") &&
+      !lines[i - 1].trim().startsWith("```") &&
+      !lines[i - 1].trim().startsWith("|") &&
+      !lines[i - 1].trim().startsWith("-") &&
+      !lines[i - 1].trim().startsWith("*")
+    ) {
+      paragraphsFound++;
+      if (paragraphsFound === 3) {
+        lines.splice(i + 1, 0, "\n<SurveyInlineCTA />\n");
+        break;
+      }
+    }
+  }
+  return lines.join("\n");
+}
+
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = getArticleBySlug(slug);
@@ -86,6 +115,7 @@ export default async function ArticlePage({ params }: Props) {
     ToolCard: () => null,
     ComparisonTable: () => null,
     FAQ: () => null,
+    SurveyInlineCTA,
   };
 
   // Determine whether a hero ToolCard should be rendered from frontmatter data.
@@ -204,9 +234,9 @@ export default async function ArticlePage({ params }: Props) {
           )
         )}
 
-        {/* MDX content */}
+        {/* MDX content — SurveyInlineCTA injected after 3rd paragraph */}
         <div className="prose-article">
-          <MDXRemote source={content} components={components} />
+          <MDXRemote source={injectSurveyCta(content)} components={components} />
         </div>
 
         {/* Affiliate disclaimer */}

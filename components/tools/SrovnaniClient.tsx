@@ -174,7 +174,7 @@ export default function SrovnaniClient() {
                     <div className="text-xs text-surface-400 font-normal">{t.vendor}</div>
                     <div className="mt-2">
                       <a
-                        href={t.affiliateUrl}
+                        href={`/track/affiliate/${t.id}`}
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                         className="inline-block px-3 py-1 rounded-lg bg-brand-600 text-white text-xs font-semibold hover:bg-brand-700 transition-colors"

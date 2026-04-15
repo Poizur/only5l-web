@@ -105,7 +105,7 @@ function ToolCard({ tool }: { tool: AiTool }) {
       {/* CTA */}
       <div className="flex items-center gap-2 pt-1 border-t border-surface-100 mt-auto">
         <a
-          href={tool.affiliateUrl}
+          href={`/track/affiliate/${tool.id}`}
           target="_blank"
           rel="noopener noreferrer nofollow"
           className="flex-1 text-center py-2 px-4 rounded-lg bg-brand-600 text-white text-sm font-semibold hover:bg-brand-700 transition-colors"

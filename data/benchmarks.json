@@ -1,0 +1,28 @@
+{
+  "updated_at": "2026-04-15T10:00:00Z",
+  "month": "2026-04",
+  "tasks": [
+    { "id": 1,  "name": "Shrnutí textu",         "category": "Porozumění",   "description": "Shrň článek 800 slov do 3 vět v češtině bez ztráty klíčových informací." },
+    { "id": 2,  "name": "Profesionální e-mail",   "category": "Psaní",        "description": "Napiš e-mail zákazníkovi s omluvou za zpoždění dodávky, srozumitelně a empaticky." },
+    { "id": 3,  "name": "Analýza dat",            "category": "Analýza",      "description": "Analyzuj tabulku prodejů a identifikuj 3 klíčové trendy s doporučeními." },
+    { "id": 4,  "name": "Překlad EN→CZ",          "category": "Překlad",      "description": "Přelož technický text 200 slov z angličtiny do přirozené hovorové češtiny." },
+    { "id": 5,  "name": "Python funkce",          "category": "Kódování",     "description": "Napiš Python funkci pro validaci českého rodného čísla s testy." },
+    { "id": 6,  "name": "Vysvětlení pojmu",       "category": "Vzdělávání",   "description": "Vysvětli kvantové počítání 12letému dítěti česky, bez žargonu." },
+    { "id": 7,  "name": "Kreativní příběh",       "category": "Kreativita",   "description": "Napiš úvod detektivního příběhu zasazeného do Brna (200 slov)." },
+    { "id": 8,  "name": "Faktická otázka",        "category": "Fakta",        "description": "Kolik obyvatel má Praha, kdy se stala hlavním městem a jaký je její rozloha?" },
+    { "id": 9,  "name": "Strukturovaný výstup",   "category": "Formátování",  "description": "Vytvoř validní JSON strukturu pro e-shop produkt s 8 povinnými poli." },
+    { "id": 10, "name": "Vícekolový dialog",      "category": "Dialog",       "description": "Udržuj kontext napříč 5 výměnami při plánování dovolené v Krkonoších." }
+  ],
+  "tools": {
+    "chatgpt":    { "name": "ChatGPT",    "model": "GPT-4o",            "total": 82, "scores": [8, 9, 8, 8, 9, 8, 8, 7, 8, 9] },
+    "claude":     { "name": "Claude",     "model": "Claude Sonnet 4.6", "total": 89, "scores": [9, 9, 9, 9, 8, 9, 9, 8, 9, 10] },
+    "gemini":     { "name": "Gemini",     "model": "Gemini 2.0 Flash",  "total": 78, "scores": [8, 8, 8, 9, 7, 8, 7, 8, 7, 8] },
+    "perplexity": { "name": "Perplexity", "model": "Pro",               "total": 81, "scores": [8, 7, 9, 8, 7, 9, 7, 9, 8, 9] },
+    "copilot":    { "name": "Copilot",    "model": "GPT-4o",            "total": 75, "scores": [7, 8, 7, 8, 9, 7, 7, 7, 7, 8] }
+  },
+  "history": [
+    { "month": "2026-02", "chatgpt": 80, "claude": 87, "gemini": 76, "perplexity": 79, "copilot": 73 },
+    { "month": "2026-03", "chatgpt": 81, "claude": 88, "gemini": 77, "perplexity": 80, "copilot": 74 },
+    { "month": "2026-04", "chatgpt": 82, "claude": 89, "gemini": 78, "perplexity": 81, "copilot": 75 }
+  ]
+}

@@ -20,6 +20,8 @@ export const nav = {
     { label: "Návody",       href: "/kategorie/navody" },
     { label: "Začínám s AI", href: "/kategorie/zacatky" },
     { label: "Slovník",      href: "/slovnik" },
+    { label: "🛠️ Nástroje",  href: "/nastroje" },
+    { label: "✍️ Prompty",   href: "/prompty" },
     { label: "📡 AI Radar",  href: "/radar" },
     { label: "O nás",        href: "/o-nas" },
   ],

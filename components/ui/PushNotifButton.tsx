@@ -39,7 +39,7 @@ export default function PushNotifButton() {
         // Public VAPID key — replace with your real key after setting up Railway push endpoint
         applicationServerKey: urlBase64ToUint8Array(
           process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ??
-            "BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U"
+            "BBs1ScuntUA9SYXF8m0cfCPaOdlVRbxshuqRtGN1APkaR1BTgosEKYXiPYaOeZP6UocnRUF5aDEFHd9Nu5Jfex0"
         ),
       });
       // Send subscription to Railway

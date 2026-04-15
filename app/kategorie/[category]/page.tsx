@@ -9,14 +9,15 @@ interface Props {
   params: Promise<{ category: string }>;
 }
 
-const STATIC_CATEGORIES = ["recenze", "srovnani", "navody", "zacatky", "profese"];
+const STATIC_CATEGORIES = ["recenze", "srovnani", "navody", "zacatky", "profese", "breaking"];
 
 const CATEGORY_META: Record<string, { label: string; description: string; icon: string }> = {
-  recenze:  { label: "Recenze",      description: "Poctivé recenze AI nástrojů — co funguje, co ne a kolik to stojí.",             icon: "⭐" },
-  srovnani: { label: "Srovnání",     description: "Porovnáváme nástroje mezi sebou, aby ses nemusel/a rozhodovat naslepo.",         icon: "⚖️" },
-  navody:   { label: "Návody",       description: "Jak začít s AI od nuly — krok za krokem, bez technického žargonu.",              icon: "🎓" },
-  zacatky:  { label: "Začínám s AI", description: "Úplné základy AI pro začátečníky — co to je, jak to funguje a kde začít.",      icon: "🚀" },
+  recenze:  { label: "Recenze",        description: "Poctivé recenze AI nástrojů — co funguje, co ne a kolik to stojí.",             icon: "⭐" },
+  srovnani: { label: "Srovnání",       description: "Porovnáváme nástroje mezi sebou, aby ses nemusel/a rozhodovat naslepo.",         icon: "⚖️" },
+  navody:   { label: "Návody",         description: "Jak začít s AI od nuly — krok za krokem, bez technického žargonu.",              icon: "🎓" },
+  zacatky:  { label: "Začínám s AI",   description: "Úplné základy AI pro začátečníky — co to je, jak to funguje a kde začít.",      icon: "🚀" },
   profese:  { label: "AI pro profese", description: "Konkrétní AI nástroje a postupy podle vašeho oboru — marketing, účetnictví, programování a další.", icon: "💼" },
+  breaking: { label: "Breaking News",  description: "Nejčerstvější zprávy ze světa AI — nové modely, launche, acquisice. Publikováno do 2 hodin od zprávy.", icon: "🔴" },
 };
 
 export async function generateStaticParams() {

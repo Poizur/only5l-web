@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site, nav } from "@/lib/site";
 import Logo from "@/components/ui/Logo";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -61,8 +62,29 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Newsletter signup */}
+        <div className="mt-10 rounded-xl bg-surface-900 px-6 py-7">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+            <div>
+              <p className="text-sm font-bold text-white">
+                📬 5 AI novinek každý pátek
+              </p>
+              <p className="text-xs text-surface-400 mt-0.5">
+                Zdarma · bez spamu · kdykoli se odhlásíš
+              </p>
+            </div>
+            <Link
+              href="/radar"
+              className="shrink-0 text-xs text-surface-400 hover:text-white transition-colors"
+            >
+              nebo sleduj AI Radar →
+            </Link>
+          </div>
+          <NewsletterForm variant="compact" />
+        </div>
+
         {/* Survey CTA */}
-        <div className="mt-10 rounded-xl bg-brand-50 border border-brand-100 px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-4 rounded-xl bg-brand-50 border border-brand-100 px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-surface-800">
               {site.locale === "cs" ? "📊 Jak používáš AI? Řekni nám to." : "📊 How do you use AI? Tell us."}

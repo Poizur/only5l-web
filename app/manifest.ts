@@ -30,8 +30,6 @@ export default function manifest(): MetadataRoute.Manifest {
         src: "/screenshots/home-mobile.png",
         sizes: "390x844",
         type: "image/png",
-        // @ts-expect-error — form_factor is valid but not yet in TS types
-        form_factor: "narrow",
         label: "Domovská stránka na mobilu",
       },
     ],

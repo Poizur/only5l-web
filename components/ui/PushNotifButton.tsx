@@ -37,10 +37,8 @@ export default function PushNotifButton() {
       const sub = await reg.pushManager.subscribe({
         userVisibleOnly: true,
         // Public VAPID key — replace with your real key after setting up Railway push endpoint
-        applicationServerKey: urlBase64ToUint8Array(
-          process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ??
-            "BBs1ScuntUA9SYXF8m0cfCPaOdlVRbxshuqRtGN1APkaR1BTgosEKYXiPYaOeZP6UocnRUF5aDEFHd9Nu5Jfex0"
-        ),
+        applicationServerKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ??
+            "BBs1ScuntUA9SYXF8m0cfCPaOdlVRbxshuqRtGN1APkaR1BTgosEKYXiPYaOeZP6UocnRUF5aDEFHd9Nu5Jfex0",
       });
       // Send subscription to Railway
       await fetch(`${RAILWAY_URL}/push/subscribe`, {

@@ -7,7 +7,7 @@ export const site = {
   domain:        "aikompass.cz",
   url:           "https://aikompass.cz",
   name:          "AI Kompass",
-  tagline:       "Jen 5 AI nástrojů které opravdu potřebuješ",
+  tagline:       "Testujeme AI nástroje za tebe",
   description:   "Testujeme AI nástroje za tebe. Poctivé recenze v češtině, ceny v Kč, GDPR info.",
   twitterHandle: "@aikompass",
   contentDir:    "cz",

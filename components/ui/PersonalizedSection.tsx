@@ -59,13 +59,15 @@ export default function PersonalizedSection({ articles }: Props) {
   if (!mounted || recommendations.length === 0) return null;
 
   const CATEGORY_LABEL: Record<string, string> = {
-    recenze: "recenzí",
+    recenze: "recenze",
     srovnani: "srovnání",
-    navody: "návodů",
-    zacatky: "začátků",
+    navody: "návody",
+    zacatky: "začátky s AI",
+    profese: "AI pro profese",
+    breaking: "novinky ze světa AI",
   };
 
-  const label = topCat ? CATEGORY_LABEL[topCat] ?? topCat : "obsahu";
+  const label = topCat ? CATEGORY_LABEL[topCat] ?? topCat : "obsah";
 
   return (
     <section>

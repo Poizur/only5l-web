@@ -21,17 +21,13 @@ export default function Hero() {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-surface-900 leading-tight mb-6 animate-slide-up">
           {site.locale === "cs" ? (
             <>
-              Jen{" "}
-              <span className="text-gradient">5 AI nástrojů</span>
-              <br className="hidden sm:block" />
-              {" "}které opravdu potřebuješ
+              Průvodce světem{" "}
+              <span className="text-gradient">AI nástrojů</span>
             </>
           ) : (
             <>
-              Only{" "}
-              <span className="text-gradient">5 AI tools</span>
-              <br className="hidden sm:block" />
-              {" "}you actually need
+              Your guide to the{" "}
+              <span className="text-gradient">AI tools world</span>
             </>
           )}
         </h1>

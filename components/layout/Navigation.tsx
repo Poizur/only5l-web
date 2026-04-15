@@ -7,12 +7,15 @@ import { nav } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/ui/Logo";
 
-// Desktop: 4 primary links shown inline; rest go into "Více" dropdown
+// Desktop: 7 primary links shown inline; Slovník + O nás go into "Více" dropdown
 const PRIMARY_HREFS = [
   "/kategorie/recenze",
   "/kategorie/srovnani",
   "/kategorie/navody",
+  "/kategorie/zacatky",
   "/nastroje",
+  "/prompty",
+  "/radar",
 ];
 
 export default function Navigation() {

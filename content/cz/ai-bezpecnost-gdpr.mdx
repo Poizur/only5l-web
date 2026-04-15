@@ -8,26 +8,30 @@ coverImage: "https://images.pexels.com/photos/60504/security-protection-anti-vir
 featured: false
 ---
 
-Když posíláte zprávy ChatGPT nebo Claudovi, co se s nimi stane? Jsou uchovány? Mohou je lidé číst? A jak to celé funguje z pohledu GDPR? Tady jsou přímé odpovědi bez marketingových frází.
+Když posíláte zprávy ChatGPT nebo Claudovi, co se s nimi stane? Jsou ukládány? Mohou je číst lidé? A jak to celé funguje z pohledu GDPR, které platí pro každého v Evropské unii? Tyto otázky si pokládá stále více českých uživatelů – a správně. Čím více AI používáme v práci i v osobním životě, tím důležitější je rozumět tomu, co se s našimi daty děje.
 
-## Co AI firmy o vás sbírají
+Tato příručka přináší přímé odpovědi bez marketingových frází. Dozvíte se, co každá platforma sbírá, jaká jsou vaše práva podle GDPR, a jak nastavit AI tak, aby bylo vaše používání co nejbezpečnější. Pro přehled samotných nástrojů se hodí průvodce [ChatGPT vs Claude vs Gemini – kdy použít který](/chatgpt-claude-gemini-kdy-pouzit). Pro bezpečné použití v pracovním kontextu doporučujeme také [AI pro práci – use cases podle profese](/ai-pro-praci-use-cases).
 
-Každá velká AI služba sbírá data. Otázka je, která a za jakým účelem.
+## Co se děje s vašimi daty – co říkají podmínky
+
+Každá velká AI služba sbírá data. Otázka je, která a za jakým účelem. Podívejme se na nejpoužívanější platformy.
 
 ### OpenAI (ChatGPT)
 
 **Co sbírají:**
-- Obsah vašich konverzací (zprávy, odpovědi)
-- Účetní informace (e-mail, způsob platby)
-- Technická data (IP adresa, prohlížeč, použitý model)
-- Zpětnou vazbu (thumbs up/down na odpovědi)
+- Obsah všech vašich konverzací (vaše prompty i odpovědi AI)
+- Účetní informace (e-mail, způsob platby, fakturační adresa)
+- Technická data (IP adresa, prohlížeč, operační systém, verze aplikace)
+- Zpětnou vazbu (tlačítka palec nahoru/dolů, editace odpovědí)
+- Data o používání (kdy chatujete, jak dlouho, kolik zpráv)
 
 **Jak data využívají:**
-- Trénování a zlepšování modelů (pokud to nevypnete)
-- Bezpečnostní monitoring (detekce zneužití)
-- Agregovaná analytika
+- Trénování a zlepšování modelů (pokud to nevypnete – viz níže)
+- Bezpečnostní monitoring a detekce zneužití
+- Agregovaná analytika pro vývoj produktu
+- Plnění zákonných povinností
 
-**Jak to vypnout:** Settings → Data controls → "Improve the model for everyone" → vypnout. Tím vaše konverzace neslouží k tréninku, ale jsou stále ukládány po dobu 30 dní (nebo dokud je nesmazáte).
+**Jak vypnout trénování:** Settings → Data controls → přepínač „Improve the model for everyone" → vypnout. Tím vaše konverzace neslouží k tréninku, ale jsou stále ukládány po dobu 30 dní (nebo dokud je ručně nesmazáte). V ChatGPT Teams/Enterprise je opt-out výchozí.
 
 ### Anthropic (Claude)
 
@@ -35,160 +39,195 @@ Každá velká AI služba sbírá data. Otázka je, která a za jakým účelem.
 - Obsah konverzací
 - Účetní informace
 - Technická telemetrie
+- Data o používání
 
 **Jak data využívají:**
-- Trénování (pokud nezvolíte opt-out v Pro verzi)
-- Bezpečnostní audit
-- Kvalitativní výzkum
+- Trénování modelů (pokud nezvolíte opt-out v Pro verzi)
+- Bezpečnostní audit a monitoring
+- Kvalitativní výzkum (malý vzorek konverzací může být přečten lidmi pro quality control)
 
-**Jak to vypnout:** V Claude Pro máte možnost opt-out z trénování. V bezplatné verzi tato možnost není k dispozici.
+**Jak vypnout trénování:** V Claude Pro máte možnost opt-out prostřednictvím privacy settings. Bezplatná verze opt-out nenabízí. Claude for Work garantuje, že firemní data se nepoužívají k trénování.
 
 ### Google (Gemini)
 
 **Co sbírají:**
 - Konverzace s Gemini
 - Data propojená s vaším Google účtem (pokud jste přihlášeni)
-- Technicá data
+- Technická data
+- Data z Google produktů, pokud používáte Gemini v rámci Workspace
 
-**Jak data využívají:**
-- Trénování modelů
-- Zlepšování Google produktů
-- Targeting reklam (pozor: Gemini konverzace mohou být propojeny s reklamním profilem)
+**Klíčové upozornění:** Gemini je propojen s vaším Google účtem. To znamená, že konverzace mohou být součástí vašeho Google profilu a potenciálně ovlivňovat zobrazování reklam.
 
-**Jak to vypnout:** myaccount.google.com → Aktivita a časová osa → Gemini Apps Activity → vypnout
+**Jak vypnout aktivitu:** myaccount.google.com → Aktivita a časová osa → Gemini Apps Activity → vypnout ukládání aktivity.
 
----
+### Co konkrétně platformy sbírají o každé konverzaci
 
-## GDPR a AI – co to znamená pro vás
+Pro lepší pochopení: když zadáte prompt, platforma typicky ukládá:
+- Přesné znění vašeho promptu
+- Přesné znění odpovědi AI
+- Čas a datum konverzace
+- Technické metadata (použitý model, délka konverzace, jazyková preference)
+- Vaši reakci na odpověď (pokud ji poskytnete)
 
-GDPR (General Data Protection Regulation) platí pro všechny firmy, které zpracovávají data obyvatel EU. To zahrnuje i americké AI firmy poskytující služby českým uživatelům.
+Tato data jsou zpravidla uchovávána 30–90 dní od odeslání, pokud konverzaci ručně nesmazáte.
 
-### Vaše práva jako uživatele EU
+## GDPR a AI – základní pravidla pro ČR
 
-**Právo na přístup:** Můžete požádat o kompletní kopii dat, která o vás firma má. Pro ChatGPT: Settings → Export data.
+GDPR (General Data Protection Regulation) je evropské nařízení o ochraně osobních dat, platné od roku 2018. Vztahuje se na všechny firmy zpracovávající data obyvatel EU – včetně amerických AI firem poskytujících služby českým uživatelům.
 
-**Právo na výmaz:** Můžete požádat o smazání vašich dat. Každá firma má k tomu formulář nebo přímo možnost v nastavení.
+**Proč to je důležité:** GDPR vám jako uživateli z ČR dává silnější práva, než mají uživatelé z USA nebo jiných zemí bez podobné legislativy. Tyto práva jsou vymahatelná.
 
-**Právo na námitku:** Můžete namítat zpracování dat pro účely profilování nebo tréninku.
+### Vaše základní práva podle GDPR
+
+**Právo na přístup:** Můžete požádat o kompletní kopii dat, která o vás firma uchovává. Pro ChatGPT: Settings → Data controls → Export data → dostanete ZIP soubor s historií konverzací a dalšími daty.
+
+**Právo na výmaz (právo být zapomenut):** Můžete požádat o smazání vašich dat. Každá platforma má k tomu formulář nebo možnost v nastavení. Smazání může trvat 30–90 dní a může se týkat i záložních kopií.
+
+**Právo na opravu:** Pokud jsou o vás uloženy nepřesné informace, máte právo na jejich opravu.
 
 **Právo na přenositelnost:** Data ve strojově čitelném formátu můžete přenést k jinému poskytovateli.
 
-### Jak si exportovat nebo smazat data
+**Právo na námitku:** Můžete namítat zpracování dat pro účely profilování nebo trénování modelů.
 
-**ChatGPT (OpenAI):**
-- Export: Settings → Data controls → Export data → potvrdíte e-mailem → dostanete ZIP soubor
-- Smazání: Settings → Data controls → Delete account nebo "Clear conversations"
+### Datová rezidence a serverové umístění
 
-**Claude (Anthropic):**
-- Export/smazání: privacy.anthropic.com nebo přes nastavení účtu
+OpenAI provozuje od roku 2023 evropské servery pro EU uživatele (Dublin, Irsko), čímž lépe splňuje požadavky GDPR na datové přenosy. Anthropic a Google mají podobné mechanismy pro EU.
 
-**Gemini (Google):**
-- Export: myaccount.google.com → Data a soukromí → Stáhnout data (Google Takeout)
-- Smazání: myaccount.google.com → Aktivita a časová osa → Smazat aktivitu
+### Co říká ÚOOÚ (Úřad pro ochranu osobních údajů)
 
----
+Český dozorový orgán zatím nevydal specifické závazné pokyny pro používání AI chatbotů. V obecných doporučeních ÚOOÚ zdůrazňuje:
+- Zpracování osobních dat v AI systémech musí mít právní základ (souhlas, oprávněný zájem nebo plnění smlouvy)
+- Zaměstnavatelé musí informovat zaměstnance, pokud sledují jejich aktivitu při práci s AI
+- Osobní data by neměla být předávána do AI bez odpovídajícího zabezpečení
 
-## 7 pravidel pro bezpečné používání AI
+Pro nejnovější pokyny doporučujeme sledovat web uoou.cz, kde ÚOOÚ průběžně zveřejňuje stanoviska k AI.
 
-### 1. Nikdy nezadávejte citlivé osobní informace
+## 5 pravidel bezpečného používání AI
 
-Do AI nepatří:
-- Rodné číslo, číslo občanského průkazu
-- Hesla, PIN kódy, přihlašovací údaje
-- Čísla platebních karet
-- Kompletní číslo bankovního účtu
+### 1. Nikdy nevkládejte rodná čísla, hesla, čísla karet
 
-Proč: Konverzace jsou ukládány a mohou být zobrazeny lidskými recenzenty (pro quality control), ačkoliv jsou (podle firem) anonymizovány.
+Do AI konverzací nikdy nepatří:
+- Rodné číslo, číslo občanského průkazu nebo pasu
+- Hesla, PIN kódy, přihlašovací údaje k jakémukoliv systému
+- Čísla platebních karet, CVV kódy
+- Kompletní čísla bankovních účtů
+- Klíče k API nebo kryptografické klíče
 
-### 2. Citlivá firemní data anonymizujte
+Proč: Konverzace jsou ukládány a mohou být zobrazeny lidskými recenzenty pro quality control. I když jsou anonymizovány, riziko je zbytečné.
 
-Pokud analyzujete firemní dokumenty přes AI, anonymizujte citlivé části:
+### 2. Anonymizujte jména zákazníků před vložením do AI
 
-Místo: "Zákazník Jan Novák, IČO 12345678, dluh 150 000 Kč"
-Pište: "Zákazník [FIRMA A], IČO [XXXX], dluh [XXXXX] Kč"
+Pokud analyzujete firemní dokumenty přes AI, nahraďte citlivé identifikátory generickými označeními:
 
-AI stále pochopí kontext a pomůže s analýzou – bez zbytečného odhalení dat.
+Místo: „Zákazník Jan Novák, IČO 12345678, dluh 150 000 Kč, telefon +420 777 123 456"  
+Pište: „Zákazník [FIRMA A], IČO [ANONYMIZOVÁNO], dluh [VÝŠE], telefon [ANONYMIZOVÁNO]"
 
-### 3. Pro firemní použití zvažte enterprise verze
+AI stále pochopí kontext a pomůže s analýzou – bez zbytečného odhalení osobních dat třetí strany.
 
-ChatGPT Enterprise a Claude for Work explicitně garantují:
-- Žádné trénování na firemních datech
-- Šifrování dat v klidu i přenosu
-- GDPR compliance dokumentace
-- SSO integrace
+### 3. Podnikové tajemství patří do Enterprise verze s DPA
 
-Cena je vyšší (~25–40 USD/uživatel/měsíc), ale pro firmy pracující s citlivými daty se vyplatí.
+Pokud pracujete s interní strategií firmy, obchodními podmínkami s klienty nebo citlivými finančními projekcemi, používejte pouze verze s uzavřenou smlouvou o zpracování dat (DPA – Data Processing Agreement):
+- ChatGPT Enterprise nebo Teams
+- Claude for Work (Teams/Enterprise)
+- Gemini for Google Workspace (firemní plán)
 
-### 4. Nevkládejte data třetích stran bez souhlasu
+Tyto verze garantují, že data neslouží k trénování a splňují požadavky GDPR pro firemní zpracování.
 
-Pokud analyzujete smlouvu zákazníka, životopis uchazeče nebo e-maily klientů – zvažte, zda máte souhlas k takové analýze. GDPR vyžaduje právní základ pro zpracování osobních dat.
+### 4. Zapněte opt-out z tréninku dat
 
-Pro firemní HR nebo právní oddělení: ideálně konzultujte s DPO (Data Protection Officer) vaší firmy.
+Návod krok za krokem:
 
-### 5. Pozor na integrace s dalšími nástroji
+**ChatGPT:** Klikněte na svůj profil (pravý dolní roh) → Settings → Data controls → přepněte „Improve the model for everyone" na OFF.
 
-AI chatboty se propojují s Gmailem, CRM systémy, Slack a dalšími nástroji. Každá integrace rozšiřuje datové toky. Před povolením přístupu AI k vašemu e-mailu nebo CRM zkontrolujte, jaká data aplikace čte.
+**Claude:** V nastavení účtu → Privacy → opt-out z použití konverzací pro trénování (dostupné v Pro verzi).
 
-### 6. Používejte inkognito/soukromé okno pro citlivé dotazy
+**Gemini:** myaccount.google.com → Data a soukromí → Aktivita ve službách Google → Gemini Apps Activity → klikněte na správu → pozastavte ukládání aktivity.
 
-Nevytváříte účet? Microsoft Copilot funguje i bez přihlášení přes Edge. Konverzace se neukládají k vašemu profilu.
+### 5. Pro citlivé dokumenty zvažte lokální AI
 
-### 7. Pravidelně mažte historii konverzací
+Pokud vaše profese vyžaduje práci s vysoce citlivými dokumenty (právní spisy, lékařské záznamy, finanční audity), existuje alternativa v podobě lokálně běžících AI modelů:
 
-V ChatGPT i Claude smažte staré konverzace, které nepotřebujete. To omezí objem dat uložených o vás.
+**Ollama** – open source framework pro spouštění jazykových modelů přímo na vašem počítači. Podporuje modely jako Llama 3, Mistral nebo Phi-3. Data nikdy neopustí váš počítač.
 
----
+**LM Studio** – přívětivé grafické rozhraní pro lokální modely. Vhodné pro uživatele bez technického backgroundu.
 
-## AI ve firmách – compliance checklist
+**Nevýhody lokálních modelů:** Výkon je nižší než u cloudových modelů GPT-4o nebo Claude 3.7 Opus. Vyžadují silný počítač (ideálně GPU). Nastavení je složitější.
 
-Pokud jako podnikatel nebo zaměstnanec zodpovídáte za ochranu dat:
+## Pro firmy – GDPR compliance checklist
 
-☐ **Inventář AI nástrojů:** Zmapujte, které AI nástroje zaměstnanci používají
-☐ **Zásady použití AI:** Napište interní politiku "co do AI patří a co ne"
-☐ **DPIA** (Data Protection Impact Assessment): Pro systematické použití AI zpracovávající osobní data EU zákon může vyžadovat
-☐ **DPA s OpenAI/Anthropic:** Pro firemní plány uzavřete Data Processing Agreement
-☐ **Školení zaměstnanců:** Pravidelné upozornění na bezpečná pravidla
+Pokud jako podnikatel nebo compliance officer zodpovídáte za ochranu dat ve firmě:
 
----
+**Inventarizace AI nástrojů**  
+Zmapujte, které AI nástroje zaměstnanci používají – i neoficiálně. Shadow IT (neoficiální nástroje) je v AI prostoru velký problém.
+
+**Interní politika používání AI**  
+Napište jednoduchou politiku „co do AI patří a co ne". Komunikujte ji jasně. Příklad zakázaných dat: jména zákazníků, obsah smluv, mzdové informace, rodná čísla.
+
+**Data Processing Agreement (DPA)**  
+Pro systematické firemní využití AI (nikoliv jen příležitostné osobní použití) uzavřete DPA s poskytovatelem. OpenAI, Anthropic i Google nabízejí standardní DPA pro firemní zákazníky.
+
+**DPIA (Data Protection Impact Assessment)**  
+Pokud AI systém zpracovává velké objemy osobních dat EU subjektů, EU zákon může vyžadovat formální posouzení dopadu na ochranu dat.
+
+**Školení zaměstnanců**  
+Pravidelné (aspoň roční) upozornění na pravidla bezpečného používání AI. Zaměstnanci si jinak neuvědomují rizika.
+
+**Sledování AI Act compliance**  
+EU AI Act platný od 2026 přináší nové povinnosti pro firmy nasazující AI v HR, zákaznické péči nebo kritické infrastruktuře. Detailní přehled najdete v článku [AI Act 2026 – průvodce](/ai-act-2026-pruvodce).
+
+## Lokální AI jako alternativa – pro koho je vhodná
+
+Lokální AI modely (Ollama, LM Studio, GPT4All) běží přímo na vašem zařízení a data nikdy neopustí váš počítač. Jsou vhodné pro:
+
+- Advokáty, lékaře a účetní pracující s důvěrnými klientskými daty
+- Firmy ve vysoce regulovaných odvětvích (bankovnictví, zdravotnictví, státní správa)
+- Organizace, které nemohou nebo nechtějí přenášet data do cloudu
+- Výzkumné instituce s citlivými daty
+
+Aktuálně nejlepší lokální modely dosahují výkonu blízkého GPT-4 z roku 2023 – stále výrazně pod úrovní nejlepších cloudových modelů, ale pro mnoho úkolů dostatečné. Trend je jasný: lokální modely se každý rok výrazně zlepšují.
 
 ## Jak funguje v Česku
 
-**GDPR compliance AI firem:** OpenAI, Anthropic a Google mají všechny EU reprezentativy a GDPR compliance dokumenty. Jsou platní zpracovatelé dat podle GDPR.
+Česká republika jako členský stát EU má silnou ochranu osobních dat a ÚOOÚ aktivně sleduje dění v oblasti AI. Zde jsou nejdůležitější lokální specifika:
 
-**Úřad pro ochranu osobních údajů (ÚOOÚ):** Český dozorový orgán. Pokud máte podezření na porušení GDPR ze strany AI firmy, lze podat stížnost.
+**Postoj ÚOOÚ k AI**
 
-**Zákon o AI (AI Act):** EU AI Act vstoupil v platnost 2024 a plně se aplikuje od 2026. Kategorizuje AI systémy podle rizika. Pro konečné uživatele AI chatbotů přímý dopad minimální – spíše ovlivní jak AI firmy systémy vyvíjejí.
+ÚOOÚ se aktivně zajímá o AI a vydal obecná doporučení k ochraně osobních dat při využívání AI nástrojů. V roce 2025 vydal stanovisko, kde upozornil na rizika zadávání osobních údajů do AI chatbotů bez právního základu. Doporučil firmám, aby měly jasnou interní politiku a zaměstnancům dávaly konkrétní pokyny.
 
-**Pracovní právo:** V ČR zatím neexistuje specifická legislativa o AI v pracovněprávních vztazích. Sledování zaměstnanců přes AI nástroje podléhá obecnému pracovnímu právu a musí být transparentní.
+**Česká firemní praxe**
 
----
+Průzkumy ukazují, že přibližně 40 % středních a velkých českých firem v roce 2025 vydalo nebo pracuje na interní politice pro používání AI. Nejčastěji regulované oblasti: zákaz vkládání osobních dat zákazníků, schválené nástroje, označování AI-generovaného obsahu.
 
-## Kam dál
+**Zaměstnavatelé a zákaz AI**
 
-- ✍️ [Jak psát prompty – průvodce s 30 příklady](/jak-psat-prompty-pruvodce)
-- 💼 [AI pro práci – use cases podle profese](/ai-pro-praci-use-cases)
-- ⏱️ [Jak AI šetří čas a peníze](/ai-uspora-casu-a-penez)
+Někteří čeští zaměstnavatelé AI v práci zakazují nebo omezují. Právně vzato, zaměstnavatel má právo omezovat používání určitých nástrojů na pracovišti, pokud je to zakotveno v pracovním řádu nebo interní směrnici. Zaměstnanec, který tento zákaz poruší, riskuje disciplinární řízení.
 
-Na pokročilou úroveň: [AI Act 2026 – co musí vědět každý uživatel](/ai-act-2026-pruvodce)
+**AI Act a jeho dopad na ČR**
 
----
+Evropský AI Act vstoupil v platnost v roce 2024 a plně se aplikuje od roku 2026. Pro běžné uživatele AI chatbotů je přímý dopad minimální – zákon reguluje spíše firmy vyvíjející a nasazující AI systémy. Pro firmy nasazující AI v rozhodování o lidech (HR, úvěry, zdravotní péče) jsou povinnosti výraznější. Více v článku [AI Act 2026 – průvodce](/ai-act-2026-pruvodce).
 
-## FAQ
+## Časté otázky (FAQ)
 
-**Čte ChatGPT mé konverzace lidé (ne jen AI)?**
-Mohou. OpenAI má team quality reviewerů, kteří mohou přistupovat k anonymizovaným konverzacím. To platí i pro ostatní AI firmy. Je to standardní postup pro bezpečnostní monitoring a quality control.
+### Q: Čtou zaměstnanci OpenAI moje konverzace?
 
-**Je moje IP adresa nebo poloha sdílena?**
-Technická data jako IP adresa jsou sbírána pro bezpečnostní a diagnostické účely. Přesná poloha z GPS sbírána není. VPN změní IP adresu, pokud vám to vadí.
+Mohou. OpenAI má tým quality reviewerů, kteří mohou přistupovat k anonymizovaným konverzacím za účelem kontroly kvality a bezpečnosti. Podobná praxe platí pro Anthropic i Google. Je to průmyslový standard – stejně jako call centra nahrávají hovory „pro účely kvality". Konverzace jsou anonymizovány, ale absolutní soukromí nelze garantovat.
 
-**Mohu použít ChatGPT anonymně?**
-Microsoft Copilot v Edge prohlížeči funguje bez přihlášení. Nezaznamenává se k vašemu účtu. Jinak všechny velké AI asistenti vyžadují účet.
+### Q: Mohu vložit do ChatGPT firemní data bez rizika?
 
-**Může AI firma prodávat moje data třetím stranám?**
-Velké firmy (OpenAI, Anthropic, Google) ve svých podmínkách explicitně uvádějí, že data neprodávají třetím stranám pro komerční účely. Nicméně čtěte podmínky – trénování modelu je legálně jiné než "prodej dat."
+Záleží na povaze dat. Anonymizovaná a neidentifikující data (struktury dokumentů, obecné otázky, texty bez osobních údajů) jsou obecně nízce riziková. Osobní údaje zákazníků, obchodní tajemství nebo finanční projekce by měly jít pouze do enterprise verzí s DPA nebo lokálních modelů. Vždy zvažte: „Pokud by tato konverzace unikla, jaké by to mělo důsledky?"
 
-**Co se stane s daty když smažu účet?**
-OpenAI a Anthropic garantují smazání dat v přiměřené lhůtě (30–90 dní) po smazání účtu. Zálohy jsou mazány postupně. Pro detail viz jejich Privacy Policy.
+### Q: Jak smazat historii konverzací v ChatGPT?
 
-**Musím AI firmám souhlasit se zpracováním dat?**
-Pro použití služby ano – zpracování nezbytné k poskytnutí služby nepotřebuje explicitní souhlas (plnění smlouvy). Pro trénování modelů (nepovinné) máte možnost opt-out. EU rezidenti mají posílená práva pod GDPR.
+V levém panelu ChatGPT najdete historii konverzací. Jednotlivé konverzace smažete kliknutím na ikonu koše vedle každé z nich. Pro smazání všech konverzací: Settings → Data controls → Delete all conversations. Pro kompletní smazání účtu včetně všech dat: Settings → Data controls → Delete account – OpenAI pak data smaže do 30 dní.
+
+### Q: Je používání AI v práci legální?
+
+Obecně ano – neexistuje zákon zakazující používání AI chatbotů k pracovním účelům. Omezení mohou vyplývat z: interní politiky zaměstnavatele (lze zakázat v pracovním řádu), průmyslové regulace (zdravotnictví, bankovnictví), smluvních závazků vůči klientům (NDA, zachování důvěrnosti). Vždy zkontrolujte interní předpisy vaší firmy.
+
+### Q: Co je GDPR a jak mě chrání jako uživatele AI?
+
+GDPR (General Data Protection Regulation) je evropské nařízení platné ve všech zemích EU včetně ČR. Dává vám právo vědět, co se s vašimi daty děje (přístup), opravit nepřesné informace (oprava), nechat data smazat (výmaz), přenést data jinam (přenositelnost) a vznést námitku proti určitému zpracování. Každá firma působící v EU musí tato práva respektovat – včetně OpenAI, Anthropic a Google.
+
+### Q: Jak si ověřím, co ChatGPT ví o mně?
+
+Pomocí práva na přístup: v ChatGPT klikněte na Settings → Data controls → Export data. Do vaší emailové schránky přijde odkaz na stažení ZIP souboru obsahujícího: všechny vaše konverzace, nastavení účtu, historii aktivit a další uložená data. Soubor dostanete zpravidla do 24 hodin. Přes stejný mechanismus funguje i Anthropic (privacy.anthropic.com) a Google (Google Takeout).

@@ -8,181 +8,230 @@ coverImage: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?
 featured: false
 ---
 
-"AI agent" je nejčastěji skloňovaný termín ve světě AI v roce 2026. Ale co to vlastně znamená? A jak vám to může pomoci v praxi? Tady je vysvětlení bez hype, s konkrétními příklady a nástroji.
+Rok 2026 je rokem AI agentů. Zatímco v roce 2023 jsme se učili, jak se ptát chatbotů, dnes stojíme před zásadně jiným paradigmatem: AI systémů, které **samy plánují, rozhodují a jednají** – autonomně, bez toho, aby člověk musel každý krok řídit ručně.
 
-## Co je AI agent – a jak se liší od chatbotu
+To není sci-fi. Nástroje jako OpenAI Deep Research, Claude Projects, Devin nebo Zapier AI Agents jsou k dispozici dnes, za dostupné ceny a bez nutnosti programovat. Zásadní otázkou pro každého, kdo chce zůstat produktivní v roce 2026, není „co jsou AI agenti?" – ale „jak je využít ve své práci co nejdříve?"
 
-Chatbot (jako ChatGPT nebo Claude) funguje jako konverzace: vy napíšete zprávu, AI odpoví. Každý krok vyžaduje vaši interakci.
+Tento článek vám to vysvětlí od základů po praktické nasazení. Pokud s AI teprve začínáte, doporučujeme nejdřív přečíst náš [průvodce pro začátečníky](/co-je-ai-pruvodce-pro-zacatecniky) a [první kroky s ChatGPT](/chatgpt-prvni-kroky).
 
-**AI agent** je jiný: dostane cíl a pracuje autonomně – plánuje kroky, používá nástroje, reaguje na výsledky, a sám rozhoduje o dalším postupu. Vy zadáte cíl, ne postup.
+## Chatbot vs. AI agent – jaký je rozdíl
 
-**Analogie:**
-- **Chatbot** = asistent který čeká na každý příkaz
-- **AI agent** = asistent který dostane zadání a vrátí se s výsledkem
+Toto rozlišení je klíčové, protože mnoho lidí si tyto pojmy plete.
 
-**Konkrétní rozdíl:**
+**Chatbot** funguje jako konverzační nástroj:
+1. Vy položíte otázku nebo zadáte úkol
+2. Chatbot odpoví (jednorázově)
+3. Hotovo – čekáte na váš další podnět
 
-*Chatbot workflow (5 kroků vy):*
-1. Vy: "Najdi mi 3 konkurenty firmy X"
-2. AI odpoví
-3. Vy: "Teď pro každého zjisti jejich ceny"
-4. AI odpoví
-5. Vy: "Udělej z toho srovnávací tabulku"
+**AI agent** funguje jinak:
+1. Vy zadáte **cíl** (ne otázku, ale výsledek, kterého chcete dosáhnout)
+2. Agent **sám plánuje** kroky potřebné k dosažení cíle
+3. Agent **používá nástroje** – může prohledávat web, číst soubory, psát kód, odesílat emaily
+4. Agent **provádí akce** autonomně, krok za krokem
+5. Agent vás **informuje o výsledku**
 
-*Agent workflow (1 krok vy):*
-1. Vy: "Udělej mi srovnávací analýzu 3 hlavních konkurentů firmy X – jejich nabídky, ceny a positioning."
-Agent: vyhledá web, analyzuje stránky, zkompiluje tabulku, vrátí výsledek.
+Dobrá analogie: **chatbot je jako knihovník** – zeptáte se, on odpoví. **AI agent je jako osobní asistent** – zadáte mu úkol a on za vás zavolá, objedná schůzku, napíše zprávu a přinese výsledek.
 
----
+Konkrétní příklad: Řeknete chatbotu „Najdi mi konkurenty v oblasti CRM pro malé firmy v ČR." Dostanete seznam. Musíte sami každého konkurenta proklikat, přečíst, porovnat a vytvořit tabulku.
 
-## Jak AI agenti fungují – technicky
+Řeknete AI agentovi totéž. Agent sám prohledá web, navštíví weby jednotlivých konkurentů, extrahuje informace o cenách, funkcích a cílové skupině, porovná je a vrátí vám strukturovanou tabulku – v jednom kroku, bez vašeho dalšího zapojení.
 
-Agenti kombinují 4 základní komponenty:
+## Jak AI agent funguje – technicky jednoduše
 
-**1. LLM (velký jazykový model)** – "mozek" agenta, rozhoduje co dělat
+Bez zbytečné terminologie: AI agent se skládá ze čtyř klíčových složek.
 
-**2. Nástroje (tools)** – schopnosti agenta: webový prohlížeč, kalkulačka, databáze, Python interpreter, e-mail, API volání
+**1. Vnímání (Perception)** – agent dostává vstup. To může být váš textový úkol, soubor, emailová zpráva, data z databáze nebo výsledek předchozího kroku.
 
-**3. Paměť** – krátkodobá (průběh aktuálního úkolu) a dlouhodobá (uložené znalosti o projektech nebo uživateli)
+**2. Uvažování (Reasoning)** – jazykový model (GPT-4, Claude 3.5, Gemini Ultra…) analyzuje vstup, porozumí cíli a naplánuje sérii kroků k jeho dosažení. Toto je „mozek" agenta.
 
-**4. Plánovač** – mechanismus jak rozloží složitý cíl na dílčí kroky a jak reaguje na výsledky
+**3. Akce (Action)** – agent provádí kroky pomocí **nástrojů (tools)**. Typické nástroje agenta:
+- Vyhledávání na webu
+- Čtení a zápis souborů
+- Spouštění kódu
+- Odesílání emailů nebo zpráv
+- Volání externích API (CRM, kalendář, databáze)
+- Otevírání webových stránek a extrakce dat
 
-Moderní agenti mají přístup k internetu, mohou spouštět kód, pracovat se soubory, odesílat e-maily nebo volat API externích služeb – vše autonomně v rámci zadaného cíle.
+**4. Paměť (Memory)** – agent si pamatuje kontext: co udělal v předchozích krocích, co zjistil, co ještě zbývá. Bez paměti by každý krok začínal od nuly.
 
----
+Důležitý aspekt: AI agent **ne vždy uspěje napoprvé**. Kvalitní agenti mají schopnost sebeopravení – pokud krok selže, zkusí jiný přístup. To je zásadní rozdíl oproti jednoduché automatizaci (pokud selže krok v Excelu, makro se zastaví).
 
-## Reálné příklady AI agentů v praxi
+## Typy AI agentů podle použití
 
-### Research agent
+Existuje více způsobů, jak AI agenty kategorizovat. Nejpraktičtější je podle toho, co dělají:
 
-**Co dělá:** Dostane téma → vyhledá relevantní zdroje → přečte a shrne obsah → sestaví strukturovaný report s citacemi.
+### 1. Výzkumní agenti
 
-**Bez agenta:** 2–4 hodiny manuálního výzkumu
-**S agentem:** 10–15 minut
+Specializují se na vyhledávání, čtení a syntézu informací z více zdrojů. Jsou ideální pro:
+- Průzkum konkurence nebo trhu
+- Rešerše pro rozhodování
+- Monitoring médií a oborových novinek
+- Shrnutí vědeckých nebo odborných dokumentů
 
-**Kde to najdete:** Perplexity Deep Research, ChatGPT s Deep Research (Plus), Claude Projects s přístupem k webu
+Příklady: **Perplexity Pro Search**, **OpenAI Deep Research**, **Gemini Deep Research**
 
----
+### 2. Kódovací agenti
 
-### Code agent
+Plánují, píší, testují a debugují kód s minimálním lidským vstupem. Jsou ideální pro:
+- Implementaci nových funkcí na základě specifikace
+- Opravy bugů v existujícím kódu
+- Generování testů
+- Refaktoring a dokumentaci
 
-**Co dělá:** Dostane popis problému → napíše kód → spustí ho → zkontroluje výstup → opraví chyby → vrátí funkční řešení.
+Příklady: **Devin** (Cognition), **GitHub Copilot Workspace**, **Cursor Composer**, **Aider**
 
-**Bez agenta:** Programátor napíše, otestuje, debuguje
-**S agentem:** Popis problému → funkční kód za minuty
+### 3. Pracovní a automatizační agenti
 
-**Kde to najdete:** GitHub Copilot Agent, Cursor (Composer mode), Devin (specializovaný coding agent)
+Propojují více aplikací a provádějí akce v reálných systémech. Jsou ideální pro:
+- Automatizaci opakujících se procesů
+- Zpracování emailů, formulářů, datových vstupů
+- Synchronizaci dat mezi systémy
 
----
+Příklady: **Zapier AI Agents**, **Make AI Scenarios**, **n8n AI nodes**
 
-### Data analysis agent
+### 4. Osobní AI asistenti s pamětí
 
-**Co dělá:** Nahraje CSV nebo Excel → analyzuje data → identifikuje trendy → generuje vizualizace → napíše interpretaci.
+Agenti, kteří znají váš kontext, projekty a způsob práce. Čím více s nimi pracujete, tím jsou efektivnější.
 
-**Bez agenta:** Data analytik tráví hodiny v Excelu nebo Pythonu
-**S agentem:** Nahrát soubor, zadat otázku → report za minuty
+Příklady: **Claude Projects** (Anthropic), **ChatGPT Custom GPTs**, **Notion AI**
 
-**Kde to najdete:** ChatGPT Plus (Advanced Data Analysis), Claude s Python interpreterem, Julius.ai
+### 5. Podnikoví agenti
 
----
+Integrují se s podnikovými systémy, mají přísné bezpečnostní požadavky a jsou přizpůsobitelné konkrétním firemním procesům.
 
-### Customer service agent
+Příklady: **Salesforce Agentforce**, **Microsoft Copilot Studio**, **ServiceNow AI Agents**
 
-**Co dělá:** Odpoví zákazníkovi → hledá odpovědi v dokumentaci → eskaluje pokud neví → zaznamenává ticket do CRM.
+## Přehled dostupných AI agentů v 2026
 
-**Bez agenta:** Zákaznický servis ručně odpovídá na každý e-mail
-**S agentem:** 70–80 % dotazů vyřeší agent bez lidské intervence
+| Nástroj | Typ | Přibližná cena (Kč/měs) | Pro koho |
+|---------|-----|------------------------|----------|
+| OpenAI Deep Research | Výzkum | 530 (součást ChatGPT Plus) | Výzkumníci, analytici |
+| Perplexity Pro | Výzkum | 550 | Každý, kdo potřebuje fakta |
+| Claude Projects | Osobní asistent | 550 (Claude Pro) | Znalostní pracovníci |
+| Devin | Kódování | 3 500+ | Vývojáři, technické týmy |
+| GitHub Copilot Workspace | Kódování | 350 | Programátoři |
+| Cursor Composer | Kódování | 700 | Vývojáři |
+| Zapier AI Agents | Automatizace | Zdarma / od 650 | Netechničtí uživatelé |
+| Make AI | Automatizace | Zdarma / od 400 | Netechničtí uživatelé |
+| Salesforce Agentforce | Podnikový | Individuální cena | Velké firmy |
+| Microsoft Copilot Studio | Podnikový | Součást M365 | Firmy s Microsoft stackem |
 
-**Kde to najdete:** Intercom Fin, Zendesk AI, HubSpot AI Agent
+Ceny jsou orientační, přepočítané z USD průběžným kurzem. Většina nástrojů akceptuje platební kartu s mezinárodní fakturací.
 
----
+## Jak využít AI agenty dnes – 5 konkrétních příkladů
 
-### Personal productivity agent
+### 1. Výzkumný agent pro analýzu konkurence
 
-**Co dělá:** Spravuje kalendář, prioritizuje úkoly, připravuje briefy na schůzky, sumarizuje e-maily, navrhuje odpovědi.
+**Zadání agentovi:** „Najdi 10 českých firem poskytujících CRM software pro malé firmy. Pro každou zjisti: URL webu, přibližný cenový rozsah, klíčové funkce, podle dostupných recenzí jejich silné a slabé stránky. Výsledek připrav jako tabulku."
 
-**Kde to najdete:** Microsoft Copilot (deep Outlook + Teams integrace), Google Gemini Advanced (Gmail + Calendar)
+**Výsledek:** Hotová srovnávací tabulka za 5–10 minut namísto 2–3 hodin ručního výzkumu.
 
----
+**Doporučený nástroj:** Perplexity Pro nebo OpenAI Deep Research
 
-## Dostupné AI agent platformy v 2026
+### 2. Email agent pro denní třídění
 
-### Hotové agenty (bez kódování)
+**Zadání agentovi:** „Každé ráno v 8:00 projdi moji emailovou schránku. Pro každý nový email: (1) kategorizuj (urgentní / k odpovědi / k přečtení / spam), (2) napiš 2-věté shrnutí, (3) pro 'k odpovědi' navrhni draft odpovědi. Výsledky pošli jako strukturovaný přehled do Slack kanálu #inbox."
 
-**ChatGPT Deep Research** (Plus, ~460 Kč/měs.)
-Autonomní výzkumný agent – zadáte téma, on prohledá web a sestaví report s citacemi. Jeden z nejlepších pro business research.
+**Výsledek:** Ušetříte 30–45 minut denně na třídění emailů.
 
-**Perplexity Deep Research** (Pro, ~460 Kč/měs.)
-Podobné ChatGPT Deep Research, silnější v citování zdrojů.
+**Doporučený nástroj:** Zapier AI Agents nebo Make s OpenAI integrací
 
-**Claude Projects** (Pro)
-Trvalý kontext pro projekt – agent si pamatuje váš projekt a postupně buduje znalostní bázi.
+### 3. Měsíční content calendar agent
 
-**Microsoft Copilot** (M365 Copilot, ~800 Kč/uživatel/měs.)
-Nejhlouběji integrovaný agent pro Microsoft ekosystém (Outlook, Teams, SharePoint). Automaticky sumarizuje schůzky, píše e-maily, hledá dokumenty.
+**Zadání agentovi:** „Na základě naší content strategie (přiložený dokument) a obsahu z minulého měsíce navrhni content calendar na příští měsíc. Pro každý blogový článek navrhni: téma, klíčová slova, strukturu (H1, H2, H3), CTA a doporučený termín publikace. Formát: Notion tabulka."
 
-**Google Gemini Advanced** (~460 Kč/měs.)
-Agent pro Google Workspace – sumarizuje Gmail vlákna, odpovídá na e-maily, analyzuje Google Docs.
+**Výsledek:** Osnova celého měsíce obsahu za 15 minut namísto půldenního plánování.
 
-### Pro vývojáře a pokročilé uživatele
+**Doporučený nástroj:** Claude Projects se připojeným Notion nebo ChatGPT Custom GPT
 
-**LangChain/LangGraph** – Open-source framework pro stavění vlastních agentů
+### 4. Data monitoring agent
 
-**AutoGPT** – Jeden z prvních autonomních agentů, open-source
+**Zadání agentovi:** „Každý den v 7:00 zkontroluj tyto 3 zdroje: (a) Google News pro klíčové slovo 'AI regulace Česko', (b) RSS feed TechCrunch sekce AI, (c) Twitter/X hashtag #AIAct. Ze souhrnu vyber 3–5 nejrelevantnějších zpráv pro naši firmu a pošli je jako bullet-point shrnutí na email."
 
-**Anthropic API s tool use** – Claude s přístupem k vlastním nástrojům a API
+**Výsledek:** Denní monitoring oborových novinek bez nutnosti ručního procházení zdrojů.
 
-**OpenAI Assistants API** – Stavění vlastních agentů na GPT modelu
+**Doporučený nástroj:** Make AI nebo Zapier AI Agents
 
----
+### 5. Zákaznický support agent
 
-## Limity a rizika AI agentů
+**Zadání agentovi:** „Odpovídej na zákaznické dotazy přes chat na webu. Pro standardní dotazy (FAQ, ceny, dostupnost produktů) odpovídej samostatně z přiložené znalostní báze. Pokud dotaz nespadá do FAQ nebo zákazník vyjadřuje nespokojenost, přeposílej živému operátorovi s kontextovým shrnutím dosavadní konverzace."
 
-Agenti jsou silní – ale mají důležitá omezení:
+**Výsledek:** 60–70 % dotazů vyřešeno automaticky, lidský tým se věnuje složitějším případům.
 
-**Chybovost se kumuluje.** Pokud agent udělá malou chybu v kroku 3 z 10 kroků, ovlivní to všechny následující kroky. Vždy kontrolujte výsledky, zejména důležitých úkolů.
+**Doporučený nástroj:** Intercom AI, Zendesk AI nebo vlastní řešení přes API
 
-**Neoprávněné akce.** Agent s přístupem k e-mailu nebo CRM může omylem odeslat zprávu nebo smazat data. Testujte agenty v "sandbox" prostředí bez přístupu k produkčním systémům.
+## Rizika a omezení – na co si dát pozor
 
-**Nákladovost.** Agenti spotřebují více tokenů než jednoduché chatboty (víc kroků = víc API volání). Pro intenzivní použití to může být dražší.
+AI agenti jsou mocné nástroje, ale přicházejí s riziky, která je třeba aktivně řídit:
 
-**Transparentnost rozhodnutí.** Těžší sledovat přesně proč agent udělal konkrétní rozhodnutí. Pro kritické procesy je potřeba auditabilita.
+**Halucinace v autonomním režimu.** Když AI agent pracuje bez přímého dohledu, chyby se mohou propagovat. Agent může vyhledat nesprávnou informaci, použít ji jako vstup pro další krok a výsledný výstup bude systematicky chybný. Řešení: vždy nastavte checkpoint, kde člověk zkontroluje mezivýsledky před tím, než agent pokračuje dál.
 
-**Praktická rada:** Začněte s agenty pro low-stakes úkoly (výzkum, drafty dokumentů). Agenty pro akce s důsledky (odesílání e-mailů, CRM aktualizace) nasazujte opatrně s lidským schválením.
+**Runaway tasks.** Agent, který má příliš volnou ruku, může začít dělat nežádoucí věci – odesílat emaily, mazat soubory, volat API s nečekanými parametry. Vždy nastavujte jasné hranice (scope) a permissions, které agent má. Začínáte v read-only režimu (agent jen čte, nemodifikuje), teprve pak přidávejte write permissions.
 
----
+**Finanční riziko.** Agenti s přístupem k platebním systémům nebo nákupním API mohou způsobit nečekané transakce. Nikdy nedávejte agentovi přístup k produkčním platebním systémům bez potvrzovacího kroku člověkem.
+
+**Ochrana dat a soukromí.** Agenti zpracovávají data a odesílají je externím API. Přečtěte si pravidla ochrany dat každého nástroje, který používáte. Pro citlivá firemní data použijte enterprise plány s DPA. Podrobnosti o bezpečnosti AI a GDPR najdete v článku [AI bezpečnost a GDPR](/ai-bezpecnost-gdpr).
+
+**Závislost na dostupnosti API.** Agentní workflow závisí na dostupnosti externích API (OpenAI, Anthropic, Google…). Výpadky těchto služeb zastavují vaše procesy. Navrhujte kritické workflow s fallbackem na manuální zpracování.
 
 ## Jak funguje v Česku
 
-**Česky mluvící agenti:** Všechny velké agentní platformy (ChatGPT, Claude, Gemini) fungují česky. Výzkumné agenty zvládají i česky psané zdroje.
+Český trh s AI agenty se rychle rozvíjí, ale zatím zaostává za USA nebo Německem. Zde je aktuální obraz:
 
-**Právní kontext:** V ČR zatím není specifická legislativa o AI agentních systémech. AI Act dopadá na vysokorizikové nasazení (HR, finanční rozhodování). Pro interní firemní agenty (produktivita) požadavky minimální.
+**České AI startupy zaměřené na agentiku:** Rosou projekty jako Integromat (nyní Make, původně česká firma s globálním dosahem), Keboola (datová platforma s AI features) nebo různé menší startupy v pražském ekosystému. Czechitas aktivně vzdělává v oblasti AI, včetně agentic AI.
 
-**GDPR a agenti:** Agent s přístupem k zákaznickým datům nebo e-mailům je zpracovatel osobních dat. Platí standardní GDPR povinnosti.
+**Enterprise adopce v ČR:** Velké české firmy (O2, ČEZ, Škoda Auto, bankovní sektor) začínají experimentovat s podnikovými AI agenty – zejména v oblasti zákaznické podpory a zpracování dokumentů. Nábor AI specialistů v ČR meziročně roste o desítky procent.
 
----
+**Jazyková kvalita** česky mluvících agentů: GPT-4o, Claude 3.5 a Gemini 1.5 Pro zvládají češtinu na velmi dobré úrovni. Pro většinu pracovních použití je jazykový rozdíl oproti angličtině zanedbatelný. Starší nebo menší modely mohou mít problém se složitějšími jazykovými strukturami.
 
-## Kam dál
+**Lokální automatizační agentury:** V Praze a Brně existuje rostoucí trh konzultantů a agentur, které pomohou firmám navrhnout a nasadit AI workflow a agentní systémy. Orientační ceny: 500–2000 Kč/hod za konzultaci, hotové jednoduché workflow od 20 000 Kč.
 
-- 🔧 [Jak si postavit vlastní AI workflow](/vlastni-ai-workflow) – Základ před agenty
-- 🏆 [Nejlepší AI stack pro různé profese 2026](/nejlepsi-ai-stack-2026) – Kam agenty zařadit
-- 🔮 [Budoucnost AI – co přijde a jak se připravit](/budoucnost-ai-2026) – Trendy v agentní AI
+Co přijde dál v oblasti AI agentů a jak to ovlivní pracovní trh v ČR? Přečtěte si náš výhled [budoucnost AI 2026](/budoucnost-ai-2026).
 
----
+## Jak začít s AI agenty – pro začátečníky
 
-## FAQ
+Nejlepší způsob, jak se naučit pracovat s AI agenty, je postupné zvyšování složitosti:
 
-**Je AI agent totéž co robot nebo RPA (Robotic Process Automation)?**
-Podobné, ale jiné. RPA automatizuje pevně dané kroky (klikni zde, zkopíruj tam). AI agent dokáže autonomně plánovat, rozhodovat a adaptovat se na neočekávané situace. Je flexibilnější.
+**Stupeň 1 – Claude Projects nebo ChatGPT Custom GPT (0–550 Kč/měs)**
 
-**Mohu si vytvořit vlastního agenta bez programování?**
-Ano. Platformy jako Zapier AI Agents, Make.com nebo Microsoft Copilot Studio umožňují základní agenty bez kódu. Pro složitější agenty (vlastní nástroje, specifická logika) je programování potřeba.
+Začněte tím, že si v Claudu nebo ChatGPT vytvoříte dedikovaný „projekt" nebo „custom GPT" pro konkrétní opakující se úkol. Nahrajete kontextové dokumenty (vaše produkty, styl komunikace, interní pokyny) a AI bude mít konzistentní kontext napříč sezeními. To ještě není plnohodnotný agent, ale první krok správným směrem.
 
-**Jak moc můžu agentovi věřit?**
-Záleží na úkolu. Pro výzkum a generování obsahu – s ověřením výsledků vysoká důvěra. Pro akce s důsledky (odesílání e-mailů, finanční transakce, smazání dat) – vždy mějte lidský schvalovací krok.
+**Stupeň 2 – Zapier AI Agents nebo Make AI (zdarma / od 400 Kč/měs)**
 
-**Jsou agenti bezpečnější než chatboty?**
-Ne nutně – jsou výkonnější, ale to zvyšuje i potenciální riziko při chybě nebo manipulaci (prompt injection útok). Bezpečnost závisí na konkrétní implementaci a nastavení oprávnění.
+Zapojte automatizaci – AI agent, který reaguje na trigger (nový email, nový řádek v tabulce, webhook) a provede sekvenci kroků. Začněte read-only (agent čte a sumarizuje) a přidávejte akce postupně.
 
-**Nahradí agenti programátory?**
-Agenti jako Devin nebo GitHub Copilot Agent zvládají rutinní kódovací úkoly. Pro složitý software design, architekturní rozhodnutí a kritické systémy jsou programátoři stále nepostradatelní. Mění se ale povaha jejich práce – méně psaní kódu, více review a orchestrace.
+**Stupeň 3 – OpenAI Deep Research nebo Perplexity Pro (530–550 Kč/měs)**
+
+Nasaďte specializovaného výzkumného agenta pro skutečně autonomní výzkumné úkoly. Zadejte komplexní výzkumný dotaz a sledujte, jak agent sám plánuje a provádí vícekrokový výzkum.
+
+**Stupeň 4 – Vlastní agenti přes API nebo Cursor/Devin**
+
+Pro technicky zdatné: vlastní agentní workflow přes OpenAI Assistants API nebo Anthropic API umožňuje plnou kontrolu a přizpůsobení. Pro vývojáře: Cursor Composer a Devin pro plně agentní vývoj kódu.
+
+Jak tyto kroky integrovat do každodenní práce popisujeme podrobně v článku [jak si postavit vlastní AI workflow](/vlastni-ai-workflow). Přehled nejlepších nástrojů pro každou roli najdete v [nejlepším AI stacku pro rok 2026](/nejlepsi-ai-stack-2026).
+
+## Časté otázky (FAQ)
+
+### Q: Co je AI agent – jednoduše?
+
+AI agent je AI systém, který dostane cíl (ne otázku), sám si naplánuje kroky k jeho dosažení, používá nástroje jako web search, email nebo kód, autonomně tyto kroky vykonává a vrátí vám výsledek. Klíčový rozdíl od chatbotu: agent **jedná**, nejen odpovídá.
+
+### Q: Jsou AI agenti bezpečné?
+
+Záleží na tom, jak je nastavíte. Klíčová bezpečnostní opatření: (1) definujte jasné hranice toho, co agent smí dělat (scope a permissions), (2) začínáte v read-only režimu, (3) pro kritické akce (odesílání emailů, finanční transakce) nastavte povinný lidský souhlas, (4) logujte veškerou aktivitu agenta. S těmito pojistkami jsou agenti bezpečným nástrojem pro automatizaci.
+
+### Q: Mohou AI agenti utratit mé peníze bez mého vědomí?
+
+Sami od sebe ne – pouze pokud jim dáte přístup k platebním systémům nebo vydáváte pokyny bez potvrzovacího kroku. Žádný zodpovědný agent framework neprovede platbu bez explicitního povolení. Doporučujeme: agentům nikdy nedávejte přímý přístup k produkčním platebním metodám; pokud potřebují nakoupit, ať vám pošlou návrh k odsouhlasení.
+
+### Q: Jak se AI agent liší od běžného ChatGPT?
+
+ChatGPT (v základní podobě) je konverzační chatbot: vy se ptáte, on odpovídá, jeden krok najednou. AI agent je systém s plánováním a autonomním prováděním: dostane cíl a sám provede sérii kroků pomocí nástrojů. ChatGPT s Deep Research nebo custom GPT s nástroji se přibližuje agentnímu chování, ale základní chatbot to není.
+
+### Q: Potřebuji programovat, abych mohl používat AI agenty?
+
+Pro většinu praktických použití ne. Zapier AI Agents, Make AI nebo Claude Projects jsou navrženy pro netechnické uživatele – konfigurace je vizuální, bez kódu. Pokud chcete stavět vlastní, komplexní nebo specificky přizpůsobené agenty, programování (Python, JavaScript) otevírá výrazně více možností. Ale pro 80 % use cases to není potřeba.
+
+### Q: Budou AI agenti nahrazovat pracovní místa?
+
+Pravděpodobně transformují (spíše než eliminují) mnoho rolí. Rutinní části práce – výzkum, třídění dat, zpracování dokumentů, zákaznická podpora na první linii – budou z velké části automatizovány. Zbyde kreativní, strategická a vztahová práce. Realistický výhled: lidé, kteří umí s AI agenty efektivně pracovat, budou v pracovním trhu výrazně produktivnější než ti, kteří ne. Detailní pohled na dopad AI na pracovní trh najdete v článku [budoucnost AI – co přijde a jak se připravit](/budoucnost-ai-2026).

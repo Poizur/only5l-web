@@ -4,6 +4,7 @@ import ArticleCard from "@/components/article/ArticleCard";
 import { getAllArticles, getFeaturedArticles, getArticlesByCategory } from "@/lib/articles";
 import { site } from "@/lib/site";
 import Link from "next/link";
+import PersonalizedSection from "@/components/ui/PersonalizedSection";
 
 export const metadata: Metadata = {
   title: `${site.name} — ${site.tagline}`,
@@ -35,8 +36,9 @@ const CATEGORIES = [
 ];
 
 export default function HomePage() {
+  const allArticles = getAllArticles();
   const featured = getFeaturedArticles(1);
-  const recent = getAllArticles().slice(0, 6);
+  const recent = allArticles.slice(0, 6);
   const guides = getArticlesByCategory("navody").slice(0, 3);
   const comparisons = getArticlesByCategory("srovnani").slice(0, 3);
 
@@ -88,7 +90,7 @@ export default function HomePage() {
 
         {/* Beginners / Guides */}
         {guides.length > 0 && (
-          <section>
+          <section className="below-fold">
             <SectionHeader
               label="Začínám s AI"
               title="Průvodce pro začátečníky"
@@ -111,7 +113,7 @@ export default function HomePage() {
 
         {/* Comparisons */}
         {comparisons.length > 0 && (
-          <section>
+          <section className="below-fold">
             <SectionHeader
               label="Srovnání"
               title="Nevíš co vybrat? Porovnali jsme to za tebe"
@@ -132,9 +134,12 @@ export default function HomePage() {
           </section>
         )}
 
+        {/* Personalized recommendations — client-side, cookie-based */}
+        <PersonalizedSection articles={allArticles} />
+
         {/* Recent articles */}
         {recent.length > 0 && (
-          <section>
+          <section className="below-fold">
             <SectionHeader
               label="Nejnovější"
               title="Čerstvé recenze a návody"

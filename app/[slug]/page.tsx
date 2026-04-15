@@ -12,6 +12,7 @@ import ToolCard from "@/components/article/ToolCard";
 import ComparisonTable from "@/components/article/ComparisonTable";
 import FAQ from "@/components/article/FAQ";
 import SurveyInlineCTA from "@/components/ui/SurveyInlineCTA";
+import CategoryTracker from "@/components/ui/CategoryTracker";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -159,6 +160,7 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <>
       <ArticleJsonLd article={article} />
+      <CategoryTracker category={fm.category.toLowerCase()} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-surface-400 mb-8">

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* Inter je načítán přes next/font v layout.tsx — nepoužívat @import zde */
 
 :root {
   --font-inter: 'Inter', system-ui, sans-serif;
@@ -81,5 +81,19 @@ html {
   /* Article body — wraps MDX output */
   .prose-article {
     @apply text-surface-800 leading-relaxed max-w-none;
+  }
+
+  /* CLS prevence: explicitní aspect-ratio pro obrázky v kartách článků */
+  .article-cover-wrapper {
+    aspect-ratio: 16 / 9;
+    background-color: theme('colors.surface.100');
+    overflow: hidden;
+    border-radius: theme('borderRadius.2xl');
+  }
+
+  /* Content-visibility: auto pro sekce pod fold — zkrátí LCP */
+  .below-fold {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px;
   }
 }

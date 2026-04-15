@@ -25,7 +25,7 @@ export default function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-wider text-surface-400 mb-3">
               {site.locale === "cs" ? "Navigace" : "Navigation"}
             </h3>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+            <ul className="grid grid-cols-2 gap-x-2 gap-y-1.5">
               {nav.links
                 .filter((link) => !(link.href as string).includes("o-nas"))
                 .map((link) => (

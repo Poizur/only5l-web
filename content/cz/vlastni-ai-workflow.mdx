@@ -1,0 +1,202 @@
+---
+title: "Jak si postavit vlastní AI workflow – krok za krokem"
+description: "Praktický návod jak integrovat AI do každodenní práce. Jak navrhout workflow, propojit nástroje a ušetřit 5–10 hodin týdně. Příklady pro marketéra, programátora a podnikatele."
+publishedAt: "2026-04-15"
+category: zacatky
+tags: [AI workflow, produktivita, automatizace, workflow design]
+coverImage: "https://images.pexels.com/photos/7688460/pexels-photo-7688460.jpeg?auto=compress&cs=tinysrgb&w=1200"
+featured: false
+---
+
+Znát AI nástroje nestačí. Rozdíl mezi tím, kdo AI "zkouší" a tím, kdo díky ní vydělá nebo ušetří 40 % více, je v systematickém **workflow** – opakujícím se procesu kde AI hraje definovanou roli. Tady je návod jak si ho postavit.
+
+## Co je AI workflow a proč ho potřebujete
+
+AI workflow je opakující se posloupnost kroků, kde AI plní konkrétní role. Místo aby jste pokaždé improvizovali nový prompt, máte definovaný postup: vstupy, AI kroky, výstupy.
+
+**Bez workflow:** Každé pondělí strávíte 20 minut přemýšlením jak na tento týden napsat newsletter. Výsledky jsou nekonzistentní, čas nepředvídatelný.
+
+**S workflow:** Newsletter workflow → vstupy (téma, 3 bullet points) → Claude napíše draft → vy editujete → odesíláte. Celkem 35 minut místo 2 hodin, každý týden stejně.
+
+---
+
+## Krok 1: Identifikujte vhodné úkoly
+
+Ne každý úkol se hodí do AI workflow. Nejlepší kandidáti splňují tato kritéria:
+
+**✅ Opakuje se** – Děláte to alespoň jednou týdně (nebo víckrát denně)
+**✅ Má jasný vstup a výstup** – Víte co do toho jde a co z toho má vyjít
+**✅ Je text nebo data** – AI je nejlepší na práci s textem, kódem a strukturovanými daty
+**✅ Nevyžaduje fyzický kontakt** – AI nemůže zavolat zákazníkovi nebo podepsat smlouvu
+
+**❌ Nevhodné pro AI workflow:**
+- Jednoduché úkoly trvající méně než 2 minuty (overhead není úměrný)
+- Úkoly vyžadující specifické lokální znalosti (váš zákazník Novák a jeho zvláštní požadavky)
+- Kreativní tvorba kde originálnost je klíčem
+- Fyzické nebo urgentní situace
+
+---
+
+## Krok 2: Navrhněte workflow blueprint
+
+Pro každý AI workflow si odpovězte na 5 otázek:
+
+**1. Co je vstup?**
+Co musíte mít připraveno před spuštěním? (téma článku, seznam zákazníků, surová data)
+
+**2. Jaký je cíl výstupu?**
+Co konkrétně chcete mít na konci? (draft e-mailu, tabulka, seznam nápadů)
+
+**3. Jaké AI nástroje jsou potřeba?**
+ChatGPT/Claude pro psaní? Zapier/Make pro automatizaci? Excel/Sheets AI pro data?
+
+**4. Kde je lidský checkpoint?**
+Kde musí člověk zkontrolovat nebo rozhodnout? (před odesláním, před publikováním)
+
+**5. Jak dlouho by to mělo trvat?**
+Cíl: o kolik % kratší než bez AI?
+
+---
+
+## Krok 3: Napište "master prompt"
+
+Každý workflow potřebuje připravený prompt, který nemusíte psát znovu. Uložte si ho (v Notion, Google Docs, nebo přímo jako Custom Instruction v ChatGPT).
+
+**Struktura master promptu:**
+```
+[ROLE] Jsi [popis role].
+[KONTEXT] Pracuji jako [vaše profese]. [Popis projektu nebo kontextu].
+[ÚKOL] Na základě {{VSTUP}} vytvoř {{VÝSTUP}}.
+[FORMÁT] Výstup v podobě {{formát}}. Délka: {{délka}}.
+[OMEZENÍ] Nepoužívej {{co nechcete}}.
+```
+
+Místa `{{proměnné}}` nahradíte pokaždé konkrétními hodnotami.
+
+**Příklad master promptu pro týdenní newsletter:**
+```
+Jsi editor B2B newsletteru pro podnikatele.
+Pracuji ve firmě prodávající HR software. Audience: HR manažeři středně velkých firem.
+Na základě těchto 3 témat: {{TÉMATA}} napiš draft newsletteru.
+Struktura: uvítání (2 věty), 3 krátké sekce (každá 80–100 slov), závěr s CTA.
+Tón: přátelský, praktický, bez žargonu. Bez fráze "V dnešní době..."
+```
+
+---
+
+## Krok 4: Testujte a iterujte
+
+Žádný workflow není dokonalý hned. Plán:
+
+1. **Spusťte 3× a sbírejte výsledky** – co funguje, co ne
+2. **Identifikujte nejčastější problémy** – příliš formální tón? Špatná struktura? Chybějící specifika?
+3. **Aktualizujte master prompt** – přidejte negativní příklady, upřesněte požadavky
+4. **Opakujte** – většina workflowů se ustálí po 5–10 iteracích
+
+---
+
+## 3 hotové AI workflow šablony
+
+### Workflow 1: Content Creation Pipeline (pro marketéry)
+
+**Vstup:** Téma článku + 3 klíčové body + cílová audience
+**Čas:** ~45 minut místo 3 hodin
+
+**Kroky:**
+1. **Keyword research** (Perplexity): "Jaká jsou nejčastěji hledaná slova okolo tématu [X] v češtině?"
+2. **Outline** (Claude): "Navrhni strukturu 1500slovního článku o [tématu] pro [audience]. Zahrň heading pro každou sekci."
+3. **Draft** (Claude): "Napiš kompletní text podle tohoto outlines. Tón: [popis]. Klíčová slova: [seznam]."
+4. **SEO optimalizace** (ChatGPT): "Zkontroluj text pro SEO. Navrhni kde přidat klíčová slova přirozeně."
+5. **Lidský checkpoint:** Finální editace, přidání osobních zkušeností, kontrola faktů
+6. **Distribuce:** Copy do CMS a naplánování
+
+**Master prompt pro krok 3:**
+```
+Jsi copywriter specializovaný na B2B SaaS obsah.
+Napiš kompletní článek podle tohoto outlines: {{OUTLINE}}
+Délka: 1500 slov. Tón: autoritativní ale přátelský, praktické rady.
+Každá sekce začne konkrétním tvrzením, ne obecností.
+Klíčové slovo "{{KEYWORD}}" použij přirozeně 4–6×.
+Nepíši úvod "V dnešní době..." ani závěr "Závěrem lze říci..."
+```
+
+---
+
+### Workflow 2: Sales Research & Outreach (pro obchodníky)
+
+**Vstup:** Název firmy nebo LinkedIn profil
+**Čas:** ~15 minut na zákazníka místo 45 minut
+
+**Kroky:**
+1. **Firmographics** (Perplexity): "Zjisti klíčové informace o firmě [název]: obor, velikost, nedávné zprávy, problémy odvětví."
+2. **Pain points** (Claude): "Na základě těchto informací [výsledky kroku 1] identifikuj 3 potenciální pain pointy relevantní pro [váš produkt/služba]."
+3. **Cold email draft** (Claude): "Napiš personalizovaný cold email pro [jméno/pozice] z firmy [název]. Zmiň konkrétní pain point: [z kroku 2]. Max 5 vět + CTA na 20min call."
+4. **LinkedIn version** (Claude): "Přepiš e-mail pro LinkedIn InMail. Max 3 věty."
+5. **Lidský checkpoint:** Personalizace jménem, ověření faktů, stylová úprava
+
+---
+
+### Workflow 3: Weekly Reporting (pro manažery)
+
+**Vstup:** Surová data (čísla, meetingové poznámky, úkoly)
+**Čas:** ~25 minut místo 1.5 hodiny
+
+**Kroky:**
+1. **Data agregace:** Zkopírujte čísla z nástrojů (CRM, tabulky, projekt management)
+2. **Analýza trendů** (Claude): "Tato čísla jsou z minulého týdne: {{DATA}}. Identifikuj: co šlo dobře, co špatně, jaký je klíčový trend."
+3. **Narrative draft** (Claude): "Na základě analýzy [krok 2] napiš 1stránkový manažerský report. Sekce: executive summary, klíčové metriky, problémy a příčiny, doporučení."
+4. **Vizualizace:** Přidejte grafy ručně nebo přes Google Sheets AI
+5. **Lidský checkpoint:** Zkontrolujte kontext, doplňte informace co AI nemohla vědět
+
+---
+
+## Pokročilé: Automatizace bez kódování
+
+Pokud chcete workflow ještě dál automatizovat, tyto nástroje propojí AI s vašimi aplikacemi bez programování:
+
+**Zapier:** Největší platforma pro automatizaci. Má přímé integrace s ChatGPT. Příklad: Nový e-mail v Gmailu → ChatGPT napíše draft odpovědi → uloží do Drafts.
+
+**Make (dříve Integromat):** Výkonnější a flexibilnější alternativa k Zapieru. Lepší pro komplexní workflow s více větvemi.
+
+**n8n:** Open-source alternativa, lze self-hostovat (pro citlivá data). Strmá křivka učení, ale maximální kontrola.
+
+**Notion AI:** Pokud pracujete v Notion, AI je přímo integrovaná – sumarizuje stránky, generuje obsah, analyzuje databáze.
+
+---
+
+## Jak funguje v Česku
+
+**Zapier a Make** mají rozhraní v angličtině, ale fungují s českými daty bez problémů. Platba kartou, bez DPH pokud platíte přes firemní účet.
+
+**Dostupné integrace pro české nástroje:** Fakturoid, Raynet CRM, Raynet HR mají Zapier integrace. Pohoda (účetnictví) přímou integraci nemá, ale data lze exportovat.
+
+**GDPR v automatizacích:** Zapier a Make jsou GDPR compliant a podepíší DPA (Data Processing Agreement). Při zpracování osobních dat zákazníků přes AI workflow konzultujte s DPO.
+
+---
+
+## Kam dál
+
+- ✍️ [Jak psát prompty – průvodce s 30 příklady](/jak-psat-prompty-pruvodce) – Základ pro tvorbu master promptů
+- 💼 [AI pro práci – use cases podle profese](/ai-pro-praci-use-cases) – Inspirace pro vaše workflow
+- 🤖 [AI agenti – co to jsou a jak je využít](/ai-agenti-co-to-je) – Příští úroveň automatizace
+
+Na pokročilou úroveň: [Nejlepší AI stack pro různé profese 2026](/nejlepsi-ai-stack-2026) a [Budoucnost AI – co přijde](/budoucnost-ai-2026)
+
+---
+
+## FAQ
+
+**Jak dlouho trvá vybudovat fungující AI workflow?**
+Pro jednoduchý workflow (jeden opakující se úkol): 1–2 hodiny nastavení + 3–5 iterací (1–2 týdny používání). Komplexní automatizovaný pipeline s Zapierem: 1–2 dny.
+
+**Musím umět programovat?**
+Ne pro základní AI workflow (prompty + copy-paste). Ne ani pro automatizace přes Zapier nebo Make (no-code drag & drop). Kódování pomůže pro pokročilé custom integraci, ale není nutné.
+
+**Co dělat, když workflow přestane fungovat?**
+AI modely se aktualizují a výstupy se mohou mírně změnit. Pravidelně (čtvrtletně) přezkoušejte workflow a aktualizujte master prompty. Udržujte log: "Kdy jsem naposledy testoval, jaký byl výsledek."
+
+**Mohu AI workflow sdílet s týmem?**
+Ano. Uložte master prompty do sdíleného Notion nebo Google Doc. Každý člen týmu pak workflow použije se stejnými prompty – konzistentní výsledky napříč týmem.
+
+**Je bezpečné mít automatický pipeline bez lidského kontrolního bodu?**
+Pro interní dokumenty nebo drafty – ano, automatizujte. Pro komunikaci se zákazníky nebo veřejně publikovaný obsah – vždy mějte lidský checkpoint před odesláním nebo publikováním.

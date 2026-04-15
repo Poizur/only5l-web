@@ -1,0 +1,188 @@
+---
+title: "AI agenti – co to jsou a jak je využít v praxi"
+description: "Co jsou AI agenti, jak se liší od chatbotů a jak je využít v práci. Vysvětlení, příklady a přehled dostupných nástrojů pro rok 2026."
+publishedAt: "2026-04-15"
+category: zacatky
+tags: [AI agenti, autonomní AI, agentic AI, automatizace]
+coverImage: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1200"
+featured: false
+---
+
+"AI agent" je nejčastěji skloňovaný termín ve světě AI v roce 2026. Ale co to vlastně znamená? A jak vám to může pomoci v praxi? Tady je vysvětlení bez hype, s konkrétními příklady a nástroji.
+
+## Co je AI agent – a jak se liší od chatbotu
+
+Chatbot (jako ChatGPT nebo Claude) funguje jako konverzace: vy napíšete zprávu, AI odpoví. Každý krok vyžaduje vaši interakci.
+
+**AI agent** je jiný: dostane cíl a pracuje autonomně – plánuje kroky, používá nástroje, reaguje na výsledky, a sám rozhoduje o dalším postupu. Vy zadáte cíl, ne postup.
+
+**Analogie:**
+- **Chatbot** = asistent který čeká na každý příkaz
+- **AI agent** = asistent který dostane zadání a vrátí se s výsledkem
+
+**Konkrétní rozdíl:**
+
+*Chatbot workflow (5 kroků vy):*
+1. Vy: "Najdi mi 3 konkurenty firmy X"
+2. AI odpoví
+3. Vy: "Teď pro každého zjisti jejich ceny"
+4. AI odpoví
+5. Vy: "Udělej z toho srovnávací tabulku"
+
+*Agent workflow (1 krok vy):*
+1. Vy: "Udělej mi srovnávací analýzu 3 hlavních konkurentů firmy X – jejich nabídky, ceny a positioning."
+Agent: vyhledá web, analyzuje stránky, zkompiluje tabulku, vrátí výsledek.
+
+---
+
+## Jak AI agenti fungují – technicky
+
+Agenti kombinují 4 základní komponenty:
+
+**1. LLM (velký jazykový model)** – "mozek" agenta, rozhoduje co dělat
+
+**2. Nástroje (tools)** – schopnosti agenta: webový prohlížeč, kalkulačka, databáze, Python interpreter, e-mail, API volání
+
+**3. Paměť** – krátkodobá (průběh aktuálního úkolu) a dlouhodobá (uložené znalosti o projektech nebo uživateli)
+
+**4. Plánovač** – mechanismus jak rozloží složitý cíl na dílčí kroky a jak reaguje na výsledky
+
+Moderní agenti mají přístup k internetu, mohou spouštět kód, pracovat se soubory, odesílat e-maily nebo volat API externích služeb – vše autonomně v rámci zadaného cíle.
+
+---
+
+## Reálné příklady AI agentů v praxi
+
+### Research agent
+
+**Co dělá:** Dostane téma → vyhledá relevantní zdroje → přečte a shrne obsah → sestaví strukturovaný report s citacemi.
+
+**Bez agenta:** 2–4 hodiny manuálního výzkumu
+**S agentem:** 10–15 minut
+
+**Kde to najdete:** Perplexity Deep Research, ChatGPT s Deep Research (Plus), Claude Projects s přístupem k webu
+
+---
+
+### Code agent
+
+**Co dělá:** Dostane popis problému → napíše kód → spustí ho → zkontroluje výstup → opraví chyby → vrátí funkční řešení.
+
+**Bez agenta:** Programátor napíše, otestuje, debuguje
+**S agentem:** Popis problému → funkční kód za minuty
+
+**Kde to najdete:** GitHub Copilot Agent, Cursor (Composer mode), Devin (specializovaný coding agent)
+
+---
+
+### Data analysis agent
+
+**Co dělá:** Nahraje CSV nebo Excel → analyzuje data → identifikuje trendy → generuje vizualizace → napíše interpretaci.
+
+**Bez agenta:** Data analytik tráví hodiny v Excelu nebo Pythonu
+**S agentem:** Nahrát soubor, zadat otázku → report za minuty
+
+**Kde to najdete:** ChatGPT Plus (Advanced Data Analysis), Claude s Python interpreterem, Julius.ai
+
+---
+
+### Customer service agent
+
+**Co dělá:** Odpoví zákazníkovi → hledá odpovědi v dokumentaci → eskaluje pokud neví → zaznamenává ticket do CRM.
+
+**Bez agenta:** Zákaznický servis ručně odpovídá na každý e-mail
+**S agentem:** 70–80 % dotazů vyřeší agent bez lidské intervence
+
+**Kde to najdete:** Intercom Fin, Zendesk AI, HubSpot AI Agent
+
+---
+
+### Personal productivity agent
+
+**Co dělá:** Spravuje kalendář, prioritizuje úkoly, připravuje briefy na schůzky, sumarizuje e-maily, navrhuje odpovědi.
+
+**Kde to najdete:** Microsoft Copilot (deep Outlook + Teams integrace), Google Gemini Advanced (Gmail + Calendar)
+
+---
+
+## Dostupné AI agent platformy v 2026
+
+### Hotové agenty (bez kódování)
+
+**ChatGPT Deep Research** (Plus, ~460 Kč/měs.)
+Autonomní výzkumný agent – zadáte téma, on prohledá web a sestaví report s citacemi. Jeden z nejlepších pro business research.
+
+**Perplexity Deep Research** (Pro, ~460 Kč/měs.)
+Podobné ChatGPT Deep Research, silnější v citování zdrojů.
+
+**Claude Projects** (Pro)
+Trvalý kontext pro projekt – agent si pamatuje váš projekt a postupně buduje znalostní bázi.
+
+**Microsoft Copilot** (M365 Copilot, ~800 Kč/uživatel/měs.)
+Nejhlouběji integrovaný agent pro Microsoft ekosystém (Outlook, Teams, SharePoint). Automaticky sumarizuje schůzky, píše e-maily, hledá dokumenty.
+
+**Google Gemini Advanced** (~460 Kč/měs.)
+Agent pro Google Workspace – sumarizuje Gmail vlákna, odpovídá na e-maily, analyzuje Google Docs.
+
+### Pro vývojáře a pokročilé uživatele
+
+**LangChain/LangGraph** – Open-source framework pro stavění vlastních agentů
+
+**AutoGPT** – Jeden z prvních autonomních agentů, open-source
+
+**Anthropic API s tool use** – Claude s přístupem k vlastním nástrojům a API
+
+**OpenAI Assistants API** – Stavění vlastních agentů na GPT modelu
+
+---
+
+## Limity a rizika AI agentů
+
+Agenti jsou silní – ale mají důležitá omezení:
+
+**Chybovost se kumuluje.** Pokud agent udělá malou chybu v kroku 3 z 10 kroků, ovlivní to všechny následující kroky. Vždy kontrolujte výsledky, zejména důležitých úkolů.
+
+**Neoprávněné akce.** Agent s přístupem k e-mailu nebo CRM může omylem odeslat zprávu nebo smazat data. Testujte agenty v "sandbox" prostředí bez přístupu k produkčním systémům.
+
+**Nákladovost.** Agenti spotřebují více tokenů než jednoduché chatboty (víc kroků = víc API volání). Pro intenzivní použití to může být dražší.
+
+**Transparentnost rozhodnutí.** Těžší sledovat přesně proč agent udělal konkrétní rozhodnutí. Pro kritické procesy je potřeba auditabilita.
+
+**Praktická rada:** Začněte s agenty pro low-stakes úkoly (výzkum, drafty dokumentů). Agenty pro akce s důsledky (odesílání e-mailů, CRM aktualizace) nasazujte opatrně s lidským schválením.
+
+---
+
+## Jak funguje v Česku
+
+**Česky mluvící agenti:** Všechny velké agentní platformy (ChatGPT, Claude, Gemini) fungují česky. Výzkumné agenty zvládají i česky psané zdroje.
+
+**Právní kontext:** V ČR zatím není specifická legislativa o AI agentních systémech. AI Act dopadá na vysokorizikové nasazení (HR, finanční rozhodování). Pro interní firemní agenty (produktivita) požadavky minimální.
+
+**GDPR a agenti:** Agent s přístupem k zákaznickým datům nebo e-mailům je zpracovatel osobních dat. Platí standardní GDPR povinnosti.
+
+---
+
+## Kam dál
+
+- 🔧 [Jak si postavit vlastní AI workflow](/vlastni-ai-workflow) – Základ před agenty
+- 🏆 [Nejlepší AI stack pro různé profese 2026](/nejlepsi-ai-stack-2026) – Kam agenty zařadit
+- 🔮 [Budoucnost AI – co přijde a jak se připravit](/budoucnost-ai-2026) – Trendy v agentní AI
+
+---
+
+## FAQ
+
+**Je AI agent totéž co robot nebo RPA (Robotic Process Automation)?**
+Podobné, ale jiné. RPA automatizuje pevně dané kroky (klikni zde, zkopíruj tam). AI agent dokáže autonomně plánovat, rozhodovat a adaptovat se na neočekávané situace. Je flexibilnější.
+
+**Mohu si vytvořit vlastního agenta bez programování?**
+Ano. Platformy jako Zapier AI Agents, Make.com nebo Microsoft Copilot Studio umožňují základní agenty bez kódu. Pro složitější agenty (vlastní nástroje, specifická logika) je programování potřeba.
+
+**Jak moc můžu agentovi věřit?**
+Záleží na úkolu. Pro výzkum a generování obsahu – s ověřením výsledků vysoká důvěra. Pro akce s důsledky (odesílání e-mailů, finanční transakce, smazání dat) – vždy mějte lidský schvalovací krok.
+
+**Jsou agenti bezpečnější než chatboty?**
+Ne nutně – jsou výkonnější, ale to zvyšuje i potenciální riziko při chybě nebo manipulaci (prompt injection útok). Bezpečnost závisí na konkrétní implementaci a nastavení oprávnění.
+
+**Nahradí agenti programátory?**
+Agenti jako Devin nebo GitHub Copilot Agent zvládají rutinní kódovací úkoly. Pro složitý software design, architekturní rozhodnutí a kritické systémy jsou programátoři stále nepostradatelní. Mění se ale povaha jejich práce – méně psaní kódu, více review a orchestrace.

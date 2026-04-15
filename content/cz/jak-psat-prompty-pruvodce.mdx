@@ -1,0 +1,247 @@
+---
+title: "Jak psát prompty – kompletní průvodce s 30 příklady"
+description: "Naučte se psát efektivní prompty pro ChatGPT a Claude. Struktura promptu, 6 technik, 30 konkrétních příkladů v češtině pro různé profese a situace."
+publishedAt: "2026-04-15"
+category: zacatky
+tags: [prompty, prompt engineering, ChatGPT, Claude, návod]
+coverImage: "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1200"
+featured: true
+---
+
+Rozdíl mezi průměrným a skvělým výsledkem z AI není v tom, který nástroj používáte – je v tom, jak se ho ptáte. Dobře napsaný prompt může zdesetinásobit hodnotu výstupu. Tady je vše, co potřebujete vědět, včetně 30 příkladů které si můžete rovnou zkopírovat.
+
+## Co je prompt a proč na něm záleží
+
+Prompt je zpráva, kterou posíláte AI. Může být jednořádkový ("Vysvětli mi inflaci") nebo strukturovaný paragraf s kontextem, rolí a instrukcemi.
+
+AI nezná váš záměr, váš kontext ani vaše preference. Vychází výhradně z toho, co napíšete. Proto platí zlaté pravidlo:
+
+> **Garbage in, garbage out. Excellence in, excellence out.**
+
+Kdo napíše "Napiš mi e-mail", dostane generický e-mail. Kdo napíše "Napiš formální e-mail zákazníkovi, který reklamuje vadný produkt, tón vstřícný ale profesionální, délka maximálně 150 slov, nezapomeň nabídnout konkrétní řešení", dostane použitelný výsledek.
+
+## Anatomie dobrého promptu
+
+Nejlepší prompty mají tyto čtyři součásti (ne vždy všechny, ale čím více, tím lépe):
+
+**1. Role** – Říká AI, jako kdo má odpovídat
+*"Jsi zkušený copywriter specializovaný na B2B SaaS..."*
+
+**2. Kontext** – Co AI potřebuje vědět o situaci
+*"...píšu pro startup který prodává HR software středním firmám..."*
+
+**3. Úkol** – Co konkrétně chcete
+*"...napiš 5 variant subject line pro cold email kampaň..."*
+
+**4. Formát a omezení** – Jak mají výsledky vypadat
+*"...každou variantu maximálně 8 slov, bez otazníků, různé přístupy (benefit, curiosity, urgency)."*
+
+## 6 technik pro lepší prompty
+
+### Technika 1: Přidejte roli (persona)
+
+AI se "přenastaví" podle role, kterou jí přidělíte. Změní slovní zásobu, úroveň detailu, přístup.
+
+❌ "Poraď mi s marketingem"
+✅ "Jsi CMO B2B SaaS firmy s 10letou zkušeností. Poraď mi s..."
+
+Pracovní role pro různé situace:
+- "Jsi zkušený právník specializovaný na pracovní právo..."
+- "Jsi finanční poradce s certifikátem CFP..."
+- "Jsi učitel základní školy který vysvětluje komplexní věci jednoduše..."
+- "Jsi kritický recenzent který hledá slabá místa v argumentaci..."
+
+### Technika 2: Specifikujte formát výstupu
+
+Bez specifikace dostanete text. S specifikací dostanete přesně to, co potřebujete.
+
+- "...ve formě tabulky se 3 sloupci: Nástroj, Cena, Výhody"
+- "...jako 5 odrážek, každá max. 20 slov"
+- "...jako email s předmětem, oslovením, 3 odstavci a závěrem"
+- "...jako JSON objekt s klíči: name, price, pros, cons"
+- "...maximálně 100 slov"
+
+### Technika 3: Dejte příklady (few-shot prompting)
+
+Ukažte AI, co chcete, na příkladu. Funguje zejména pro specifický styl nebo formát.
+
+"Napiš 3 příspěvky na LinkedIn ve stejném stylu jako tento příklad:
+[váš ukázkový příspěvek]
+Nové téma: [vaše téma]"
+
+### Technika 4: Řekněte co NEchcete
+
+AI může dávat výsledky, které nemáte rádi. Řekněte jí to explicitně.
+
+"...bez zbytečného marketingového žargonu"
+"...nevyužívej klišé jako 'synergistický', 'inovativní' nebo 'holistický'"
+"...nepiš úvod ve stylu 'V dnešní době...'"
+"...bez nadhodnocování produktu, buď realistický"
+
+### Technika 5: Chain of thought – nechte AI přemýšlet
+
+Pro analytické úlohy přidejte "Přemýšlej krok za krokem" nebo "Nejdřív popiš svůj postup, pak dej odpověď." AI udělá méně chyb při složitých úlohách.
+
+"Analyzuj tuto smlouvu a identifikuj potenciální rizika pro zaměstnavatele. Přemýšlej krok za krokem – nejdřív popiš co smlouva říká, pak identifikuj problematická místa."
+
+### Technika 6: Iterujte přes zpětnou vazbu
+
+Nejlepší výsledky přicházejí po 2–3 iteracích. Neberte první draft jako finální.
+
+Po první odpovědi: "Dobré, ale příliš formální. Přepiš v přátelštějším tónu, méně odborných pojmů."
+Nebo: "Výborné body 2 a 4. Body 1, 3 a 5 jsou příliš obecné – konkretizuj je o 50 %."
+
+---
+
+## 30 příkladů promptů pro různé situace
+
+### E-maily a komunikace (1–7)
+
+**1. Zdvořilá odmítnutí**
+"Napiš e-mail, ve kterém odmítám pracovní nabídku. Tón: vděčný a profesionální, bez pálení mostů. Důvod odmítnutí: přijal/a jsem jinou nabídku s lepším finančním ohodnocením. Délka: max 100 slov."
+
+**2. Upomínka platby**
+"Napiš přátelskou upomínku zákazníkovi, jehož faktura č. [číslo] je 14 dní po splatnosti. Tón: vstřícný, ne agresivní. Nabídni možnost splátkového kalendáře. Podpis: [vaše jméno], [firma]."
+
+**3. Žádost o schůzku**
+"Napiš krátký cold email potenciálnímu zákazníkovi [popis firmy]. Cílem je domluvit 20minutový discovery call. Zmíň jednu konkrétní bolest [jejich oboru] a jak ji řešíme. Max 5 vět + CTA."
+
+**4. Feedback na práci kolegy**
+"Napsal/a jsem kolegovi zpětnou vazbu. Přepiš ji tak, aby byla konstruktivní, ne demotivující, zachová podstatu ale změní tón. Původní text: [vložte text]"
+
+**5. Omluva zákazníkovi**
+"Napiš omluvu zákazníkovi za zpoždění dodávky o 2 týdny. Přiznej chybu upřímně, vysvětli příčinu [vaše příčina], nabídni kompenzaci [sleva 10 %], ujisti o nápravě. Firemní, ne osobní tón."
+
+**6. Interní oznámení**
+"Napiš interní e-mail oznamující změnu pracovní doby od [datum]. Nová doba: [časy]. Tón: informativní a pozitivní. Max 3 odstavce."
+
+**7. Linkedin message**
+"Napiš krátkou LinkedIn zprávu recruiterce po networking eventu. Zmíním konkrétní téma, o kterém jsme mluvili: [téma]. Cíl: udržet kontakt, ne hned žádat o práci. Max 3 věty."
+
+---
+
+### Marketing a obsah (8–15)
+
+**8. Příspěvky na LinkedIn**
+"Napiš 3 různé LinkedIn příspěvky o tématu [téma]. Každý jiný styl: 1) osobní příběh, 2) tipy ve formě číslovaného seznamu, 3) provokativní otázka. Max 200 slov každý."
+
+**9. Subject lines pro e-mail kampaň**
+"Vymysli 10 subject lines pro newsletter oznamující [produkt/novinku]. Kritéria: vyvolat zvědavost, max 8 slov, žádné CAPS LOCK, mix přístupů (benefit, čísla, otázka)."
+
+**10. Popis produktu**
+"Napiš popis produktu [název] pro e-shop. Cílová skupina: [popis]. Délka: 150 slov. Struktura: 1 věta benefit-first, 3 klíčové vlastnosti, CTA. Tón: přesvědčivý ale ne přehnaně prodejní."
+
+**11. Meta description pro SEO**
+"Napiš 5 variant meta description pro stránku o [téma]. Každá max 155 znaků, obsahuje klíčové slovo '[keyword]', vyvolá klik. Různé přístupy."
+
+**12. About me text**
+"Napiš 'O mně' sekci pro mou webovou stránku. Jsem [profese], [X] let zkušeností, specializuji se na [oblasti]. Tón: profesionální ale lidský. Délka: 150 slov. Ve třetí osobě."
+
+**13. FAQ sekce**
+"Vymysli 8 nejčastějších otázek zákazníků o [produkt/služba] a napiš přesvědčivé odpovědi. Každá odpověď 2–3 věty. Zahrň otázky o ceně, qualitě, procesu a záruze."
+
+**14. Video script**
+"Napiš script pro 60sekundové promo video o [produkt]. Struktura: 0–10s hook, 10–45s klíčové výhody (max 3), 45–60s CTA. Mluví: jeden vypravěč, přirozený tón."
+
+**15. Tiskovou zprávu**
+"Napiš tiskovou zprávu o spuštění [produkt/služba]. Datum: [datum]. Struktura: titulek, perex (2 věty), body (3 odstavce), quote od CEO, kontakty. Formát: AP style."
+
+---
+
+### Analýza a výzkum (16–22)
+
+**16. SWOT analýza**
+"Proveď SWOT analýzu pro [firma/produkt/nápad]. Na základě [vámi popsaný kontext]. Výstup: tabulka 2×2 s max 4 body v každém kvadrantu."
+
+**17. Shrnutí dokumentu**
+"Přečti tento dokument a shrň: 1) klíčová zjištění (max 5 bodů), 2) doporučená opatření, 3) co je nejrizikovější nebo nejdůležitější. [vložte dokument]"
+
+**18. Srovnání možností**
+"Porovnej tyto 3 možnosti pro [situaci]: A) [možnost], B) [možnost], C) [možnost]. Srovnávací tabulka podle kritérií: cena, riziko, rychlost implementace, složitost. Na konci doporučení."
+
+**19. Analýza zákazníků**
+"Mám tyto zpětné vazby od zákazníků: [vložte feedback]. Kategorizuj je do témat, identifikuj nejčastější problém a navrhni 3 konkrétní zlepšení."
+
+**20. Konkurenční analýza**
+"Analyzuj tyto 3 konkurenty mé firmy [název firmy]: [seznam]. Pro každého: positioning, klíčové výhody, slabiny, jak na ně reagovat. Tabulkový formát."
+
+**21. Risk assessment**
+"Identifikuj 5 hlavních rizik při implementaci [projekt/rozhodnutí]. Pro každé: popis rizika, pravděpodobnost (H/M/L), dopad (H/M/L), způsob mitigace."
+
+**22. Marketingový brief**
+"Vytvoř marketingový brief pro kampaň [produkt]. Sekce: cíle, cílová skupina (persona), key message, kanály, KPIs, timeline, budget (orientačně). Výstup: strukturovaný dokument."
+
+---
+
+### Práce a HR (23–27)
+
+**23. Popis pracovní pozice**
+"Napiš popis pracovní pozice [název] ve firmě [typ firmy]. Zahrn: stručný popis role, zodpovědnosti (5–7 bodů), požadavky (must-have vs nice-to-have), co nabízíme. Tón: přátelský, ne korporátní."
+
+**24. Otázky pro pohovor**
+"Připrav 10 behaviorálních otázek pro pohovor na pozici [název]. Metoda STAR. Mix: minulé zkušenosti, situační, value-based. Zahrn alespoň 2 otázky odhalující kulturní fit."
+
+**25. Hodnotící formulář**
+"Navrhni strukturu hodnotícího formuláře pro roční review zaměstnanců. Sekce: výkon, spolupráce, iniciativa, rozvoj. Škála 1–5 s popisem každého stupně."
+
+**26. Onboarding plán**
+"Vytvoř 30denní onboarding plán pro nového [název pozice]. Týden po týdnu: klíčové úkoly, koho poznat, co se naučit. Formát: tabulka."
+
+**27. Goodbye e-mail**
+"Napiš farewell e-mail kolegům při odchodu z firmy. Tón: vděčný a pozitivní, bez hořkosti. Zmíním, že odcházím za [novou příležitostí]. Max 150 slov. Podepisuji: [jméno]."
+
+---
+
+### Osobní produktivita (28–30)
+
+**28. Týdenní review**
+"Pomoz mi udělat týdenní review. Já popíšu co se stalo [vložte], ty mi pomoz: 1) co jsem zvládl/a dobře, 2) co šlo špatně a proč, 3) klíčová poučení, 4) 3 prioritní úkoly na příští týden."
+
+**29. Rozhodovací framework**
+"Musím se rozhodnout mezi [možnost A] a [možnost B]. Pomoz mi přemýšlet strukturovaně: pros/cons, co mi záleží nejvíce, jaké informace mi chybí pro rozhodnutí, jakou bych udělal/a volbu za rok."
+
+**30. Učební plán**
+"Chci se naučit [dovednost] za 3 měsíce. Mám k dispozici 1 hodinu denně. Vytvoř týdenní plán s konkrétními zdroji, projekty a milníky. Začínám: [vaše aktuální úroveň]."
+
+---
+
+## Jak funguje v Česku
+
+Psaní promptů v češtině funguje výborně. Pár tipů pro české uživatele:
+
+**Diakritika je OK.** Nemusíte psát bez háčků a čárek. ChatGPT i Claude diakritiku zpracovávají bez problémů.
+
+**Smíchání jazyků.** Technické termíny v angličtině uprostřed českého promptu jsou běžné a AI jim rozumí (např. "napiš subject line", "feedback", "onboarding").
+
+**Úřední čeština.** Pro dokumenty vyžadující formální češtinu (právní texty, úřední dopisy) přidejte "výstup v oficielní češtině, bez anglicismů."
+
+---
+
+## Kam dál – úroveň 3 vás čeká
+
+Zvládli jste základy prompt engineeringu. Přirozený další krok:
+
+- 💼 [AI pro práci – konkrétní use cases podle profese](/ai-pro-praci-use-cases)
+- 🆚 [ChatGPT vs Claude vs Gemini vs Perplexity – kdy použít který](/chatgpt-claude-gemini-kdy-pouzit)
+- 🔒 [AI a bezpečnost – GDPR, co se děje s vašimi daty](/ai-bezpecnost-gdpr)
+
+Na pokročilou úroveň: [Jak si postavit vlastní AI workflow](/vlastni-ai-workflow)
+
+---
+
+## FAQ
+
+**Co je prompt engineering a musím se ho učit?**
+Prompt engineering je umění psát efektivní instrukce pro AI. Na formální úrovni (akademický výzkum, produktové AI) je to celá disciplína. Pro běžné uživatele stačí základní principy z tohoto článku – výsledky se zlepší okamžitě.
+
+**Jak dlouhý má být prompt?**
+Záleží na úloze. Pro jednoduché dotazy stačí 1–2 věty. Pro komplexní úkoly (analýzy, reporty) klidně 5–10 vět. Klíč je relevance – každá věta by měla přidávat kontext nebo upřesňovat zadání.
+
+**Co kdybych chtěl/a používat AI pro různé projekty, musím vždy znovu vysvětlovat kontext?**
+Ano, pokud začínáte nový chat. Triky: 1) Uložte si "system prompt" se svým profilem, který zkopírujete na začátek, 2) Pokračujte ve stejné konverzaci, 3) Claude Pro má funkci "Projects" pro trvalý kontext.
+
+**Existují špatné prompty?**
+Technicky ne – AI vždy odpoví. Ale existují neefektivní prompty, které dávají generické nebo špatně cílené výsledky. Hlavní chyba je nedostatek kontextu a specifikace.
+
+**Mohu si vydělat prompt engineeringem?**
+Existuje poptávka po "prompt engineerech" zejména ve velkých firmách s AI projekty. Nicméně jak se AI modely zlepšují, potřeba specializovaných prompt engineerů pro obecné úkoly klesá. Lepší investice: naučte se AI aplikovat ve vaší konkrétní profesi.

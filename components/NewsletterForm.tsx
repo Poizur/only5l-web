@@ -29,11 +29,11 @@ export default function NewsletterForm({ variant = "default" }: { variant?: "def
         return;
       }
       if (data.status === "already_subscribed") {
-        setMsg("Tento e-mail je již přihlášen. 👍");
+        setMsg("Tento e-mail je již přihlášen — na páteční newsletter se těš!");
         setState("success");
         return;
       }
-      setMsg("Přihlášení proběhlo úspěšně! První newsletter přijde v pátek.");
+      setMsg("Přihlášení proběhlo úspěšně! První newsletter dostaneš tento pátek.");
       setState("success");
       setEmail("");
     } catch {
@@ -44,9 +44,14 @@ export default function NewsletterForm({ variant = "default" }: { variant?: "def
 
   if (state === "success") {
     return (
-      <div className={`flex items-center gap-3 ${variant === "compact" ? "text-sm" : ""}`}>
-        <span className="text-2xl">✅</span>
-        <p className="text-surface-700 font-medium">{msg}</p>
+      <div className="flex items-start gap-3 rounded-xl bg-green-50 border border-green-200 px-4 py-3">
+        <span className="text-xl shrink-0 mt-0.5">✅</span>
+        <div>
+          <p className="font-semibold text-green-800 text-sm leading-snug">{msg}</p>
+          <p className="text-green-700 text-xs mt-1">
+            Bez spamu · Každý pátek · Kdykoli se odhlásíš
+          </p>
+        </div>
       </div>
     );
   }

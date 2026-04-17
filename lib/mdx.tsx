@@ -1,9 +1,13 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Link from "next/link";
+import ToolLink from "@/components/article/ToolLink";
 
 /** Custom MDX components — maps HTML elements to styled React components */
 export const mdxComponents: MDXComponents = {
+  // Custom article components
+  ToolLink,
+
   // Headings
   h1: ({ children }) => (
     <h1 className="text-3xl font-bold tracking-tight text-surface-900 mt-10 mb-4 first:mt-0">

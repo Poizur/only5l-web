@@ -5,6 +5,7 @@ import { getAllArticles, getFeaturedArticles, getArticlesByCategory } from "@/li
 import { site } from "@/lib/site";
 import Link from "next/link";
 import PersonalizedSection from "@/components/ui/PersonalizedSection";
+import InteractiveHooks from "@/components/ui/InteractiveHooks";
 
 export const metadata: Metadata = {
   title: `${site.name} — ${site.tagline}`,
@@ -47,6 +48,9 @@ export default function HomePage() {
       <Hero />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+
+        {/* Interactive hooks — engagement first (Fáze 17, 19.4.2026) */}
+        <InteractiveHooks />
 
         {/* Rozcestník */}
         <section>

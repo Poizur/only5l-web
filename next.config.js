@@ -15,6 +15,26 @@ const nextConfig = {
         destination: "https://aikompass.cz/:path*",
         permanent: true,
       },
+      {
+        source: "/nejlep-prompty-pro-chatgpt",
+        destination: "/nejlepsi-prompty-pro-chatgpt",
+        permanent: true,
+      },
+      {
+        source: "/insightfinder-raises-15m-to-help-companies-figure-out-where-ai-agents-go-wrong-i",
+        destination: "/insightfinder-raises-15m-to-help-companies-figure-out-where-ai-agents-go-wrong",
+        permanent: true,
+      },
+      {
+        source: "/meta-raises-quest-3-and-quest-3s-prices-due-to-ram-shortage-meta-zvysuje-ceny-qu",
+        destination: "/meta-raises-quest-3-and-quest-3s-prices-due-to-ram-shortage",
+        permanent: true,
+      },
+      {
+        source: "/jak-zacit-pouzivat-chatgpt-navod-pro-zacatecniky-2026",
+        destination: "/jak-zacit-s-chatgpt-navod-pro-uplne-zacatecniky-2026",
+        permanent: true,
+      },
     ];
   },
 };

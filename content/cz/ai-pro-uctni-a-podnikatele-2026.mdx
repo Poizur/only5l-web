@@ -16,7 +16,7 @@ Tento článek vám ukáže konkrétní postupy — ne obecná tvrzení, ale sku
 
 Ruční přepis faktur do účetního softwaru je jeden z nejotravnějších úkolů v administrativě. Průměrná faktura zabere zkušenému účetnímu 3-5 minut — je třeba ji otevřít, zkontrolovat, opsat relevantní data (číslo faktury, datum, dodavatel, částka, DPH, splatnost) do systému. Při 15 fakturách denně to vychází na 45-75 minut.
 
-S Claude nebo ChatGPT (verze s podporou nahrávání souborů) se tento proces zkracuje dramaticky.
+S <ToolLink slug="claude">Claude</ToolLink> nebo <ToolLink slug="chatgpt">ChatGPT</ToolLink> (verze s podporou nahrávání souborů) se tento proces zkracuje dramaticky.
 
 Workflow:
 1. Naskenujte nebo vyfotografujte faktury (nebo použijte PDF z e-mailu)
@@ -78,7 +78,7 @@ Praktické příklady promptů:
 
 > *"Napiš Google Apps Script, který každý pondělí ráno automaticky spočítá součet faktur z minulého týdne ze záložky 'Faktury' a pošle mi e-mail se souhrnem."*
 
-Microsoft Copilot (součást Microsoft 365 Business od přibližně 800 Kč/uživatel/měs v 2026) umí pracovat přímo v Excelu — označíte data a napíšete v přirozené řeči, co chcete analyzovat. Pro firmy již používající M365 je to nejplynulejší integrace.
+<ToolLink slug="microsoftcopilot">Microsoft Copilot</ToolLink> (součást Microsoft 365 Business od přibližně 800 Kč/uživatel/měs v 2026) umí pracovat přímo v Excelu — označíte data a napíšete v přirozené řeči, co chcete analyzovat. Pro firmy již používající M365 je to nejplynulejší integrace.
 
 ## FAQ pro daňové otázky: AI jako první linie
 
@@ -93,6 +93,13 @@ Příklady otázek, kde AI výborně pomáhá:
 AI vám vysvětlí principy, základní pravidla a řekne vám, na co se zaměřit. Nezapomeňte však vždy ověřit aktuálnost informací — daňová legislativa se mění a AI má datový cutoff.
 
 **Klíčové upozornění:** AI výstupy k daňovým a právním otázkám jsou informativní, nikoliv závazné. Pro daňové optimalizace, přiznání a rozhodnutí s finančním dopadem vždy konzultujte daňového poradce nebo auditora.
+
+### 🚀 Začněte hned
+
+- **<ToolLink slug="chatgpt">ChatGPT</ToolLink>** — nejuniverzálnější nástroj pro extrakci dat z faktur a drafty dokumentů
+- **<ToolLink slug="claude">Claude</ToolLink>** — nejlepší volba pro analýzu dlouhých smluv a dokumentů
+- **<ToolLink slug="microsoftcopilot">Microsoft Copilot</ToolLink>** — perfektní integrace s Excel pro analýzu dat a automatizaci
+- **<ToolLink slug="notionai">Notion AI</ToolLink>** — ideální pro tvorbu business plánů a organizaci poznámek
 
 <ComparisonTable tools={[
   { name: "ChatGPT Plus", price: "~500 Kč/měs", best: "Obecné dotazy a drafty", rating: 4.6, affiliateUrl: "https://chat.openai.com" },

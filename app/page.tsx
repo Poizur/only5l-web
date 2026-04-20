@@ -38,7 +38,7 @@ const CATEGORIES = [
 
 export default function HomePage() {
   const allArticles = getAllArticles();
-  const featured = getFeaturedArticles(1);
+  const featured = getFeaturedArticles(3);
   const recent = allArticles.slice(0, 6);
   const guides = getArticlesByCategory("navody").slice(0, 3);
   const comparisons = getArticlesByCategory("srovnani").slice(0, 3);
@@ -81,14 +81,22 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Featured article */}
+        {/* Featured articles */}
         {featured.length > 0 && (
           <section>
             <SectionHeader
               label="Doporučujeme"
               title="Nejčtenější tento týden"
             />
-            <ArticleCard article={featured[0]} featured />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featured.map((article, idx) => (
+                <ArticleCard
+                  key={article.slug}
+                  article={article}
+                  featured={idx === 0}
+                />
+              ))}
+            </div>
           </section>
         )}
 

@@ -26,6 +26,7 @@ export const nav = {
     { label: "O nás",        href: "/o-nas" },
     { label: "📊 AI Index",  href: "/ai-index" },
     { label: "🏆 Benchmark", href: "/benchmark" },
+    { label: "🎯 Test úrovně", href: "/test-urovne" },
   ],
 } as const;
 

@@ -120,7 +120,7 @@ export default function Navigation() {
           </li>
         </ul>
 
-        {/* Right side: Search icon + Test úrovně icon + Mobile burger */}
+        {/* Right side: Search icon + Mobile burger */}
         <div className="flex items-center gap-1">
           {/* Search icon */}
           <Link
@@ -132,21 +132,6 @@ export default function Navigation() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-          </Link>
-
-          {/* Test úrovně icon */}
-          <Link
-            href="/test-urovne"
-            className={cn(
-              "inline-flex items-center justify-center w-9 h-9 rounded-lg text-lg transition-colors",
-              pathname === "/test-urovne"
-                ? "bg-brand-100 text-brand-700"
-                : "text-surface-500 hover:bg-surface-100"
-            )}
-            aria-label="Test úrovně AI"
-            title="Test úrovně AI"
-          >
-            🎯
           </Link>
 
           {/* Mobile burger */}
@@ -195,19 +180,6 @@ export default function Navigation() {
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               Hledat
-            </Link>
-            <Link
-              href="/test-urovne"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors",
-                pathname === "/test-urovne"
-                  ? "bg-brand-600 text-white"
-                  : "bg-brand-600 text-white hover:bg-brand-700"
-              )}
-            >
-              <span>🎯</span>
-              <span>Test úrovně</span>
             </Link>
           </div>
         </div>

@@ -40,6 +40,11 @@ const nextConfig = {
         destination: "/google-spousti-gemini-3-1-flash-tts-preview-2026",
         permanent: true,
       },
+      {
+        source: "/jak-zacit-s-chatgpt-nove-integrace-chatgpt-se-slack-konektor-a-aplikace",
+        destination: "/openai-chatgpt-slack-integrace-2026",
+        permanent: true,
+      },
     ];
   },
 };

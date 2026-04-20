@@ -35,6 +35,11 @@ const nextConfig = {
         destination: "/jak-zacit-s-chatgpt-navod-pro-uplne-zacatecniky-2026",
         permanent: true,
       },
+      {
+        source: "/jak-pouzivat-gemini-google-spusten-gemini-3-1-flash-tts-preview-model",
+        destination: "/google-spousti-gemini-3-1-flash-tts-preview-2026",
+        permanent: true,
+      },
     ];
   },
 };

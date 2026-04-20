@@ -9,8 +9,6 @@ import { getArticleBySlug, getAllSlugs } from "@/lib/articles";
 import { mdxComponents } from "@/lib/mdx";
 import { site, ui } from "@/lib/site";
 import ToolCard from "@/components/article/ToolCard";
-import ComparisonTable from "@/components/article/ComparisonTable";
-import FAQ from "@/components/article/FAQ";
 import SurveyInlineCTA from "@/components/ui/SurveyInlineCTA";
 import CategoryTracker from "@/components/ui/CategoryTracker";
 
@@ -148,9 +146,6 @@ export default async function ArticlePage({ params }: Props) {
 
   const components = {
     ...mdxComponents,
-    ToolCard: () => null,
-    ComparisonTable: () => null,
-    FAQ: () => null,
     SurveyInlineCTA,
   };
 

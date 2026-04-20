@@ -5,6 +5,7 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { cs, enUS } from "date-fns/locale";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getArticleBySlug, getAllSlugs } from "@/lib/articles";
 import { mdxComponents } from "@/lib/mdx";
 import { site, ui } from "@/lib/site";
@@ -260,7 +261,11 @@ export default async function ArticlePage({ params }: Props) {
 
         {/* MDX content */}
         <div className="prose-article">
-          <MDXRemote source={injectSurveyCta(content)} components={components} />
+          <MDXRemote
+            source={injectSurveyCta(content)}
+            components={components}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          />
         </div>
 
         {/* Affiliate disclaimer */}

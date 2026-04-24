@@ -17,6 +17,9 @@ const nextConfig = {
       // Morning dashboard (proactive queue management UI)
       { source: "/admin/morning",                destination: `${RAILWAY}/admin/morning` },
       { source: "/admin/morning/:path*",         destination: `${RAILWAY}/admin/morning/:path*` },
+      // Comprehensive admin dashboard (6 sections, token-guarded)
+      { source: "/admin/dashboard",              destination: `${RAILWAY}/admin/dashboard` },
+      { source: "/admin/dashboard/:path*",       destination: `${RAILWAY}/admin/dashboard/:path*` },
       // Pillar / curator admin views + actions
       { source: "/admin/pillar-dashboard",       destination: `${RAILWAY}/admin/pillar-dashboard` },
       { source: "/admin/topics",                 destination: `${RAILWAY}/admin/topics` },

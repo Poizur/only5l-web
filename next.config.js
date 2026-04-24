@@ -7,6 +7,33 @@ const nextConfig = {
   env: {
     SITE: "cz",
   },
+  async rewrites() {
+    // Proxy /admin/* backend admin UI/APIs from FastAPI on Railway, so
+    // aikompass.cz serves as single-origin for PWA + bookmarkability.
+    // Source-path rewrites (unlike redirects) keep URL in browser as
+    // aikompass.cz while Vercel fetches Railway server-side.
+    const RAILWAY = "https://web-production-fc03c.up.railway.app";
+    return [
+      // Morning dashboard (proactive queue management UI)
+      { source: "/admin/morning",                destination: `${RAILWAY}/admin/morning` },
+      { source: "/admin/morning/:path*",         destination: `${RAILWAY}/admin/morning/:path*` },
+      // Pillar / curator admin views + actions
+      { source: "/admin/pillar-dashboard",       destination: `${RAILWAY}/admin/pillar-dashboard` },
+      { source: "/admin/topics",                 destination: `${RAILWAY}/admin/topics` },
+      { source: "/admin/topics/:path*",          destination: `${RAILWAY}/admin/topics/:path*` },
+      { source: "/admin/source-bundles/:path*",  destination: `${RAILWAY}/admin/source-bundles/:path*` },
+      { source: "/admin/curator-write/:path*",   destination: `${RAILWAY}/admin/curator-write/:path*` },
+      { source: "/admin/curator-publish/:path*", destination: `${RAILWAY}/admin/curator-publish/:path*` },
+      { source: "/admin/pillar-write/:path*",    destination: `${RAILWAY}/admin/pillar-write/:path*` },
+      { source: "/admin/pillar-publish/:path*",  destination: `${RAILWAY}/admin/pillar-publish/:path*` },
+      { source: "/admin/pillar-write-v2/:path*", destination: `${RAILWAY}/admin/pillar-write-v2/:path*` },
+      // Diagnostic endpoints
+      { source: "/admin/agent-decisions",        destination: `${RAILWAY}/admin/agent-decisions` },
+      { source: "/admin/error-log",              destination: `${RAILWAY}/admin/error-log` },
+      { source: "/admin/qr-diagnose",            destination: `${RAILWAY}/admin/qr-diagnose` },
+    ];
+  },
+
   async redirects() {
     return [
       {

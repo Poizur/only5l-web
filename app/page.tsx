@@ -89,12 +89,8 @@ export default function HomePage() {
               title="Nejčtenější tento týden"
             />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featured.map((article, idx) => (
-                <ArticleCard
-                  key={article.slug}
-                  article={article}
-                  featured={idx === 0}
-                />
+              {featured.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
               ))}
             </div>
           </section>
